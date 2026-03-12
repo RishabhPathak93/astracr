@@ -60,14 +60,10 @@ export default function LoginPage() {
         <div style={{ position: 'relative', textAlign: 'center', maxWidth: 400 }}>
           {/* Logo */}
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 'var(--sp-6)' }}>
-            <svg width="56" height="56" viewBox="0 0 32 32" fill="none">
-              <rect width="32" height="32" rx="8" fill="#111" />
-              <path d="M8 8 L16 8 L24 24 L16 24" stroke="#e8ff47" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M8 24 L16 8" stroke="#e8ff47" strokeWidth="2.5" strokeLinecap="round" opacity="0.4" />
-            </svg>
+            <img src="/logo.png" style={{ width: 56, height: 56, objectFit: 'contain' }} />
           </div>
           <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '3rem', letterSpacing: '-0.04em', marginBottom: 'var(--sp-4)', lineHeight: 1 }}>
-            AstraTSM<br /><span style={{ color: 'var(--accent)' }}>CRM</span>
+            AstraTSM<br /><span style={{ color: 'var(--accent)' }}></span>
           </h1>
           <p style={{ fontSize: '15px', color: 'var(--text-2)', lineHeight: 1.6 }}>
             Project intelligence platform.<br />
