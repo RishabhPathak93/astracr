@@ -1,0 +1,458 @@
+ERROR 2026-03-11 12:19:27,183 log 26360 34480 Internal Server Error: /api/v1/auth/login/
+Traceback (most recent call last):
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\client.py", line 542, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\connection.py", line 1109, in get_connection
+    connection.connect()
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-03-11 12:19:27,195 basehttp 26360 34480 "POST /api/v1/auth/login/ HTTP/1.1" 500 145
+ERROR 2026-03-11 12:24:03,485 log 26360 6908 Internal Server Error: /api/v1/auth/login/
+Traceback (most recent call last):
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\client.py", line 542, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\connection.py", line 1109, in get_connection
+    connection.connect()
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-03-11 12:24:03,492 basehttp 26360 6908 "POST /api/v1/auth/login/ HTTP/1.1" 500 145
+ERROR 2026-03-11 12:24:24,104 log 26784 25764 Internal Server Error: /api/v1/auth/login/
+Traceback (most recent call last):
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\client.py", line 542, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\connection.py", line 1109, in get_connection
+    connection.connect()
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-03-11 12:24:24,112 basehttp 26784 25764 "POST /api/v1/auth/login/ HTTP/1.1" 500 145
+ERROR 2026-03-11 12:25:41,817 log 26784 33560 Internal Server Error: /api/v1/auth/login/
+Traceback (most recent call last):
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\client.py", line 542, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\connection.py", line 1109, in get_connection
+    connection.connect()
+  File "C:\Users\RISHABH\Desktop\mycrm\env\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-03-11 12:25:41,821 basehttp 26784 33560 "POST /api/v1/auth/login/ HTTP/1.1" 500 145
+WARNING 2026-03-11 12:30:08,219 log 26784 1892 Not Found: /ws/chat/1/
+WARNING 2026-03-11 12:30:08,220 basehttp 26784 1892 "GET /ws/chat/1/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMjQxMDU0LCJpYXQiOjE3NzMyMTIyNTQsImp0aSI6IjcwMWMxMWViNzRkYzRkMjdhMDYzZjA4Mzg0YWY1MjdjIiwidXNlcl9pZCI6MX0.dZukVS7BQ4Xeo2qrfQMyrS0st-vGzxxj_55zMJEZMgQ HTTP/1.1" 404 179
+WARNING 2026-03-11 14:55:20,316 log 4860 11908 Not Found: /
+WARNING 2026-03-11 14:55:20,323 basehttp 4860 11908 "GET / HTTP/1.1" 404 179
+WARNING 2026-03-11 14:55:20,957 log 4860 11908 Not Found: /favicon.ico
+WARNING 2026-03-11 14:55:21,052 basehttp 4860 11908 "GET /favicon.ico HTTP/1.1" 404 179
+WARNING 2026-03-11 15:10:24,246 log 4860 21328 Bad Request: /api/v1/clients/
+WARNING 2026-03-11 15:10:24,253 basehttp 4860 21328 "POST /api/v1/clients/ HTTP/1.1" 400 103
+WARNING 2026-03-11 15:10:32,087 log 4860 20620 Bad Request: /api/v1/clients/
+WARNING 2026-03-11 15:10:32,090 basehttp 4860 20620 "POST /api/v1/clients/ HTTP/1.1" 400 103
+WARNING 2026-03-11 15:55:29,492 log 4860 11848 Unauthorized: /api/v1/clients/
+WARNING 2026-03-11 15:55:29,517 basehttp 4860 11848 "GET /api/v1/clients/ HTTP/1.1" 401 99
+WARNING 2026-03-11 15:55:54,862 log 4860 11848 Not Found: /api/accounts/login/
+WARNING 2026-03-11 15:55:54,878 basehttp 4860 11848 "POST /api/accounts/login/ HTTP/1.1" 404 179
+WARNING 2026-03-11 15:56:22,656 log 4860 11848 Not Found: /api/accounts/login/
+WARNING 2026-03-11 15:56:22,659 basehttp 4860 11848 "POST /api/accounts/login/ HTTP/1.1" 404 179
+WARNING 2026-03-11 16:29:28,326 log 4860 21192 Bad Request: /api/v1/auth/users/
+WARNING 2026-03-11 16:29:28,332 basehttp 4860 21192 "POST /api/v1/auth/users/ HTTP/1.1" 400 260
+WARNING 2026-03-11 16:30:19,726 log 4860 13064 Bad Request: /api/v1/auth/users/
+WARNING 2026-03-11 16:30:19,728 basehttp 4860 13064 "POST /api/v1/auth/users/ HTTP/1.1" 400 110
+WARNING 2026-03-11 16:30:32,249 log 4860 17320 Bad Request: /api/v1/auth/users/
+WARNING 2026-03-11 16:30:32,251 basehttp 4860 17320 "POST /api/v1/auth/users/ HTTP/1.1" 400 110
+WARNING 2026-03-11 16:37:49,958 log 4860 21256 Bad Request: /api/v1/auth/users/
+WARNING 2026-03-11 16:37:49,962 basehttp 4860 21256 "POST /api/v1/auth/users/ HTTP/1.1" 400 110
+WARNING 2026-03-11 16:40:54,462 log 4860 13908 Bad Request: /api/v1/auth/users/
+WARNING 2026-03-11 16:40:54,464 basehttp 4860 13908 "POST /api/v1/auth/users/ HTTP/1.1" 400 110
+WARNING 2026-03-11 16:41:02,299 log 4860 4332 Unauthorized: /api/v1/auth/users/
+WARNING 2026-03-11 16:41:02,300 basehttp 4860 4332 "GET /api/v1/auth/users/ HTTP/1.1" 401 99
+WARNING 2026-03-11 16:46:25,136 log 4860 19976 Unauthorized: /api/v1/auth/users/
+WARNING 2026-03-11 16:46:25,138 basehttp 4860 19976 "GET /api/v1/auth/users/ HTTP/1.1" 401 99
+WARNING 2026-03-11 16:46:31,250 log 4860 16240 Bad Request: /api/v1/auth/users/
+WARNING 2026-03-11 16:46:31,252 basehttp 4860 16240 "POST /api/v1/auth/users/ HTTP/1.1" 400 110
+WARNING 2026-03-11 16:46:33,147 log 4860 20544 Unauthorized: /api/v1/auth/users/
+WARNING 2026-03-11 16:46:33,149 basehttp 4860 20544 "GET /api/v1/auth/users/ HTTP/1.1" 401 99
+WARNING 2026-03-11 16:46:41,547 log 4860 15292 Unauthorized: /api/v1/auth/users/
+WARNING 2026-03-11 16:46:41,549 basehttp 4860 15292 "GET /api/v1/auth/users/ HTTP/1.1" 401 99
+WARNING 2026-03-11 16:58:49,320 log 3376 18308 Bad Request: /api/v1/auth/users/
+WARNING 2026-03-11 16:58:49,324 basehttp 3376 18308 "POST /api/v1/auth/users/ HTTP/1.1" 400 119
+WARNING 2026-03-11 16:59:21,276 log 3376 16608 Bad Request: /api/v1/auth/users/
+WARNING 2026-03-11 16:59:21,279 basehttp 3376 16608 "POST /api/v1/auth/users/ HTTP/1.1" 400 119
+WARNING 2026-03-11 17:07:11,289 log 3376 19556 Not Found: /ws/chat/1/
+WARNING 2026-03-11 17:07:11,294 basehttp 3376 19556 "GET /ws/chat/1/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMjUwMTU5LCJpYXQiOjE3NzMyMjEzNTksImp0aSI6ImNlNTA4ODU3NDJhMDQ5ZjFiMGU3ZWIwZGVkNDg2YTNlIiwidXNlcl9pZCI6MX0.HVtRIsuLiqkZEy5L5R0X1Ko8Feqvm0RLBPhZUyL4bTI HTTP/1.1" 404 179
+WARNING 2026-03-12 09:08:31,345 log 1908 16104 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-12 09:08:31,349 log 1908 10424 Unauthorized: /api/v1/notifications/unread_count/
+WARNING 2026-03-12 09:08:31,351 log 1908 22216 Unauthorized: /api/v1/clients/
+WARNING 2026-03-12 09:08:31,353 log 1908 14384 Unauthorized: /api/v1/projects/
+WARNING 2026-03-12 09:08:31,356 basehttp 1908 16104 "GET /api/v1/auth/me/ HTTP/1.1" 401 223
+WARNING 2026-03-12 09:08:31,357 basehttp 1908 10424 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 401 223
+WARNING 2026-03-12 09:08:31,363 basehttp 1908 14384 "GET /api/v1/projects/?page_size=100 HTTP/1.1" 401 223
+WARNING 2026-03-12 09:08:31,363 basehttp 1908 22216 "GET /api/v1/clients/?page_size=100 HTTP/1.1" 401 223
+WARNING 2026-03-12 09:08:31,386 log 1908 10848 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-12 09:08:31,389 basehttp 1908 10848 "GET /api/v1/auth/me/ HTTP/1.1" 401 223
+WARNING 2026-03-12 09:08:32,209 log 1908 8504 Unauthorized: /api/v1/auth/token/refresh/
+WARNING 2026-03-12 09:08:32,215 basehttp 1908 8504 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 401 98
+WARNING 2026-03-12 09:10:20,063 log 1908 22264 Not Found: /ws/chat/2/
+WARNING 2026-03-12 09:10:20,066 basehttp 1908 22264 "GET /ws/chat/2/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzE1NTExLCJpYXQiOjE3NzMyMjEzNTksImp0aSI6IjkzYTgwOWZmYmRiZTQ1OTliMjcxYjg5ZGY2NzkwODAxIiwidXNlcl9pZCI6MX0.PeaxIq_1FpOIk_KmdEwk5sQm14xyGhm9O8tU2ZNO4UI HTTP/1.1" 404 179
+WARNING 2026-03-12 09:17:51,248 log 1908 22116 Not Found: /ws/chat/2/
+WARNING 2026-03-12 09:17:51,268 basehttp 1908 22116 "GET /ws/chat/2/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzE1NTExLCJpYXQiOjE3NzMyMjEzNTksImp0aSI6IjkzYTgwOWZmYmRiZTQ1OTliMjcxYjg5ZGY2NzkwODAxIiwidXNlcl9pZCI6MX0.PeaxIq_1FpOIk_KmdEwk5sQm14xyGhm9O8tU2ZNO4UI HTTP/1.1" 404 179
+WARNING 2026-03-12 09:27:15,170 log 624 20612 Not Found: /ws/notifications/
+WARNING 2026-03-12 09:27:15,176 log 624 21076 Not Found: /ws/notifications/
+WARNING 2026-03-12 09:27:15,176 basehttp 624 20612 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzE1NTExLCJpYXQiOjE3NzMyMjEzNTksImp0aSI6IjkzYTgwOWZmYmRiZTQ1OTliMjcxYjg5ZGY2NzkwODAxIiwidXNlcl9pZCI6MX0.PeaxIq_1FpOIk_KmdEwk5sQm14xyGhm9O8tU2ZNO4UI HTTP/1.1" 404 179
+WARNING 2026-03-12 09:27:15,180 basehttp 624 21076 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzE1NTExLCJpYXQiOjE3NzMyMjEzNTksImp0aSI6IjkzYTgwOWZmYmRiZTQ1OTliMjcxYjg5ZGY2NzkwODAxIiwidXNlcl9pZCI6MX0.PeaxIq_1FpOIk_KmdEwk5sQm14xyGhm9O8tU2ZNO4UI HTTP/1.1" 404 179
+WARNING 2026-03-12 09:29:26,669 log 624 9736 Not Found: /ws/chat/2/
+WARNING 2026-03-12 09:29:26,682 basehttp 624 9736 "GET /ws/chat/2/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzE1NTExLCJpYXQiOjE3NzMyMjEzNTksImp0aSI6IjkzYTgwOWZmYmRiZTQ1OTliMjcxYjg5ZGY2NzkwODAxIiwidXNlcl9pZCI6MX0.PeaxIq_1FpOIk_KmdEwk5sQm14xyGhm9O8tU2ZNO4UI HTTP/1.1" 404 179
+WARNING 2026-03-12 09:29:29,436 log 624 10688 Not Found: /ws/chat/1/
+WARNING 2026-03-12 09:29:29,446 basehttp 624 10688 "GET /ws/chat/1/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzE1NTExLCJpYXQiOjE3NzMyMjEzNTksImp0aSI6IjkzYTgwOWZmYmRiZTQ1OTliMjcxYjg5ZGY2NzkwODAxIiwidXNlcl9pZCI6MX0.PeaxIq_1FpOIk_KmdEwk5sQm14xyGhm9O8tU2ZNO4UI HTTP/1.1" 404 179
+WARNING 2026-03-12 09:44:48,184 log 21684 2264 Not Found: /ws/notifications/
+WARNING 2026-03-12 09:44:48,187 basehttp 21684 2264 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzE1NTExLCJpYXQiOjE3NzMyMjEzNTksImp0aSI6IjkzYTgwOWZmYmRiZTQ1OTliMjcxYjg5ZGY2NzkwODAxIiwidXNlcl9pZCI6MX0.PeaxIq_1FpOIk_KmdEwk5sQm14xyGhm9O8tU2ZNO4UI HTTP/1.1" 404 179
+WARNING 2026-03-12 09:44:48,236 log 21684 18308 Not Found: /ws/notifications/
+WARNING 2026-03-12 09:44:48,240 basehttp 21684 18308 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzE1NTExLCJpYXQiOjE3NzMyMjEzNTksImp0aSI6IjkzYTgwOWZmYmRiZTQ1OTliMjcxYjg5ZGY2NzkwODAxIiwidXNlcl9pZCI6MX0.PeaxIq_1FpOIk_KmdEwk5sQm14xyGhm9O8tU2ZNO4UI HTTP/1.1" 404 179
+WARNING 2026-03-12 09:49:18,440 log 3552 21808 Not Found: /ws/notifications/
+WARNING 2026-03-12 09:49:18,449 log 3552 8460 Not Found: /ws/notifications/
+WARNING 2026-03-12 09:49:18,452 basehttp 3552 21808 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzE1NTExLCJpYXQiOjE3NzMyMjEzNTksImp0aSI6IjkzYTgwOWZmYmRiZTQ1OTliMjcxYjg5ZGY2NzkwODAxIiwidXNlcl9pZCI6MX0.PeaxIq_1FpOIk_KmdEwk5sQm14xyGhm9O8tU2ZNO4UI HTTP/1.1" 404 179
+WARNING 2026-03-12 09:49:18,453 basehttp 3552 8460 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzE1NTExLCJpYXQiOjE3NzMyMjEzNTksImp0aSI6IjkzYTgwOWZmYmRiZTQ1OTliMjcxYjg5ZGY2NzkwODAxIiwidXNlcl9pZCI6MX0.PeaxIq_1FpOIk_KmdEwk5sQm14xyGhm9O8tU2ZNO4UI HTTP/1.1" 404 179
+WARNING 2026-03-12 10:26:59,112 log 10280 15536 Not Found: /ws/notifications/
+WARNING 2026-03-12 10:26:59,114 basehttp 10280 15536 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzE1NTExLCJpYXQiOjE3NzMyMjEzNTksImp0aSI6IjkzYTgwOWZmYmRiZTQ1OTliMjcxYjg5ZGY2NzkwODAxIiwidXNlcl9pZCI6MX0.PeaxIq_1FpOIk_KmdEwk5sQm14xyGhm9O8tU2ZNO4UI HTTP/1.1" 404 179
+WARNING 2026-03-12 10:30:30,805 log 16172 18912 Not Found: /ws/notifications/
+WARNING 2026-03-12 10:30:30,814 log 16172 12768 Not Found: /ws/notifications/
+WARNING 2026-03-12 10:30:30,815 basehttp 16172 18912 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzE1NTExLCJpYXQiOjE3NzMyMjEzNTksImp0aSI6IjkzYTgwOWZmYmRiZTQ1OTliMjcxYjg5ZGY2NzkwODAxIiwidXNlcl9pZCI6MX0.PeaxIq_1FpOIk_KmdEwk5sQm14xyGhm9O8tU2ZNO4UI HTTP/1.1" 404 179
+WARNING 2026-03-12 10:30:30,819 basehttp 16172 12768 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzE1NTExLCJpYXQiOjE3NzMyMjEzNTksImp0aSI6IjkzYTgwOWZmYmRiZTQ1OTliMjcxYjg5ZGY2NzkwODAxIiwidXNlcl9pZCI6MX0.PeaxIq_1FpOIk_KmdEwk5sQm14xyGhm9O8tU2ZNO4UI HTTP/1.1" 404 179
+WARNING 2026-03-12 10:32:21,211 log 16172 8104 Not Found: /ws/notifications/
+WARNING 2026-03-12 10:32:21,213 basehttp 16172 8104 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzE1NTExLCJpYXQiOjE3NzMyMjEzNTksImp0aSI6IjkzYTgwOWZmYmRiZTQ1OTliMjcxYjg5ZGY2NzkwODAxIiwidXNlcl9pZCI6MX0.PeaxIq_1FpOIk_KmdEwk5sQm14xyGhm9O8tU2ZNO4UI HTTP/1.1" 404 179
+WARNING 2026-03-12 10:40:36,593 log 16172 18140 Not Found: /ws/notifications/
+WARNING 2026-03-12 10:40:36,597 basehttp 16172 18140 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzE1NTExLCJpYXQiOjE3NzMyMjEzNTksImp0aSI6IjkzYTgwOWZmYmRiZTQ1OTliMjcxYjg5ZGY2NzkwODAxIiwidXNlcl9pZCI6MX0.PeaxIq_1FpOIk_KmdEwk5sQm14xyGhm9O8tU2ZNO4UI HTTP/1.1" 404 179
+WARNING 2026-03-12 10:40:36,655 log 16172 3764 Not Found: /ws/notifications/
+WARNING 2026-03-12 10:40:36,663 basehttp 16172 3764 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzE1NTExLCJpYXQiOjE3NzMyMjEzNTksImp0aSI6IjkzYTgwOWZmYmRiZTQ1OTliMjcxYjg5ZGY2NzkwODAxIiwidXNlcl9pZCI6MX0.PeaxIq_1FpOIk_KmdEwk5sQm14xyGhm9O8tU2ZNO4UI HTTP/1.1" 404 179
+WARNING 2026-03-12 10:53:24,365 log 16172 12588 Not Found: /ws/notifications/
+WARNING 2026-03-12 10:53:24,390 log 16172 8408 Not Found: /ws/notifications/
+WARNING 2026-03-12 10:53:24,391 basehttp 16172 12588 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIxODA0LCJpYXQiOjE3NzMyOTMwMDQsImp0aSI6IjgwOGJmODEzMjljYjRjYWFiMWY3M2ZhZWRlNzEzZDMzIiwidXNlcl9pZCI6Nn0.94lSkTJP51-PRX3DKj-bqQ3ibiorbNt6KDn4OZhSMtM HTTP/1.1" 404 179
+WARNING 2026-03-12 10:53:24,394 basehttp 16172 8408 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIxODA0LCJpYXQiOjE3NzMyOTMwMDQsImp0aSI6IjgwOGJmODEzMjljYjRjYWFiMWY3M2ZhZWRlNzEzZDMzIiwidXNlcl9pZCI6Nn0.94lSkTJP51-PRX3DKj-bqQ3ibiorbNt6KDn4OZhSMtM HTTP/1.1" 404 179
+WARNING 2026-03-12 11:02:47,486 log 16172 19548 Not Found: /ws/notifications/
+WARNING 2026-03-12 11:02:47,489 basehttp 16172 19548 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIxODA0LCJpYXQiOjE3NzMyOTMwMDQsImp0aSI6IjgwOGJmODEzMjljYjRjYWFiMWY3M2ZhZWRlNzEzZDMzIiwidXNlcl9pZCI6Nn0.94lSkTJP51-PRX3DKj-bqQ3ibiorbNt6KDn4OZhSMtM HTTP/1.1" 404 179
+WARNING 2026-03-12 11:02:47,516 log 16172 17760 Not Found: /ws/notifications/
+WARNING 2026-03-12 11:02:47,519 basehttp 16172 17760 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIxODA0LCJpYXQiOjE3NzMyOTMwMDQsImp0aSI6IjgwOGJmODEzMjljYjRjYWFiMWY3M2ZhZWRlNzEzZDMzIiwidXNlcl9pZCI6Nn0.94lSkTJP51-PRX3DKj-bqQ3ibiorbNt6KDn4OZhSMtM HTTP/1.1" 404 179
+WARNING 2026-03-12 11:02:48,597 log 16172 21756 Not Found: /api/v1/projects/2/
+WARNING 2026-03-12 11:02:48,602 basehttp 16172 21756 "GET /api/v1/projects/2/ HTTP/1.1" 404 89
+WARNING 2026-03-12 11:02:57,615 log 16172 14780 Not Found: /ws/notifications/
+WARNING 2026-03-12 11:02:57,617 basehttp 16172 14780 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 11:02:57,650 log 16172 22176 Not Found: /ws/notifications/
+WARNING 2026-03-12 11:02:57,653 basehttp 16172 22176 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 11:06:52,660 log 16172 8228 Not Found: /ws/notifications/
+WARNING 2026-03-12 11:06:52,663 basehttp 16172 8228 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 11:06:52,717 log 16172 19216 Not Found: /ws/notifications/
+WARNING 2026-03-12 11:06:52,730 basehttp 16172 19216 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 11:28:13,123 log 16172 2332 Not Found: /ws/notifications/
+WARNING 2026-03-12 11:28:13,126 basehttp 16172 2332 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 11:28:18,803 log 16172 14112 Not Found: /ws/notifications/
+WARNING 2026-03-12 11:28:18,805 basehttp 16172 14112 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 11:28:18,858 log 16172 16240 Not Found: /ws/notifications/
+WARNING 2026-03-12 11:28:18,862 basehttp 16172 16240 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 11:37:38,130 log 16172 17752 Not Found: /ws/notifications/
+WARNING 2026-03-12 11:37:38,140 basehttp 16172 17752 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 11:38:00,368 log 16172 21292 Not Found: /ws/notifications/
+WARNING 2026-03-12 11:38:00,370 basehttp 16172 21292 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 11:38:00,433 log 16172 10144 Not Found: /ws/notifications/
+WARNING 2026-03-12 11:38:00,442 basehttp 16172 10144 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 11:39:00,857 log 16172 12828 Not Found: /api/v1/clients/3/
+WARNING 2026-03-12 11:39:00,864 basehttp 16172 12828 "GET /api/v1/clients/3/ HTTP/1.1" 404 88
+WARNING 2026-03-12 11:40:38,423 log 16172 22964 Not Found: /api/v1/clients/1/
+WARNING 2026-03-12 11:40:38,427 basehttp 16172 22964 "GET /api/v1/clients/1/ HTTP/1.1" 404 88
+WARNING 2026-03-12 11:45:03,250 log 10060 20308 Not Found: /ws/notifications/
+WARNING 2026-03-12 11:45:03,253 basehttp 10060 20308 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 11:45:03,292 log 10060 22104 Not Found: /ws/notifications/
+WARNING 2026-03-12 11:45:03,305 basehttp 10060 22104 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 11:45:11,872 log 10060 9636 Not Found: /api/v1/clients/5/
+WARNING 2026-03-12 11:45:11,874 log 10060 21964 Not Found: /api/v1/clients/5/projects/
+WARNING 2026-03-12 11:45:11,883 basehttp 10060 21964 "GET /api/v1/clients/5/projects/ HTTP/1.1" 404 88
+WARNING 2026-03-12 11:45:11,884 basehttp 10060 9636 "GET /api/v1/clients/5/ HTTP/1.1" 404 88
+WARNING 2026-03-12 11:59:32,125 log 10060 12812 Not Found: /ws/notifications/
+WARNING 2026-03-12 11:59:32,128 basehttp 10060 12812 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 11:59:32,184 log 10060 23356 Not Found: /ws/notifications/
+WARNING 2026-03-12 11:59:32,188 basehttp 10060 23356 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 12:03:14,878 log 10060 10104 Bad Request: /api/v1/projects/3/upload_document/
+WARNING 2026-03-12 12:03:14,882 basehttp 10060 10104 "POST /api/v1/projects/3/upload_document/ HTTP/1.1" 400 108
+WARNING 2026-03-12 14:09:45,841 log 10060 24476 Not Found: /ws/notifications/
+WARNING 2026-03-12 14:09:45,873 basehttp 10060 24476 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 14:09:45,991 log 10060 20388 Not Found: /ws/notifications/
+WARNING 2026-03-12 14:09:45,993 basehttp 10060 20388 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 14:33:00,790 log 10060 13508 Not Found: /ws/notifications/
+WARNING 2026-03-12 14:33:00,840 basehttp 10060 13508 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 14:33:00,865 log 10060 12356 Not Found: /ws/notifications/
+WARNING 2026-03-12 14:33:00,875 basehttp 10060 12356 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 14:33:04,895 log 10060 1928 Not Found: /ws/notifications/
+WARNING 2026-03-12 14:33:04,904 basehttp 10060 1928 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 14:33:05,012 log 10060 6932 Not Found: /ws/notifications/
+WARNING 2026-03-12 14:33:05,018 basehttp 10060 6932 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 15:01:31,450 log 8576 18912 Not Found: /ws/notifications/
+WARNING 2026-03-12 15:01:31,454 basehttp 8576 18912 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 15:01:31,508 log 8576 3864 Not Found: /ws/notifications/
+WARNING 2026-03-12 15:01:31,523 basehttp 8576 3864 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 15:19:20,176 log 8576 6524 Not Found: /ws/notifications/
+WARNING 2026-03-12 15:19:20,194 basehttp 8576 6524 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 15:19:20,312 log 8576 24544 Not Found: /ws/notifications/
+WARNING 2026-03-12 15:19:20,316 basehttp 8576 24544 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 15:26:57,475 log 8576 23268 Not Found: /ws/notifications/
+WARNING 2026-03-12 15:26:57,480 basehttp 8576 23268 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 15:26:57,535 log 8576 21868 Not Found: /ws/notifications/
+WARNING 2026-03-12 15:26:57,540 basehttp 8576 21868 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 15:30:48,343 log 8576 15704 Not Found: /ws/notifications/
+WARNING 2026-03-12 15:30:48,347 basehttp 8576 15704 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 15:30:48,411 log 8576 23612 Not Found: /ws/notifications/
+WARNING 2026-03-12 15:30:48,418 basehttp 8576 23612 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 15:37:01,525 log 8576 14492 Not Found: /ws/notifications/
+WARNING 2026-03-12 15:37:01,529 basehttp 8576 14492 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 15:37:01,657 log 8576 24572 Not Found: /ws/notifications/
+WARNING 2026-03-12 15:37:01,674 basehttp 8576 24572 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 15:37:42,546 log 8576 23268 Not Found: /ws/notifications/
+WARNING 2026-03-12 15:37:42,549 basehttp 8576 23268 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 15:37:42,618 log 8576 23680 Not Found: /ws/notifications/
+WARNING 2026-03-12 15:37:42,630 basehttp 8576 23680 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 15:50:38,574 log 7656 15924 Not Found: /ws/notifications/
+WARNING 2026-03-12 15:50:38,578 basehttp 7656 15924 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 15:50:38,651 log 7656 20860 Not Found: /ws/notifications/
+WARNING 2026-03-12 15:50:38,660 basehttp 7656 20860 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 15:51:57,087 log 7656 23816 Not Found: /ws/notifications/
+WARNING 2026-03-12 15:51:57,090 basehttp 7656 23816 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 15:51:57,141 log 7656 12768 Not Found: /ws/notifications/
+WARNING 2026-03-12 15:51:57,151 basehttp 7656 12768 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 15:52:22,942 log 7656 3688 Not Found: /ws/notifications/
+WARNING 2026-03-12 15:52:22,975 basehttp 7656 3688 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 15:52:23,070 log 7656 20532 Not Found: /ws/notifications/
+WARNING 2026-03-12 15:52:23,086 basehttp 7656 20532 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 15:59:04,093 log 7656 23088 Not Found: /ws/notifications/
+WARNING 2026-03-12 15:59:04,129 basehttp 7656 23088 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 15:59:04,225 log 7656 18184 Not Found: /ws/notifications/
+WARNING 2026-03-12 15:59:04,242 basehttp 7656 18184 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 15:59:10,126 log 7656 21192 Not Found: /ws/notifications/
+WARNING 2026-03-12 15:59:10,149 basehttp 7656 21192 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 15:59:10,165 log 7656 12020 Not Found: /ws/notifications/
+WARNING 2026-03-12 15:59:10,174 basehttp 7656 12020 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
