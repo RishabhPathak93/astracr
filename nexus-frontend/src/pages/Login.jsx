@@ -67,7 +67,7 @@ export default function LoginPage() {
             </svg>
           </div>
           <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '3rem', letterSpacing: '-0.04em', marginBottom: 'var(--sp-4)', lineHeight: 1 }}>
-            NEXUS<br /><span style={{ color: 'var(--accent)' }}>CRM</span>
+            AstraTSM<br /><span style={{ color: 'var(--accent)' }}>CRM</span>
           </h1>
           <p style={{ fontSize: '15px', color: 'var(--text-2)', lineHeight: 1.6 }}>
             Project intelligence platform.<br />

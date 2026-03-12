@@ -456,3 +456,45 @@ WARNING 2026-03-12 15:59:10,126 log 7656 21192 Not Found: /ws/notifications/
 WARNING 2026-03-12 15:59:10,149 basehttp 7656 21192 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
 WARNING 2026-03-12 15:59:10,165 log 7656 12020 Not Found: /ws/notifications/
 WARNING 2026-03-12 15:59:10,174 basehttp 7656 12020 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+ERROR 2026-03-12 16:07:41,745 log 20844 15116 Internal Server Error: /api/v1/projects/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "D:\work\nexus\nexus_prod\projects\views.py", line 84, in perform_create
+    message=f'Project "{project.name}" has been created for client {project.client.name}.',
+                                                                    ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'name'
+ERROR 2026-03-12 16:07:42,090 basehttp 20844 15116 "POST /api/v1/projects/ HTTP/1.1" 500 145
+WARNING 2026-03-12 16:11:06,400 views 20844 18372 Project "test project" deleted by admin@gmail.com
+WARNING 2026-03-12 16:11:06,673 log 20844 21132 Not Found: /api/v1/projects/7/
+WARNING 2026-03-12 16:11:06,687 basehttp 20844 21132 "GET /api/v1/projects/7/ HTTP/1.1" 404 89
+WARNING 2026-03-12 16:21:23,693 log 20844 16772 Not Found: /ws/notifications/
+WARNING 2026-03-12 16:21:23,683 log 20844 19640 Not Found: /ws/notifications/
+WARNING 2026-03-12 16:21:23,708 basehttp 20844 16772 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 16:21:23,710 basehttp 20844 19640 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 16:24:30,224 log 20844 9712 Not Found: /ws/notifications/
+WARNING 2026-03-12 16:24:30,239 basehttp 20844 9712 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 16:24:30,312 log 20844 14228 Not Found: /ws/notifications/
+WARNING 2026-03-12 16:24:30,318 basehttp 20844 14228 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
