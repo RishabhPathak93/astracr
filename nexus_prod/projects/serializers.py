@@ -27,9 +27,10 @@ class ProjectDocumentSerializer(serializers.ModelSerializer):
         extra_kwargs = {'file': {'write_only': True}}
 
     def get_file_url(self, obj):
-        request = self.context.get('request')
-        if obj.file and hasattr(obj.file, 'url') and request:
-            return request.build_absolute_uri(obj.file.url)
+        if obj.file and hasattr(obj.file, 'url'):
+            from django.conf import settings as django_settings
+            base = django_settings.BACKEND_URL.rstrip('/')
+            return f"{base}{obj.file.url}"
         return None
 
     def validate_file(self, value):

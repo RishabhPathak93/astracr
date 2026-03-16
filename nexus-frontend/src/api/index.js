@@ -111,10 +111,15 @@ export const resourcesApi = {
 
 // ── Chat ──────────────────────────────────────────────────────────────
 export const chatApi = {
-  rooms: () => api.get('/chat/rooms/'),
-  messages: (roomId, params) => api.get(`/chat/rooms/${roomId}/messages/`, { params }),
-  sendMessage: (roomId, data) => api.post(`/chat/rooms/${roomId}/send_message/`, data),
-  markRead: (roomId) => api.post(`/chat/rooms/${roomId}/mark_read/`),
+  rooms:         () => api.get('/chat/rooms/'),
+  messages:      (roomId, params) => api.get(`/chat/rooms/${roomId}/messages/`, { params }),
+  sendMessage:   (roomId, data) => {
+    const isFile = data instanceof FormData
+    return api.post(`/chat/rooms/${roomId}/send_message/`, data, isFile ? { headers: { 'Content-Type': 'multipart/form-data' } } : {})
+  },
+  editMessage:   (roomId, msgId, text) => api.patch(`/chat/rooms/${roomId}/edit_message/`, { message_id: msgId, text }),
+  deleteMessage: (roomId, msgId) => api.delete(`/chat/rooms/${roomId}/delete_message/`, { data: { message_id: msgId } }),
+  markRead:      (roomId) => api.post(`/chat/rooms/${roomId}/mark_read/`),
 }
 
 // ── Notifications ─────────────────────────────────────────────────────

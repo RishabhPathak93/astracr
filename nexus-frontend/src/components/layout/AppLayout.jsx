@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 import Sidebar from '@/components/layout/Sidebar.jsx'
 import Topbar from '@/components/layout/Topbar.jsx'
@@ -10,9 +10,7 @@ export default function AppLayout() {
   const [collapsed, setCollapsed] = useState(false)
   const setUser    = useAuthStore(s => s.setUser)
   const user       = useAuthStore(s => s.user)
-  const accessToken = useAuthStore(s => s.accessToken)
   const qc         = useQueryClient()
-  const wsRef      = useRef(null)
 
   // Fetch current user on mount
   useEffect(() => {
@@ -21,39 +19,13 @@ export default function AppLayout() {
     }
   }, [])
 
-  // Poll unread count (fallback for when WS is not connected)
+  // Poll unread notification count every 15 seconds
   const { data: unreadData, refetch: refetchUnread } = useQuery({
     queryKey: ['unread-count'],
     queryFn: () => notificationsApi.unreadCount().then(r => r.data),
     refetchInterval: 15_000,
+    refetchOnWindowFocus: true,
   })
-
-  // Personal notification WebSocket — gets a live push when a chat message arrives
-  useEffect(() => {
-    if (!accessToken) return
-
-    const wsBase = window.location.protocol === 'https:' ? 'wss' : 'ws'
-    const wsUrl  = `${wsBase}://${window.location.host}/ws/notifications/?token=${accessToken}`
-    const ws     = new WebSocket(wsUrl)
-    wsRef.current = ws
-
-    ws.onmessage = (e) => {
-      try {
-        const frame = JSON.parse(e.data)
-        if (frame.type === 'notification') {
-          // Instantly update badge without waiting for next poll
-          qc.setQueryData(['unread-count'], { unread_count: frame.unread_count })
-          // Also invalidate the notifications list so the page refreshes
-          qc.invalidateQueries(['notifications'])
-        }
-      } catch {}
-    }
-
-    ws.onerror = () => {}
-    ws.onclose = () => {}
-
-    return () => ws.close()
-  }, [accessToken])
 
   const sideW = collapsed ? 64 : 240
 

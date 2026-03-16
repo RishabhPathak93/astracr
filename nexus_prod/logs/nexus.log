@@ -510,3 +510,2537 @@ WARNING 2026-03-12 16:44:25,461 log 20844 13548 Not Found: /ws/notifications/
 WARNING 2026-03-12 16:44:25,467 basehttp 20844 13548 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
 WARNING 2026-03-12 16:44:25,539 log 20844 3724 Not Found: /ws/notifications/
 WARNING 2026-03-12 16:44:25,541 basehttp 20844 3724 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzIyMzc3LCJpYXQiOjE3NzMyOTM1NzcsImp0aSI6ImI0MDQxY2JlYTA0NDRkNGFhYmYxYzBiNjgwY2NjNDc1IiwidXNlcl9pZCI6MX0.tc1WOZJH88sp0zR2jpRUT5gUx3BIJDF4Q4P9umxfvVE HTTP/1.1" 404 179
+WARNING 2026-03-12 17:09:23,779 log 20844 1516 Not Found: /ws/notifications/
+WARNING 2026-03-12 17:09:23,795 basehttp 20844 1516 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzQ0MzYzLCJpYXQiOjE3NzMzMTU1NjMsImp0aSI6ImYyNzRhZmE3NDMwOTQyOGNhOWExMjgzNDViMTc1ZDBlIiwidXNlcl9pZCI6MX0.f6O0OpTnZziEPPvn32rpBb2wf5pnUqhw0sU_YzQfzRA HTTP/1.1" 404 179
+WARNING 2026-03-12 17:09:23,948 log 20844 24400 Not Found: /ws/notifications/
+WARNING 2026-03-12 17:09:23,961 basehttp 20844 24400 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzQ0MzYzLCJpYXQiOjE3NzMzMTU1NjMsImp0aSI6ImYyNzRhZmE3NDMwOTQyOGNhOWExMjgzNDViMTc1ZDBlIiwidXNlcl9pZCI6MX0.f6O0OpTnZziEPPvn32rpBb2wf5pnUqhw0sU_YzQfzRA HTTP/1.1" 404 179
+ERROR 2026-03-12 17:46:47,168 log 20844 24400 Internal Server Error: /api/v1/notifications/unread_count/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\client.py", line 542, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 1109, in get_connection
+    connection.connect()
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-03-12 17:46:47,745 basehttp 20844 24400 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 500 145
+ERROR 2026-03-12 17:46:53,148 log 20844 15536 Internal Server Error: /api/v1/notifications/unread_count/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\client.py", line 542, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 1109, in get_connection
+    connection.connect()
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-03-12 17:46:53,161 basehttp 20844 15536 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 500 145
+ERROR 2026-03-12 17:47:12,391 log 20844 23676 Internal Server Error: /api/v1/notifications/unread_count/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\client.py", line 542, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 1109, in get_connection
+    connection.connect()
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-03-12 17:47:12,403 basehttp 20844 23676 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 500 145
+ERROR 2026-03-12 17:47:17,656 log 20844 2240 Internal Server Error: /api/v1/notifications/unread_count/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\client.py", line 542, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 1109, in get_connection
+    connection.connect()
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-03-12 17:47:17,665 basehttp 20844 2240 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 500 145
+ERROR 2026-03-12 17:47:36,876 log 20844 22504 Internal Server Error: /api/v1/notifications/unread_count/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\client.py", line 542, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 1109, in get_connection
+    connection.connect()
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-03-12 17:47:36,883 basehttp 20844 22504 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 500 145
+ERROR 2026-03-12 17:47:42,112 log 20844 3356 Internal Server Error: /api/v1/notifications/unread_count/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\client.py", line 542, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 1109, in get_connection
+    connection.connect()
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-03-12 17:47:42,129 basehttp 20844 3356 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 500 145
+ERROR 2026-03-12 17:48:01,377 log 20844 22684 Internal Server Error: /api/v1/notifications/unread_count/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\client.py", line 542, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 1109, in get_connection
+    connection.connect()
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-03-12 17:48:01,387 basehttp 20844 22684 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 500 145
+ERROR 2026-03-12 17:48:06,630 log 20844 13016 Internal Server Error: /api/v1/notifications/unread_count/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\client.py", line 542, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 1109, in get_connection
+    connection.connect()
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-03-12 17:48:06,635 basehttp 20844 13016 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 500 145
+ERROR 2026-03-12 17:48:25,842 log 20844 18396 Internal Server Error: /api/v1/notifications/unread_count/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\client.py", line 542, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 1109, in get_connection
+    connection.connect()
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-03-12 17:48:25,856 basehttp 20844 18396 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 500 145
+ERROR 2026-03-12 17:48:31,038 log 20844 22496 Internal Server Error: /api/v1/notifications/unread_count/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\client.py", line 542, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 1109, in get_connection
+    connection.connect()
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-03-12 17:48:31,050 basehttp 20844 22496 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 500 145
+ERROR 2026-03-12 17:48:50,246 log 20844 1752 Internal Server Error: /api/v1/notifications/unread_count/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\client.py", line 542, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 1109, in get_connection
+    connection.connect()
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-03-12 17:48:50,256 basehttp 20844 1752 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 500 145
+ERROR 2026-03-12 17:48:55,458 log 20844 6132 Internal Server Error: /api/v1/notifications/unread_count/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\client.py", line 542, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 1109, in get_connection
+    connection.connect()
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-03-12 17:48:55,465 basehttp 20844 6132 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 500 145
+ERROR 2026-03-12 17:49:14,664 log 20844 12932 Internal Server Error: /api/v1/notifications/unread_count/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\client.py", line 542, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 1109, in get_connection
+    connection.connect()
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-03-12 17:49:14,679 basehttp 20844 12932 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 500 145
+ERROR 2026-03-12 17:49:19,880 log 20844 22188 Internal Server Error: /api/v1/notifications/unread_count/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\client.py", line 542, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 1109, in get_connection
+    connection.connect()
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-03-12 17:49:19,897 basehttp 20844 22188 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 500 145
+ERROR 2026-03-12 17:49:39,154 log 20844 21404 Internal Server Error: /api/v1/notifications/unread_count/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\client.py", line 542, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 1109, in get_connection
+    connection.connect()
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-03-12 17:49:39,159 basehttp 20844 21404 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 500 145
+ERROR 2026-03-12 17:49:44,372 log 20844 7200 Internal Server Error: /api/v1/notifications/unread_count/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\client.py", line 542, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 1109, in get_connection
+    connection.connect()
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-03-12 17:49:44,390 basehttp 20844 7200 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 500 145
+ERROR 2026-03-12 17:50:03,591 log 20844 20172 Internal Server Error: /api/v1/notifications/unread_count/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\client.py", line 542, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 1109, in get_connection
+    connection.connect()
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-03-12 17:50:03,601 basehttp 20844 20172 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 500 145
+ERROR 2026-03-12 17:50:08,819 log 20844 15568 Internal Server Error: /api/v1/notifications/unread_count/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\client.py", line 542, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 1109, in get_connection
+    connection.connect()
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-03-12 17:50:08,829 basehttp 20844 15568 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 500 145
+ERROR 2026-03-12 17:50:28,047 log 20844 10280 Internal Server Error: /api/v1/notifications/unread_count/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\client.py", line 542, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 1109, in get_connection
+    connection.connect()
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-03-12 17:50:28,054 basehttp 20844 10280 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 500 145
+ERROR 2026-03-12 17:50:33,265 log 20844 4840 Internal Server Error: /api/v1/notifications/unread_count/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\client.py", line 542, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 1109, in get_connection
+    connection.connect()
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-03-12 17:50:33,282 basehttp 20844 4840 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 500 145
+WARNING 2026-03-16 09:49:28,075 log 5116 21792 Not Found: /ws/notifications/
+WARNING 2026-03-16 09:49:28,088 basehttp 5116 21792 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMzQ0MzYzLCJpYXQiOjE3NzMzMTU1NjMsImp0aSI6ImYyNzRhZmE3NDMwOTQyOGNhOWExMjgzNDViMTc1ZDBlIiwidXNlcl9pZCI6MX0.f6O0OpTnZziEPPvn32rpBb2wf5pnUqhw0sU_YzQfzRA HTTP/1.1" 404 179
+WARNING 2026-03-16 09:49:28,811 log 5116 9836 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-16 09:49:28,814 log 5116 9684 Unauthorized: /api/v1/notifications/unread_count/
+WARNING 2026-03-16 09:49:28,815 log 5116 12312 Unauthorized: /api/v1/notifications/
+WARNING 2026-03-16 09:49:28,818 log 5116 10832 Unauthorized: /api/v1/clients/
+WARNING 2026-03-16 09:49:28,820 log 5116 18616 Unauthorized: /api/v1/timelines/
+WARNING 2026-03-16 09:49:28,823 log 5116 6572 Unauthorized: /api/v1/projects/
+WARNING 2026-03-16 09:49:28,828 basehttp 5116 9684 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 401 223
+WARNING 2026-03-16 09:49:28,829 basehttp 5116 9836 "GET /api/v1/auth/me/ HTTP/1.1" 401 223
+WARNING 2026-03-16 09:49:28,830 basehttp 5116 12312 "GET /api/v1/notifications/ HTTP/1.1" 401 223
+WARNING 2026-03-16 09:49:28,833 basehttp 5116 10832 "GET /api/v1/clients/?page_size=100 HTTP/1.1" 401 223
+WARNING 2026-03-16 09:49:28,836 basehttp 5116 18616 "GET /api/v1/timelines/?page_size=200 HTTP/1.1" 401 223
+WARNING 2026-03-16 09:49:28,837 basehttp 5116 6572 "GET /api/v1/projects/?page_size=100 HTTP/1.1" 401 223
+WARNING 2026-03-16 09:49:28,911 log 5116 7728 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-16 09:49:28,932 basehttp 5116 7728 "GET /api/v1/auth/me/ HTTP/1.1" 401 223
+WARNING 2026-03-16 09:49:30,135 log 5116 12952 Unauthorized: /api/v1/auth/token/refresh/
+WARNING 2026-03-16 09:49:30,140 basehttp 5116 12952 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 401 98
+WARNING 2026-03-16 09:49:41,273 log 5116 2420 Not Found: /ws/notifications/
+WARNING 2026-03-16 09:49:41,278 basehttp 5116 2420 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjYzNTgxLCJpYXQiOjE3NzM2MzQ3ODEsImp0aSI6IjlkYjZmZmRlYzc0NTRkZDY5MmZjNDQzYmQzZWVkNDU0IiwidXNlcl9pZCI6MX0.HHhhogPuTCaRnk1414l5HEVxNDlPl9upGURPOy5m7WM HTTP/1.1" 404 179
+WARNING 2026-03-16 09:49:41,643 log 5116 19436 Not Found: /ws/notifications/
+WARNING 2026-03-16 09:49:41,675 basehttp 5116 19436 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjYzNTgxLCJpYXQiOjE3NzM2MzQ3ODEsImp0aSI6IjlkYjZmZmRlYzc0NTRkZDY5MmZjNDQzYmQzZWVkNDU0IiwidXNlcl9pZCI6MX0.HHhhogPuTCaRnk1414l5HEVxNDlPl9upGURPOy5m7WM HTTP/1.1" 404 179
+WARNING 2026-03-16 09:50:46,417 log 5116 9612 Not Found: /ws/chat/6/
+WARNING 2026-03-16 09:50:46,427 basehttp 5116 9612 "GET /ws/chat/6/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjYzNTgxLCJpYXQiOjE3NzM2MzQ3ODEsImp0aSI6IjlkYjZmZmRlYzc0NTRkZDY5MmZjNDQzYmQzZWVkNDU0IiwidXNlcl9pZCI6MX0.HHhhogPuTCaRnk1414l5HEVxNDlPl9upGURPOy5m7WM HTTP/1.1" 404 179
+WARNING 2026-03-16 10:21:24,740 log 11480 8056 Not Found: /ws/chat/6/
+WARNING 2026-03-16 10:21:24,742 basehttp 11480 8056 "GET /ws/chat/6/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjYzNTgxLCJpYXQiOjE3NzM2MzQ3ODEsImp0aSI6IjlkYjZmZmRlYzc0NTRkZDY5MmZjNDQzYmQzZWVkNDU0IiwidXNlcl9pZCI6MX0.HHhhogPuTCaRnk1414l5HEVxNDlPl9upGURPOy5m7WM HTTP/1.1" 404 179
+WARNING 2026-03-16 10:21:43,989 log 11480 20416 Not Found: /ws/chat/5/
+WARNING 2026-03-16 10:21:44,005 basehttp 11480 20416 "GET /ws/chat/5/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjYzNTgxLCJpYXQiOjE3NzM2MzQ3ODEsImp0aSI6IjlkYjZmZmRlYzc0NTRkZDY5MmZjNDQzYmQzZWVkNDU0IiwidXNlcl9pZCI6MX0.HHhhogPuTCaRnk1414l5HEVxNDlPl9upGURPOy5m7WM HTTP/1.1" 404 179
+WARNING 2026-03-16 10:21:46,041 log 11480 5308 Not Found: /ws/chat/4/
+WARNING 2026-03-16 10:21:46,055 basehttp 11480 5308 "GET /ws/chat/4/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjYzNTgxLCJpYXQiOjE3NzM2MzQ3ODEsImp0aSI6IjlkYjZmZmRlYzc0NTRkZDY5MmZjNDQzYmQzZWVkNDU0IiwidXNlcl9pZCI6MX0.HHhhogPuTCaRnk1414l5HEVxNDlPl9upGURPOy5m7WM HTTP/1.1" 404 179
+WARNING 2026-03-16 10:21:47,256 log 11480 12604 Not Found: /ws/chat/3/
+WARNING 2026-03-16 10:21:47,268 basehttp 11480 12604 "GET /ws/chat/3/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjYzNTgxLCJpYXQiOjE3NzM2MzQ3ODEsImp0aSI6IjlkYjZmZmRlYzc0NTRkZDY5MmZjNDQzYmQzZWVkNDU0IiwidXNlcl9pZCI6MX0.HHhhogPuTCaRnk1414l5HEVxNDlPl9upGURPOy5m7WM HTTP/1.1" 404 179
+WARNING 2026-03-16 10:21:59,555 log 11480 23584 Not Found: /ws/chat/5/
+WARNING 2026-03-16 10:21:59,574 basehttp 11480 23584 "GET /ws/chat/5/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjYzNTgxLCJpYXQiOjE3NzM2MzQ3ODEsImp0aSI6IjlkYjZmZmRlYzc0NTRkZDY5MmZjNDQzYmQzZWVkNDU0IiwidXNlcl9pZCI6MX0.HHhhogPuTCaRnk1414l5HEVxNDlPl9upGURPOy5m7WM HTTP/1.1" 404 179
+WARNING 2026-03-16 10:22:11,640 log 11480 7828 Not Found: /ws/chat/6/
+WARNING 2026-03-16 10:22:11,655 basehttp 11480 7828 "GET /ws/chat/6/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjYzNTgxLCJpYXQiOjE3NzM2MzQ3ODEsImp0aSI6IjlkYjZmZmRlYzc0NTRkZDY5MmZjNDQzYmQzZWVkNDU0IiwidXNlcl9pZCI6MX0.HHhhogPuTCaRnk1414l5HEVxNDlPl9upGURPOy5m7WM HTTP/1.1" 404 179
+WARNING 2026-03-16 10:50:47,964 log 11480 11504 Not Found: /ws/notifications/
+WARNING 2026-03-16 10:50:48,037 basehttp 11480 11504 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjYzNTgxLCJpYXQiOjE3NzM2MzQ3ODEsImp0aSI6IjlkYjZmZmRlYzc0NTRkZDY5MmZjNDQzYmQzZWVkNDU0IiwidXNlcl9pZCI6MX0.HHhhogPuTCaRnk1414l5HEVxNDlPl9upGURPOy5m7WM HTTP/1.1" 404 179
+WARNING 2026-03-16 10:50:48,071 log 11480 13448 Not Found: /ws/notifications/
+WARNING 2026-03-16 10:50:48,094 basehttp 11480 13448 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjYzNTgxLCJpYXQiOjE3NzM2MzQ3ODEsImp0aSI6IjlkYjZmZmRlYzc0NTRkZDY5MmZjNDQzYmQzZWVkNDU0IiwidXNlcl9pZCI6MX0.HHhhogPuTCaRnk1414l5HEVxNDlPl9upGURPOy5m7WM HTTP/1.1" 404 179
+WARNING 2026-03-16 11:10:27,387 log 23580 13436 Not Found: /ws/notifications/
+WARNING 2026-03-16 11:10:27,391 basehttp 23580 13436 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjYzNTgxLCJpYXQiOjE3NzM2MzQ3ODEsImp0aSI6IjlkYjZmZmRlYzc0NTRkZDY5MmZjNDQzYmQzZWVkNDU0IiwidXNlcl9pZCI6MX0.HHhhogPuTCaRnk1414l5HEVxNDlPl9upGURPOy5m7WM HTTP/1.1" 404 179
+WARNING 2026-03-16 11:16:46,203 log 23580 19432 Not Found: /ws/notifications/
+WARNING 2026-03-16 11:16:46,207 basehttp 23580 19432 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjY4ODA2LCJpYXQiOjE3NzM2NDAwMDYsImp0aSI6IjcxZTkyNTNmYTk5YTQ1NzViNjgwMjIxYTM0NzAxYTQzIiwidXNlcl9pZCI6MX0.x8HpKG71xkOJ_t-jRDw2qzwJduGA5pWYeyCutpSPcnU HTTP/1.1" 404 179
+WARNING 2026-03-16 11:16:46,320 log 23580 1204 Not Found: /ws/notifications/
+WARNING 2026-03-16 11:16:46,333 basehttp 23580 1204 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjY4ODA2LCJpYXQiOjE3NzM2NDAwMDYsImp0aSI6IjcxZTkyNTNmYTk5YTQ1NzViNjgwMjIxYTM0NzAxYTQzIiwidXNlcl9pZCI6MX0.x8HpKG71xkOJ_t-jRDw2qzwJduGA5pWYeyCutpSPcnU HTTP/1.1" 404 179
+WARNING 2026-03-16 11:17:07,027 log 23580 10564 Not Found: /ws/notifications/
+WARNING 2026-03-16 11:17:07,031 basehttp 23580 10564 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjY4ODI2LCJpYXQiOjE3NzM2NDAwMjYsImp0aSI6IjNmZWNlNzcxMTZkYzQ2NmNiYmI0YTEzYTg4NTBhNGEzIiwidXNlcl9pZCI6Nn0.l0-H9Q6GYVmV8-Fmv2k69C8eR_FKufaQRcQTAP8KdHk HTTP/1.1" 404 179
+WARNING 2026-03-16 11:23:12,936 log 23580 14020 Not Found: /ws/notifications/
+WARNING 2026-03-16 11:23:12,939 basehttp 23580 14020 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjY4ODI2LCJpYXQiOjE3NzM2NDAwMjYsImp0aSI6IjNmZWNlNzcxMTZkYzQ2NmNiYmI0YTEzYTg4NTBhNGEzIiwidXNlcl9pZCI6Nn0.l0-H9Q6GYVmV8-Fmv2k69C8eR_FKufaQRcQTAP8KdHk HTTP/1.1" 404 179
+WARNING 2026-03-16 11:23:13,022 log 23580 13676 Not Found: /ws/notifications/
+WARNING 2026-03-16 11:23:13,037 basehttp 23580 13676 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjY4ODI2LCJpYXQiOjE3NzM2NDAwMjYsImp0aSI6IjNmZWNlNzcxMTZkYzQ2NmNiYmI0YTEzYTg4NTBhNGEzIiwidXNlcl9pZCI6Nn0.l0-H9Q6GYVmV8-Fmv2k69C8eR_FKufaQRcQTAP8KdHk HTTP/1.1" 404 179
+WARNING 2026-03-16 11:23:24,825 log 23580 14988 Not Found: /ws/notifications/
+WARNING 2026-03-16 11:23:24,828 basehttp 23580 14988 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjY5MjA0LCJpYXQiOjE3NzM2NDA0MDQsImp0aSI6IjQ2ZTEyNGY5M2ExZDQzNWU4NzU4ZWI4MTU0YmQ2ZjM4IiwidXNlcl9pZCI6MX0.7rrgAzVKAbEDVv67BLTy8upZFOU2JL3HNLrrn7Mb4sw HTTP/1.1" 404 179
+WARNING 2026-03-16 11:23:24,925 log 23580 5924 Not Found: /ws/notifications/
+WARNING 2026-03-16 11:23:24,934 basehttp 23580 5924 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjY5MjA0LCJpYXQiOjE3NzM2NDA0MDQsImp0aSI6IjQ2ZTEyNGY5M2ExZDQzNWU4NzU4ZWI4MTU0YmQ2ZjM4IiwidXNlcl9pZCI6MX0.7rrgAzVKAbEDVv67BLTy8upZFOU2JL3HNLrrn7Mb4sw HTTP/1.1" 404 179
+WARNING 2026-03-16 11:23:29,160 log 23580 19036 Not Found: /ws/notifications/
+WARNING 2026-03-16 11:23:29,188 basehttp 23580 19036 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjY5MjA4LCJpYXQiOjE3NzM2NDA0MDgsImp0aSI6IjI2MGI2ZTQ5MWNmNzRlMTg4ZmRmNWEwYzkwODJlNzcwIiwidXNlcl9pZCI6Nn0.vksQlZ8K4ibSSmSdoWousKxcLqIUmxxQZDrbSTi8JvA HTTP/1.1" 404 179
+WARNING 2026-03-16 11:23:31,458 log 23580 19088 Not Found: /ws/notifications/
+WARNING 2026-03-16 11:23:31,461 basehttp 23580 19088 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjY5MjA0LCJpYXQiOjE3NzM2NDA0MDQsImp0aSI6IjQ2ZTEyNGY5M2ExZDQzNWU4NzU4ZWI4MTU0YmQ2ZjM4IiwidXNlcl9pZCI6MX0.7rrgAzVKAbEDVv67BLTy8upZFOU2JL3HNLrrn7Mb4sw HTTP/1.1" 404 179
+WARNING 2026-03-16 11:23:31,511 log 23580 16744 Not Found: /ws/notifications/
+WARNING 2026-03-16 11:23:31,516 basehttp 23580 16744 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjY5MjA0LCJpYXQiOjE3NzM2NDA0MDQsImp0aSI6IjQ2ZTEyNGY5M2ExZDQzNWU4NzU4ZWI4MTU0YmQ2ZjM4IiwidXNlcl9pZCI6MX0.7rrgAzVKAbEDVv67BLTy8upZFOU2JL3HNLrrn7Mb4sw HTTP/1.1" 404 179
+ERROR 2026-03-16 11:35:58,105 log 13096 19580 Internal Server Error: /api/v1/chat/rooms/6/messages/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 92, in get_rate
+    return self.THROTTLE_RATES[self.scope]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'chat_poll'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 358, in check_throttles
+    for throttle in self.get_throttles():
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 284, in get_throttles
+    return [throttle() for throttle in self.throttle_classes]
+            ^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 70, in __init__
+    self.rate = self.get_rate()
+                ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 95, in get_rate
+    raise ImproperlyConfigured(msg)
+django.core.exceptions.ImproperlyConfigured: No default throttle rate set for 'chat_poll' scope
+ERROR 2026-03-16 11:35:58,298 basehttp 13096 19580 "GET /api/v1/chat/rooms/6/messages/?after=3 HTTP/1.1" 500 145
+ERROR 2026-03-16 11:36:04,009 log 13096 19812 Internal Server Error: /api/v1/chat/rooms/6/messages/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 92, in get_rate
+    return self.THROTTLE_RATES[self.scope]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'chat_poll'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 358, in check_throttles
+    for throttle in self.get_throttles():
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 284, in get_throttles
+    return [throttle() for throttle in self.throttle_classes]
+            ^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 70, in __init__
+    self.rate = self.get_rate()
+                ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 95, in get_rate
+    raise ImproperlyConfigured(msg)
+django.core.exceptions.ImproperlyConfigured: No default throttle rate set for 'chat_poll' scope
+ERROR 2026-03-16 11:36:04,021 basehttp 13096 19812 "GET /api/v1/chat/rooms/6/messages/?limit=50 HTTP/1.1" 500 145
+ERROR 2026-03-16 11:36:07,871 log 13096 7484 Internal Server Error: /api/v1/chat/rooms/6/messages/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 92, in get_rate
+    return self.THROTTLE_RATES[self.scope]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'chat_poll'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 358, in check_throttles
+    for throttle in self.get_throttles():
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 284, in get_throttles
+    return [throttle() for throttle in self.throttle_classes]
+            ^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 70, in __init__
+    self.rate = self.get_rate()
+                ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 95, in get_rate
+    raise ImproperlyConfigured(msg)
+django.core.exceptions.ImproperlyConfigured: No default throttle rate set for 'chat_poll' scope
+ERROR 2026-03-16 11:36:07,877 basehttp 13096 7484 "GET /api/v1/chat/rooms/6/messages/?after=0 HTTP/1.1" 500 145
+ERROR 2026-03-16 11:36:10,879 log 13096 13508 Internal Server Error: /api/v1/chat/rooms/6/messages/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 92, in get_rate
+    return self.THROTTLE_RATES[self.scope]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'chat_poll'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 358, in check_throttles
+    for throttle in self.get_throttles():
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 284, in get_throttles
+    return [throttle() for throttle in self.throttle_classes]
+            ^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 70, in __init__
+    self.rate = self.get_rate()
+                ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 95, in get_rate
+    raise ImproperlyConfigured(msg)
+django.core.exceptions.ImproperlyConfigured: No default throttle rate set for 'chat_poll' scope
+ERROR 2026-03-16 11:36:10,883 basehttp 13096 13508 "GET /api/v1/chat/rooms/6/messages/?after=0 HTTP/1.1" 500 145
+ERROR 2026-03-16 11:36:13,935 log 13096 13780 Internal Server Error: /api/v1/chat/rooms/6/messages/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 92, in get_rate
+    return self.THROTTLE_RATES[self.scope]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'chat_poll'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 358, in check_throttles
+    for throttle in self.get_throttles():
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 284, in get_throttles
+    return [throttle() for throttle in self.throttle_classes]
+            ^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 70, in __init__
+    self.rate = self.get_rate()
+                ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 95, in get_rate
+    raise ImproperlyConfigured(msg)
+django.core.exceptions.ImproperlyConfigured: No default throttle rate set for 'chat_poll' scope
+ERROR 2026-03-16 11:36:13,940 basehttp 13096 13780 "GET /api/v1/chat/rooms/6/messages/?after=0 HTTP/1.1" 500 145
+ERROR 2026-03-16 11:36:16,885 log 13096 19292 Internal Server Error: /api/v1/chat/rooms/6/messages/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 92, in get_rate
+    return self.THROTTLE_RATES[self.scope]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'chat_poll'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 358, in check_throttles
+    for throttle in self.get_throttles():
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 284, in get_throttles
+    return [throttle() for throttle in self.throttle_classes]
+            ^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 70, in __init__
+    self.rate = self.get_rate()
+                ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 95, in get_rate
+    raise ImproperlyConfigured(msg)
+django.core.exceptions.ImproperlyConfigured: No default throttle rate set for 'chat_poll' scope
+ERROR 2026-03-16 11:36:16,891 basehttp 13096 19292 "GET /api/v1/chat/rooms/6/messages/?after=0 HTTP/1.1" 500 145
+ERROR 2026-03-16 11:36:16,914 log 13096 20588 Internal Server Error: /api/v1/chat/rooms/6/messages/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 92, in get_rate
+    return self.THROTTLE_RATES[self.scope]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'chat_poll'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 358, in check_throttles
+    for throttle in self.get_throttles():
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 284, in get_throttles
+    return [throttle() for throttle in self.throttle_classes]
+            ^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 70, in __init__
+    self.rate = self.get_rate()
+                ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 95, in get_rate
+    raise ImproperlyConfigured(msg)
+django.core.exceptions.ImproperlyConfigured: No default throttle rate set for 'chat_poll' scope
+ERROR 2026-03-16 11:36:16,924 basehttp 13096 20588 "GET /api/v1/chat/rooms/6/messages/?limit=50 HTTP/1.1" 500 145
+ERROR 2026-03-16 11:36:20,904 log 13096 13472 Internal Server Error: /api/v1/chat/rooms/6/messages/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 92, in get_rate
+    return self.THROTTLE_RATES[self.scope]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'chat_poll'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 358, in check_throttles
+    for throttle in self.get_throttles():
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 284, in get_throttles
+    return [throttle() for throttle in self.throttle_classes]
+            ^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 70, in __init__
+    self.rate = self.get_rate()
+                ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 95, in get_rate
+    raise ImproperlyConfigured(msg)
+django.core.exceptions.ImproperlyConfigured: No default throttle rate set for 'chat_poll' scope
+ERROR 2026-03-16 11:36:20,908 basehttp 13096 13472 "GET /api/v1/chat/rooms/6/messages/?after=0 HTTP/1.1" 500 145
+ERROR 2026-03-16 11:36:23,844 log 13096 6180 Internal Server Error: /api/v1/chat/rooms/6/messages/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 92, in get_rate
+    return self.THROTTLE_RATES[self.scope]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'chat_poll'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 358, in check_throttles
+    for throttle in self.get_throttles():
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 284, in get_throttles
+    return [throttle() for throttle in self.throttle_classes]
+            ^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 70, in __init__
+    self.rate = self.get_rate()
+                ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 95, in get_rate
+    raise ImproperlyConfigured(msg)
+django.core.exceptions.ImproperlyConfigured: No default throttle rate set for 'chat_poll' scope
+ERROR 2026-03-16 11:36:23,848 basehttp 13096 6180 "GET /api/v1/chat/rooms/6/messages/?after=0 HTTP/1.1" 500 145
+ERROR 2026-03-16 11:36:26,862 log 13096 1944 Internal Server Error: /api/v1/chat/rooms/6/messages/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 92, in get_rate
+    return self.THROTTLE_RATES[self.scope]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'chat_poll'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 358, in check_throttles
+    for throttle in self.get_throttles():
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 284, in get_throttles
+    return [throttle() for throttle in self.throttle_classes]
+            ^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 70, in __init__
+    self.rate = self.get_rate()
+                ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 95, in get_rate
+    raise ImproperlyConfigured(msg)
+django.core.exceptions.ImproperlyConfigured: No default throttle rate set for 'chat_poll' scope
+ERROR 2026-03-16 11:36:26,866 basehttp 13096 1944 "GET /api/v1/chat/rooms/6/messages/?after=0 HTTP/1.1" 500 145
+ERROR 2026-03-16 11:36:29,856 log 13096 12920 Internal Server Error: /api/v1/chat/rooms/6/messages/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 92, in get_rate
+    return self.THROTTLE_RATES[self.scope]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'chat_poll'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 358, in check_throttles
+    for throttle in self.get_throttles():
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 284, in get_throttles
+    return [throttle() for throttle in self.throttle_classes]
+            ^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 70, in __init__
+    self.rate = self.get_rate()
+                ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 95, in get_rate
+    raise ImproperlyConfigured(msg)
+django.core.exceptions.ImproperlyConfigured: No default throttle rate set for 'chat_poll' scope
+ERROR 2026-03-16 11:36:29,861 basehttp 13096 12920 "GET /api/v1/chat/rooms/6/messages/?after=0 HTTP/1.1" 500 145
+ERROR 2026-03-16 11:36:32,860 log 13096 396 Internal Server Error: /api/v1/chat/rooms/6/messages/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 92, in get_rate
+    return self.THROTTLE_RATES[self.scope]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'chat_poll'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 358, in check_throttles
+    for throttle in self.get_throttles():
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 284, in get_throttles
+    return [throttle() for throttle in self.throttle_classes]
+            ^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 70, in __init__
+    self.rate = self.get_rate()
+                ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 95, in get_rate
+    raise ImproperlyConfigured(msg)
+django.core.exceptions.ImproperlyConfigured: No default throttle rate set for 'chat_poll' scope
+ERROR 2026-03-16 11:36:32,865 basehttp 13096 396 "GET /api/v1/chat/rooms/6/messages/?after=0 HTTP/1.1" 500 145
+ERROR 2026-03-16 11:36:40,954 log 13096 13424 Internal Server Error: /api/v1/chat/rooms/6/messages/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 92, in get_rate
+    return self.THROTTLE_RATES[self.scope]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'chat_poll'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 358, in check_throttles
+    for throttle in self.get_throttles():
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 284, in get_throttles
+    return [throttle() for throttle in self.throttle_classes]
+            ^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 70, in __init__
+    self.rate = self.get_rate()
+                ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 95, in get_rate
+    raise ImproperlyConfigured(msg)
+django.core.exceptions.ImproperlyConfigured: No default throttle rate set for 'chat_poll' scope
+ERROR 2026-03-16 11:36:40,963 basehttp 13096 13424 "GET /api/v1/chat/rooms/6/messages/?limit=50 HTTP/1.1" 500 145
+ERROR 2026-03-16 11:36:44,910 log 13096 15804 Internal Server Error: /api/v1/chat/rooms/6/messages/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 92, in get_rate
+    return self.THROTTLE_RATES[self.scope]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'chat_poll'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 358, in check_throttles
+    for throttle in self.get_throttles():
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 284, in get_throttles
+    return [throttle() for throttle in self.throttle_classes]
+            ^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 70, in __init__
+    self.rate = self.get_rate()
+                ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 95, in get_rate
+    raise ImproperlyConfigured(msg)
+django.core.exceptions.ImproperlyConfigured: No default throttle rate set for 'chat_poll' scope
+ERROR 2026-03-16 11:36:44,921 basehttp 13096 15804 "GET /api/v1/chat/rooms/6/messages/?after=0 HTTP/1.1" 500 145
+ERROR 2026-03-16 11:36:48,125 log 13096 13508 Internal Server Error: /api/v1/chat/rooms/6/messages/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 92, in get_rate
+    return self.THROTTLE_RATES[self.scope]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'chat_poll'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 358, in check_throttles
+    for throttle in self.get_throttles():
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 284, in get_throttles
+    return [throttle() for throttle in self.throttle_classes]
+            ^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 70, in __init__
+    self.rate = self.get_rate()
+                ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 95, in get_rate
+    raise ImproperlyConfigured(msg)
+django.core.exceptions.ImproperlyConfigured: No default throttle rate set for 'chat_poll' scope
+ERROR 2026-03-16 11:36:48,132 basehttp 13096 13508 "GET /api/v1/chat/rooms/6/messages/?after=0 HTTP/1.1" 500 145
+ERROR 2026-03-16 11:36:50,869 log 13096 21920 Internal Server Error: /api/v1/chat/rooms/6/messages/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 92, in get_rate
+    return self.THROTTLE_RATES[self.scope]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'chat_poll'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 358, in check_throttles
+    for throttle in self.get_throttles():
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 284, in get_throttles
+    return [throttle() for throttle in self.throttle_classes]
+            ^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 70, in __init__
+    self.rate = self.get_rate()
+                ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 95, in get_rate
+    raise ImproperlyConfigured(msg)
+django.core.exceptions.ImproperlyConfigured: No default throttle rate set for 'chat_poll' scope
+ERROR 2026-03-16 11:36:50,877 basehttp 13096 21920 "GET /api/v1/chat/rooms/6/messages/?after=0 HTTP/1.1" 500 145
+ERROR 2026-03-16 11:36:53,869 log 13096 9564 Internal Server Error: /api/v1/chat/rooms/6/messages/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 92, in get_rate
+    return self.THROTTLE_RATES[self.scope]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'chat_poll'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 358, in check_throttles
+    for throttle in self.get_throttles():
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 284, in get_throttles
+    return [throttle() for throttle in self.throttle_classes]
+            ^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 70, in __init__
+    self.rate = self.get_rate()
+                ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 95, in get_rate
+    raise ImproperlyConfigured(msg)
+django.core.exceptions.ImproperlyConfigured: No default throttle rate set for 'chat_poll' scope
+ERROR 2026-03-16 11:36:53,879 basehttp 13096 9564 "GET /api/v1/chat/rooms/6/messages/?after=0 HTTP/1.1" 500 145
+ERROR 2026-03-16 11:36:56,899 log 13096 24552 Internal Server Error: /api/v1/chat/rooms/6/messages/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 92, in get_rate
+    return self.THROTTLE_RATES[self.scope]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'chat_poll'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 358, in check_throttles
+    for throttle in self.get_throttles():
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 284, in get_throttles
+    return [throttle() for throttle in self.throttle_classes]
+            ^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 70, in __init__
+    self.rate = self.get_rate()
+                ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 95, in get_rate
+    raise ImproperlyConfigured(msg)
+django.core.exceptions.ImproperlyConfigured: No default throttle rate set for 'chat_poll' scope
+ERROR 2026-03-16 11:36:56,907 basehttp 13096 24552 "GET /api/v1/chat/rooms/6/messages/?after=0 HTTP/1.1" 500 145
+ERROR 2026-03-16 11:37:57,892 log 13096 9792 Internal Server Error: /api/v1/chat/rooms/6/messages/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 92, in get_rate
+    return self.THROTTLE_RATES[self.scope]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'chat_poll'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 358, in check_throttles
+    for throttle in self.get_throttles():
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 284, in get_throttles
+    return [throttle() for throttle in self.throttle_classes]
+            ^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 70, in __init__
+    self.rate = self.get_rate()
+                ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 95, in get_rate
+    raise ImproperlyConfigured(msg)
+django.core.exceptions.ImproperlyConfigured: No default throttle rate set for 'chat_poll' scope
+ERROR 2026-03-16 11:37:57,900 basehttp 13096 9792 "GET /api/v1/chat/rooms/6/messages/?after=0 HTTP/1.1" 500 145
+ERROR 2026-03-16 11:38:57,904 log 13096 8208 Internal Server Error: /api/v1/chat/rooms/6/messages/
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 92, in get_rate
+    return self.THROTTLE_RATES[self.scope]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'chat_poll'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 358, in check_throttles
+    for throttle in self.get_throttles():
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\views.py", line 284, in get_throttles
+    return [throttle() for throttle in self.throttle_classes]
+            ^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 70, in __init__
+    self.rate = self.get_rate()
+                ^^^^^^^^^^^^^^^
+  File "D:\work\nexus\nexus_prod\venv\Lib\site-packages\rest_framework\throttling.py", line 95, in get_rate
+    raise ImproperlyConfigured(msg)
+django.core.exceptions.ImproperlyConfigured: No default throttle rate set for 'chat_poll' scope
+ERROR 2026-03-16 11:38:57,921 basehttp 13096 8208 "GET /api/v1/chat/rooms/6/messages/?after=0 HTTP/1.1" 500 145
+WARNING 2026-03-16 11:39:27,541 log 21964 992 Not Found: /ws/notifications/
+WARNING 2026-03-16 11:39:27,548 basehttp 21964 992 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjY5MjA0LCJpYXQiOjE3NzM2NDA0MDQsImp0aSI6IjQ2ZTEyNGY5M2ExZDQzNWU4NzU4ZWI4MTU0YmQ2ZjM4IiwidXNlcl9pZCI6MX0.7rrgAzVKAbEDVv67BLTy8upZFOU2JL3HNLrrn7Mb4sw HTTP/1.1" 404 179
+WARNING 2026-03-16 11:39:27,587 log 21964 22736 Not Found: /ws/notifications/
+WARNING 2026-03-16 11:39:27,596 basehttp 21964 22736 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjY5MjA0LCJpYXQiOjE3NzM2NDA0MDQsImp0aSI6IjQ2ZTEyNGY5M2ExZDQzNWU4NzU4ZWI4MTU0YmQ2ZjM4IiwidXNlcl9pZCI6MX0.7rrgAzVKAbEDVv67BLTy8upZFOU2JL3HNLrrn7Mb4sw HTTP/1.1" 404 179
+WARNING 2026-03-16 11:39:59,330 log 21964 12044 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 11:39:59,333 basehttp 21964 12044 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 11:40:01,960 log 21964 23980 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 11:40:01,962 basehttp 21964 23980 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 11:40:02,311 log 21964 23980 Not Found: /favicon.ico
+WARNING 2026-03-16 11:40:02,313 basehttp 21964 23980 "GET /favicon.ico HTTP/1.1" 404 179
+WARNING 2026-03-16 11:40:06,427 log 21964 23980 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 11:40:06,429 basehttp 21964 23980 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 11:40:34,188 log 21964 23980 Not Found: /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx
+WARNING 2026-03-16 11:40:34,190 basehttp 21964 23980 "GET /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx HTTP/1.1" 404 179
+WARNING 2026-03-16 11:40:51,316 log 21964 23980 Not Found: /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx
+WARNING 2026-03-16 11:40:51,319 basehttp 21964 23980 "GET /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx HTTP/1.1" 404 179
+WARNING 2026-03-16 11:41:23,299 log 21964 24332 Not Found: /ws/notifications/
+WARNING 2026-03-16 11:41:23,302 basehttp 21964 24332 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjcwMjgzLCJpYXQiOjE3NzM2NDE0ODMsImp0aSI6IjdiOGZhZWE5NWE1YTQ5ZWY4YzExY2M1MGY0ZWZjYWY3IiwidXNlcl9pZCI6MX0.ydJkt17bjpcCNvRE_J2IfqtLS9m02K1vkJSry2sEY4g HTTP/1.1" 404 179
+WARNING 2026-03-16 11:41:23,439 log 21964 16112 Not Found: /ws/notifications/
+WARNING 2026-03-16 11:41:23,452 basehttp 21964 16112 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjcwMjgzLCJpYXQiOjE3NzM2NDE0ODMsImp0aSI6IjdiOGZhZWE5NWE1YTQ5ZWY4YzExY2M1MGY0ZWZjYWY3IiwidXNlcl9pZCI6MX0.ydJkt17bjpcCNvRE_J2IfqtLS9m02K1vkJSry2sEY4g HTTP/1.1" 404 179
+WARNING 2026-03-16 11:41:40,530 log 21964 18048 Not Found: /ws/notifications/
+WARNING 2026-03-16 11:41:40,533 basehttp 21964 18048 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjcwMzAwLCJpYXQiOjE3NzM2NDE1MDAsImp0aSI6ImZjYThjOTJjNzBmZTRjYjA4Zjk5Mzg1ZWEwYjgzMTIzIiwidXNlcl9pZCI6Nn0.2Q-dft1i3IWCt76E_UsUXpbtGJkuqFY-f1_Gd4Mk-Bg HTTP/1.1" 404 179
+WARNING 2026-03-16 11:41:54,189 log 21964 23980 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 11:41:54,193 basehttp 21964 23980 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 11:41:57,063 log 21964 9376 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 11:41:57,067 basehttp 21964 9376 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 11:42:00,683 log 21964 9376 Not Found: /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx
+WARNING 2026-03-16 11:42:00,686 basehttp 21964 9376 "GET /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx HTTP/1.1" 404 179
+WARNING 2026-03-16 12:08:52,948 log 21964 9176 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 12:08:52,985 basehttp 21964 9176 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 12:08:53,117 log 21964 14016 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 12:08:53,119 basehttp 21964 14016 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 12:10:29,176 log 14016 1520 Not Found: /ws/notifications/
+WARNING 2026-03-16 12:10:29,184 basehttp 14016 1520 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjY5MjA4LCJpYXQiOjE3NzM2NDA0MDgsImp0aSI6IjI2MGI2ZTQ5MWNmNzRlMTg4ZmRmNWEwYzkwODJlNzcwIiwidXNlcl9pZCI6Nn0.vksQlZ8K4ibSSmSdoWousKxcLqIUmxxQZDrbSTi8JvA HTTP/1.1" 404 179
+WARNING 2026-03-16 12:10:29,778 log 14016 19616 Not Found: /ws/notifications/
+WARNING 2026-03-16 12:10:29,782 basehttp 14016 19616 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjcwMzAwLCJpYXQiOjE3NzM2NDE1MDAsImp0aSI6ImZjYThjOTJjNzBmZTRjYjA4Zjk5Mzg1ZWEwYjgzMTIzIiwidXNlcl9pZCI6Nn0.2Q-dft1i3IWCt76E_UsUXpbtGJkuqFY-f1_Gd4Mk-Bg HTTP/1.1" 404 179
+WARNING 2026-03-16 12:10:29,829 log 14016 4596 Not Found: /ws/notifications/
+WARNING 2026-03-16 12:10:29,834 basehttp 14016 4596 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjcwMzAwLCJpYXQiOjE3NzM2NDE1MDAsImp0aSI6ImZjYThjOTJjNzBmZTRjYjA4Zjk5Mzg1ZWEwYjgzMTIzIiwidXNlcl9pZCI6Nn0.2Q-dft1i3IWCt76E_UsUXpbtGJkuqFY-f1_Gd4Mk-Bg HTTP/1.1" 404 179
+WARNING 2026-03-16 12:15:16,019 log 4524 9588 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 12:15:16,024 basehttp 4524 9588 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 12:15:18,490 log 4524 20972 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 12:15:18,492 basehttp 4524 20972 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 12:15:26,624 log 4524 18092 Not Found: /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx
+WARNING 2026-03-16 12:15:26,628 basehttp 4524 18092 "GET /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx HTTP/1.1" 404 179
+WARNING 2026-03-16 12:15:51,082 log 4524 12196 Not Found: /ws/notifications/
+WARNING 2026-03-16 12:15:51,108 basehttp 4524 12196 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjcyMzUwLCJpYXQiOjE3NzM2NDM1NTAsImp0aSI6IjcwYmY4NzcwNmZlNzQxYzk4YTcyNTkxMGM1ZWE2YzFiIiwidXNlcl9pZCI6MX0._Iy943SmmO_7SXtEgL15kX4yOE2eg6E7_kV97vzRUHc HTTP/1.1" 404 179
+WARNING 2026-03-16 12:15:51,149 log 4524 23132 Not Found: /ws/notifications/
+WARNING 2026-03-16 12:15:51,157 basehttp 4524 23132 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjcyMzUwLCJpYXQiOjE3NzM2NDM1NTAsImp0aSI6IjcwYmY4NzcwNmZlNzQxYzk4YTcyNTkxMGM1ZWE2YzFiIiwidXNlcl9pZCI6MX0._Iy943SmmO_7SXtEgL15kX4yOE2eg6E7_kV97vzRUHc HTTP/1.1" 404 179
+WARNING 2026-03-16 12:15:54,797 log 4524 8308 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 12:15:54,799 basehttp 4524 8308 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 12:17:34,091 log 4524 15004 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 12:17:34,094 basehttp 4524 15004 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 12:17:38,708 log 4524 24424 Not Found: /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx
+WARNING 2026-03-16 12:17:38,716 basehttp 4524 24424 "GET /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx HTTP/1.1" 404 179
+WARNING 2026-03-16 12:19:19,140 log 4524 19484 Not Found: /ws/notifications/
+WARNING 2026-03-16 12:19:19,146 basehttp 4524 19484 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjcyMzUwLCJpYXQiOjE3NzM2NDM1NTAsImp0aSI6IjcwYmY4NzcwNmZlNzQxYzk4YTcyNTkxMGM1ZWE2YzFiIiwidXNlcl9pZCI6MX0._Iy943SmmO_7SXtEgL15kX4yOE2eg6E7_kV97vzRUHc HTTP/1.1" 404 179
+WARNING 2026-03-16 12:19:19,263 log 4524 21744 Not Found: /ws/notifications/
+WARNING 2026-03-16 12:19:19,269 basehttp 4524 21744 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjcyMzUwLCJpYXQiOjE3NzM2NDM1NTAsImp0aSI6IjcwYmY4NzcwNmZlNzQxYzk4YTcyNTkxMGM1ZWE2YzFiIiwidXNlcl9pZCI6MX0._Iy943SmmO_7SXtEgL15kX4yOE2eg6E7_kV97vzRUHc HTTP/1.1" 404 179
+WARNING 2026-03-16 12:19:24,630 log 4524 18408 Not Found: /ws/notifications/
+WARNING 2026-03-16 12:19:24,633 basehttp 4524 18408 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjcyMzUwLCJpYXQiOjE3NzM2NDM1NTAsImp0aSI6IjcwYmY4NzcwNmZlNzQxYzk4YTcyNTkxMGM1ZWE2YzFiIiwidXNlcl9pZCI6MX0._Iy943SmmO_7SXtEgL15kX4yOE2eg6E7_kV97vzRUHc HTTP/1.1" 404 179
+WARNING 2026-03-16 12:19:24,815 log 4524 16200 Not Found: /ws/notifications/
+WARNING 2026-03-16 12:19:24,824 basehttp 4524 16200 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjcyMzUwLCJpYXQiOjE3NzM2NDM1NTAsImp0aSI6IjcwYmY4NzcwNmZlNzQxYzk4YTcyNTkxMGM1ZWE2YzFiIiwidXNlcl9pZCI6MX0._Iy943SmmO_7SXtEgL15kX4yOE2eg6E7_kV97vzRUHc HTTP/1.1" 404 179
+WARNING 2026-03-16 12:23:53,091 log 4524 15200 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 12:23:53,093 basehttp 4524 15200 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 12:35:05,352 log 4524 18520 Not Found: /ws/notifications/
+WARNING 2026-03-16 12:35:05,356 basehttp 4524 18520 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjczNTA1LCJpYXQiOjE3NzM2NDQ3MDUsImp0aSI6ImM4NzA1MDgzNWNlZjRjMDFhYTdkZTM0YWU3ODBhMDU3IiwidXNlcl9pZCI6Nn0.yQWtS3EKBr977Zpz2iPPN_uTJyaJ_8mO8W-Qj8n_o04 HTTP/1.1" 404 179
+WARNING 2026-03-16 12:35:05,395 log 4524 14164 Not Found: /ws/notifications/
+WARNING 2026-03-16 12:35:05,396 basehttp 4524 14164 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjczNTA1LCJpYXQiOjE3NzM2NDQ3MDUsImp0aSI6ImM4NzA1MDgzNWNlZjRjMDFhYTdkZTM0YWU3ODBhMDU3IiwidXNlcl9pZCI6Nn0.yQWtS3EKBr977Zpz2iPPN_uTJyaJ_8mO8W-Qj8n_o04 HTTP/1.1" 404 179
+WARNING 2026-03-16 12:36:17,815 log 4524 17772 Not Found: /ws/notifications/
+WARNING 2026-03-16 12:36:17,820 basehttp 4524 17772 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjczNTA1LCJpYXQiOjE3NzM2NDQ3MDUsImp0aSI6ImM4NzA1MDgzNWNlZjRjMDFhYTdkZTM0YWU3ODBhMDU3IiwidXNlcl9pZCI6Nn0.yQWtS3EKBr977Zpz2iPPN_uTJyaJ_8mO8W-Qj8n_o04 HTTP/1.1" 404 179
+WARNING 2026-03-16 12:36:17,976 log 4524 22196 Not Found: /ws/notifications/
+WARNING 2026-03-16 12:36:17,993 basehttp 4524 22196 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjczNTA1LCJpYXQiOjE3NzM2NDQ3MDUsImp0aSI6ImM4NzA1MDgzNWNlZjRjMDFhYTdkZTM0YWU3ODBhMDU3IiwidXNlcl9pZCI6Nn0.yQWtS3EKBr977Zpz2iPPN_uTJyaJ_8mO8W-Qj8n_o04 HTTP/1.1" 404 179
+WARNING 2026-03-16 12:54:58,283 log 4524 15384 Not Found: /ws/notifications/
+WARNING 2026-03-16 12:54:58,291 basehttp 4524 15384 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjc0Njk4LCJpYXQiOjE3NzM2NDU4OTgsImp0aSI6IjZkYmNhOWY2ZmUwNzRmMTU4ODhkMzhlNDY0Mjk4Y2RkIiwidXNlcl9pZCI6MX0.iVIEdiPcJ9FJcTPEgnWyEcABu1pXp0lT2VudZ7PPDXs HTTP/1.1" 404 179
+WARNING 2026-03-16 12:54:58,468 log 4524 14176 Not Found: /ws/notifications/
+WARNING 2026-03-16 12:54:58,471 basehttp 4524 14176 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjc0Njk4LCJpYXQiOjE3NzM2NDU4OTgsImp0aSI6IjZkYmNhOWY2ZmUwNzRmMTU4ODhkMzhlNDY0Mjk4Y2RkIiwidXNlcl9pZCI6MX0.iVIEdiPcJ9FJcTPEgnWyEcABu1pXp0lT2VudZ7PPDXs HTTP/1.1" 404 179
+WARNING 2026-03-16 12:55:04,352 log 4524 21228 Not Found: /ws/notifications/
+WARNING 2026-03-16 12:55:04,362 basehttp 4524 21228 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjc0Njk4LCJpYXQiOjE3NzM2NDU4OTgsImp0aSI6IjZkYmNhOWY2ZmUwNzRmMTU4ODhkMzhlNDY0Mjk4Y2RkIiwidXNlcl9pZCI6MX0.iVIEdiPcJ9FJcTPEgnWyEcABu1pXp0lT2VudZ7PPDXs HTTP/1.1" 404 179
+WARNING 2026-03-16 12:55:04,408 log 4524 21516 Not Found: /ws/notifications/
+WARNING 2026-03-16 12:55:04,413 basehttp 4524 21516 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjc0Njk4LCJpYXQiOjE3NzM2NDU4OTgsImp0aSI6IjZkYmNhOWY2ZmUwNzRmMTU4ODhkMzhlNDY0Mjk4Y2RkIiwidXNlcl9pZCI6MX0.iVIEdiPcJ9FJcTPEgnWyEcABu1pXp0lT2VudZ7PPDXs HTTP/1.1" 404 179
+WARNING 2026-03-16 12:58:04,019 log 4524 19616 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 12:58:04,023 basehttp 4524 19616 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 13:00:21,332 log 4524 9432 Not Found: /ws/notifications/
+WARNING 2026-03-16 13:00:21,334 basehttp 4524 9432 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjc1MDIxLCJpYXQiOjE3NzM2NDYyMjEsImp0aSI6IjVkMTQwNWZlNTc4YzQ4ZThiZjY0ZDBlMDQ4ZWI3MDlmIiwidXNlcl9pZCI6Nn0.d_KySxihEhz1WTZ0ZcEUlwPYfmABkltPZ9R80yUAFHg HTTP/1.1" 404 179
+WARNING 2026-03-16 13:00:21,367 log 4524 21656 Not Found: /ws/notifications/
+WARNING 2026-03-16 13:00:21,369 basehttp 4524 21656 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjc1MDIxLCJpYXQiOjE3NzM2NDYyMjEsImp0aSI6IjVkMTQwNWZlNTc4YzQ4ZThiZjY0ZDBlMDQ4ZWI3MDlmIiwidXNlcl9pZCI6Nn0.d_KySxihEhz1WTZ0ZcEUlwPYfmABkltPZ9R80yUAFHg HTTP/1.1" 404 179
+WARNING 2026-03-16 13:05:51,209 log 4524 20224 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 13:05:51,210 basehttp 4524 20224 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 13:05:54,186 log 4524 9964 Not Found: /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx
+WARNING 2026-03-16 13:05:54,188 basehttp 4524 9964 "GET /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx HTTP/1.1" 404 179
+WARNING 2026-03-16 13:06:12,382 log 4524 13308 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 13:06:12,384 basehttp 4524 13308 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 13:59:57,658 log 4524 19376 Not Found: /ws/notifications/
+WARNING 2026-03-16 13:59:57,662 basehttp 4524 19376 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjc1MDIxLCJpYXQiOjE3NzM2NDYyMjEsImp0aSI6IjVkMTQwNWZlNTc4YzQ4ZThiZjY0ZDBlMDQ4ZWI3MDlmIiwidXNlcl9pZCI6Nn0.d_KySxihEhz1WTZ0ZcEUlwPYfmABkltPZ9R80yUAFHg HTTP/1.1" 404 179
+WARNING 2026-03-16 14:26:41,100 log 4524 18240 Not Found: /ws/notifications/
+WARNING 2026-03-16 14:26:41,109 basehttp 4524 18240 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjc1MDIxLCJpYXQiOjE3NzM2NDYyMjEsImp0aSI6IjVkMTQwNWZlNTc4YzQ4ZThiZjY0ZDBlMDQ4ZWI3MDlmIiwidXNlcl9pZCI6Nn0.d_KySxihEhz1WTZ0ZcEUlwPYfmABkltPZ9R80yUAFHg HTTP/1.1" 404 179
+WARNING 2026-03-16 14:26:41,151 log 4524 25440 Not Found: /ws/notifications/
+WARNING 2026-03-16 14:26:41,156 basehttp 4524 25440 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjc1MDIxLCJpYXQiOjE3NzM2NDYyMjEsImp0aSI6IjVkMTQwNWZlNTc4YzQ4ZThiZjY0ZDBlMDQ4ZWI3MDlmIiwidXNlcl9pZCI6Nn0.d_KySxihEhz1WTZ0ZcEUlwPYfmABkltPZ9R80yUAFHg HTTP/1.1" 404 179
+WARNING 2026-03-16 14:42:19,475 log 24848 24744 Not Found: /ws/notifications/
+WARNING 2026-03-16 14:42:19,477 basehttp 24848 24744 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjc1MDIxLCJpYXQiOjE3NzM2NDYyMjEsImp0aSI6IjVkMTQwNWZlNTc4YzQ4ZThiZjY0ZDBlMDQ4ZWI3MDlmIiwidXNlcl9pZCI6Nn0.d_KySxihEhz1WTZ0ZcEUlwPYfmABkltPZ9R80yUAFHg HTTP/1.1" 404 179
+WARNING 2026-03-16 14:44:44,417 log 24848 20656 Not Found: /ws/notifications/
+WARNING 2026-03-16 14:44:44,421 basehttp 24848 20656 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjc1MDIxLCJpYXQiOjE3NzM2NDYyMjEsImp0aSI6IjVkMTQwNWZlNTc4YzQ4ZThiZjY0ZDBlMDQ4ZWI3MDlmIiwidXNlcl9pZCI6Nn0.d_KySxihEhz1WTZ0ZcEUlwPYfmABkltPZ9R80yUAFHg HTTP/1.1" 404 179
+WARNING 2026-03-16 14:44:44,467 log 24848 13472 Not Found: /ws/notifications/
+WARNING 2026-03-16 14:44:44,471 basehttp 24848 13472 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjc1MDIxLCJpYXQiOjE3NzM2NDYyMjEsImp0aSI6IjVkMTQwNWZlNTc4YzQ4ZThiZjY0ZDBlMDQ4ZWI3MDlmIiwidXNlcl9pZCI6Nn0.d_KySxihEhz1WTZ0ZcEUlwPYfmABkltPZ9R80yUAFHg HTTP/1.1" 404 179
+WARNING 2026-03-16 14:48:51,198 log 24848 25492 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 14:48:51,202 basehttp 24848 25492 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 14:49:18,646 log 24848 13504 Not Found: /ws/notifications/
+WARNING 2026-03-16 14:49:18,649 basehttp 24848 13504 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjc1MDIxLCJpYXQiOjE3NzM2NDYyMjEsImp0aSI6IjVkMTQwNWZlNTc4YzQ4ZThiZjY0ZDBlMDQ4ZWI3MDlmIiwidXNlcl9pZCI6Nn0.d_KySxihEhz1WTZ0ZcEUlwPYfmABkltPZ9R80yUAFHg HTTP/1.1" 404 179
+WARNING 2026-03-16 14:49:18,734 log 24848 24424 Not Found: /ws/notifications/
+WARNING 2026-03-16 14:49:18,737 basehttp 24848 24424 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjc1MDIxLCJpYXQiOjE3NzM2NDYyMjEsImp0aSI6IjVkMTQwNWZlNTc4YzQ4ZThiZjY0ZDBlMDQ4ZWI3MDlmIiwidXNlcl9pZCI6Nn0.d_KySxihEhz1WTZ0ZcEUlwPYfmABkltPZ9R80yUAFHg HTTP/1.1" 404 179
+WARNING 2026-03-16 14:49:20,821 log 24848 25652 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 14:49:20,823 basehttp 24848 25652 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 14:49:32,446 log 24848 21084 Not Found: /ws/notifications/
+WARNING 2026-03-16 14:49:32,448 basehttp 24848 21084 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjgxNTcyLCJpYXQiOjE3NzM2NTI3NzIsImp0aSI6IjE3YTFhNzYxMzQwMTQwYjI5ZWQ1ODU5MTcxZDRkMjY3IiwidXNlcl9pZCI6MX0.Jo7w8nOgVqgFOxtGbexJkS0cKd_dWFk0pM6gWCF_S-E HTTP/1.1" 404 179
+WARNING 2026-03-16 14:49:32,484 log 24848 26040 Not Found: /ws/notifications/
+WARNING 2026-03-16 14:49:32,489 basehttp 24848 26040 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjgxNTcyLCJpYXQiOjE3NzM2NTI3NzIsImp0aSI6IjE3YTFhNzYxMzQwMTQwYjI5ZWQ1ODU5MTcxZDRkMjY3IiwidXNlcl9pZCI6MX0.Jo7w8nOgVqgFOxtGbexJkS0cKd_dWFk0pM6gWCF_S-E HTTP/1.1" 404 179
+WARNING 2026-03-16 15:07:57,750 log 24848 23624 Not Found: /ws/notifications/
+WARNING 2026-03-16 15:07:57,785 basehttp 24848 23624 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjgyNjc3LCJpYXQiOjE3NzM2NTM4NzcsImp0aSI6ImVlZTkzM2E1OGJlODRlNDU4YzI5ZmJjNDg2ZjkwYjZhIiwidXNlcl9pZCI6Nn0.i32Lyyj60Wsek34091ZVtulTWI3NGanKRIrQVbMYN9Q HTTP/1.1" 404 179
+WARNING 2026-03-16 15:07:57,833 log 24848 23200 Not Found: /ws/notifications/
+WARNING 2026-03-16 15:07:57,838 basehttp 24848 23200 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjgyNjc3LCJpYXQiOjE3NzM2NTM4NzcsImp0aSI6ImVlZTkzM2E1OGJlODRlNDU4YzI5ZmJjNDg2ZjkwYjZhIiwidXNlcl9pZCI6Nn0.i32Lyyj60Wsek34091ZVtulTWI3NGanKRIrQVbMYN9Q HTTP/1.1" 404 179
+WARNING 2026-03-16 15:16:56,220 log 24848 11336 Not Found: /ws/notifications/
+WARNING 2026-03-16 15:16:56,230 basehttp 24848 11336 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjgzMjE2LCJpYXQiOjE3NzM2NTQ0MTYsImp0aSI6IjYxMjUxNDZlMjU0NzRkNWFiMjVjOGJjOWE5YjcyZjc1IiwidXNlcl9pZCI6MX0.avoh0TT2IlSNewH2kWnawo-WnAuXKTcQVmWrnonOWIc HTTP/1.1" 404 179
+WARNING 2026-03-16 15:16:56,307 log 24848 16136 Not Found: /ws/notifications/
+WARNING 2026-03-16 15:16:56,311 basehttp 24848 16136 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjgzMjE2LCJpYXQiOjE3NzM2NTQ0MTYsImp0aSI6IjYxMjUxNDZlMjU0NzRkNWFiMjVjOGJjOWE5YjcyZjc1IiwidXNlcl9pZCI6MX0.avoh0TT2IlSNewH2kWnawo-WnAuXKTcQVmWrnonOWIc HTTP/1.1" 404 179
+WARNING 2026-03-16 15:17:20,304 log 24848 22600 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 15:17:20,306 basehttp 24848 22600 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 15:25:24,005 log 24848 9316 Bad Request: /api/v1/projects/6/
+WARNING 2026-03-16 15:25:24,009 basehttp 24848 9316 "PATCH /api/v1/projects/6/ HTTP/1.1" 400 121
+WARNING 2026-03-16 15:26:23,801 log 24848 26456 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 15:26:23,804 basehttp 24848 26456 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 15:33:14,262 log 24848 26164 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 15:33:14,268 basehttp 24848 26164 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 15:35:44,880 log 24848 12696 Bad Request: /api/v1/projects/8/upload_document/
+WARNING 2026-03-16 15:35:44,882 basehttp 24848 12696 "POST /api/v1/projects/8/upload_document/ HTTP/1.1" 400 108
+WARNING 2026-03-16 15:36:37,646 log 24848 5712 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 15:36:37,648 basehttp 24848 5712 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 15:38:41,604 log 24848 24756 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 15:38:41,606 basehttp 24848 24756 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 15:39:08,432 log 24848 19676 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 15:39:08,439 basehttp 24848 19676 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 15:41:45,701 log 24848 1172 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 15:41:45,709 basehttp 24848 1172 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 15:45:34,762 log 24848 2320 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 15:45:34,776 basehttp 24848 2320 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 15:52:33,637 log 24848 6372 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 15:52:33,643 basehttp 24848 6372 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 15:52:40,767 log 24848 6068 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 15:52:40,769 basehttp 24848 6068 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 15:53:07,914 log 24848 9140 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 15:53:07,925 basehttp 24848 9140 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 15:53:54,649 log 24848 24280 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 15:53:54,654 basehttp 24848 24280 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 15:54:41,783 log 24848 11720 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 15:54:41,788 basehttp 24848 11720 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 15:54:53,651 log 24848 18688 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 15:54:53,655 basehttp 24848 18688 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 15:55:12,756 log 24848 22692 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 15:55:12,758 basehttp 24848 22692 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 15:55:28,627 log 24848 9496 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 15:55:28,630 basehttp 24848 9496 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 15:58:33,519 log 24848 23116 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 15:58:33,523 basehttp 24848 23116 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 16:04:05,475 log 24848 26280 Bad Request: /api/v1/projects/8/upload_document/
+WARNING 2026-03-16 16:04:05,477 basehttp 24848 26280 "POST /api/v1/projects/8/upload_document/ HTTP/1.1" 400 108
+WARNING 2026-03-16 16:07:17,563 log 24848 13168 Bad Request: /api/v1/projects/8/upload_document/
+WARNING 2026-03-16 16:07:17,566 basehttp 24848 13168 "POST /api/v1/projects/8/upload_document/ HTTP/1.1" 400 108
+WARNING 2026-03-16 16:12:00,752 log 20380 17164 Not Found: /ws/notifications/
+WARNING 2026-03-16 16:12:00,768 basehttp 20380 17164 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjgzMjE2LCJpYXQiOjE3NzM2NTQ0MTYsImp0aSI6IjYxMjUxNDZlMjU0NzRkNWFiMjVjOGJjOWE5YjcyZjc1IiwidXNlcl9pZCI6MX0.avoh0TT2IlSNewH2kWnawo-WnAuXKTcQVmWrnonOWIc HTTP/1.1" 404 179
+WARNING 2026-03-16 16:12:00,944 log 20380 23652 Not Found: /ws/notifications/
+WARNING 2026-03-16 16:12:00,960 basehttp 20380 23652 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjgzMjE2LCJpYXQiOjE3NzM2NTQ0MTYsImp0aSI6IjYxMjUxNDZlMjU0NzRkNWFiMjVjOGJjOWE5YjcyZjc1IiwidXNlcl9pZCI6MX0.avoh0TT2IlSNewH2kWnawo-WnAuXKTcQVmWrnonOWIc HTTP/1.1" 404 179
+WARNING 2026-03-16 16:12:12,177 log 20380 13504 Bad Request: /api/v1/projects/8/upload_document/
+WARNING 2026-03-16 16:12:12,179 basehttp 20380 13504 "POST /api/v1/projects/8/upload_document/ HTTP/1.1" 400 108
+WARNING 2026-03-16 16:13:00,390 log 20380 22636 Not Found: /ws/notifications/
+WARNING 2026-03-16 16:13:00,393 basehttp 20380 22636 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjgzMjE2LCJpYXQiOjE3NzM2NTQ0MTYsImp0aSI6IjYxMjUxNDZlMjU0NzRkNWFiMjVjOGJjOWE5YjcyZjc1IiwidXNlcl9pZCI6MX0.avoh0TT2IlSNewH2kWnawo-WnAuXKTcQVmWrnonOWIc HTTP/1.1" 404 179
+WARNING 2026-03-16 16:13:00,457 log 20380 13816 Not Found: /ws/notifications/
+WARNING 2026-03-16 16:13:00,460 basehttp 20380 13816 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjgzMjE2LCJpYXQiOjE3NzM2NTQ0MTYsImp0aSI6IjYxMjUxNDZlMjU0NzRkNWFiMjVjOGJjOWE5YjcyZjc1IiwidXNlcl9pZCI6MX0.avoh0TT2IlSNewH2kWnawo-WnAuXKTcQVmWrnonOWIc HTTP/1.1" 404 179
+WARNING 2026-03-16 16:13:16,462 log 20380 13852 Bad Request: /api/v1/projects/8/upload_document/
+WARNING 2026-03-16 16:13:16,465 basehttp 20380 13852 "POST /api/v1/projects/8/upload_document/ HTTP/1.1" 400 108
+WARNING 2026-03-16 16:14:58,950 log 20380 17304 Not Found: /ws/notifications/
+WARNING 2026-03-16 16:14:58,955 basehttp 20380 17304 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjgzMjE2LCJpYXQiOjE3NzM2NTQ0MTYsImp0aSI6IjYxMjUxNDZlMjU0NzRkNWFiMjVjOGJjOWE5YjcyZjc1IiwidXNlcl9pZCI6MX0.avoh0TT2IlSNewH2kWnawo-WnAuXKTcQVmWrnonOWIc HTTP/1.1" 404 179
+WARNING 2026-03-16 16:14:59,058 log 20380 14068 Not Found: /ws/notifications/
+WARNING 2026-03-16 16:14:59,064 basehttp 20380 14068 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjgzMjE2LCJpYXQiOjE3NzM2NTQ0MTYsImp0aSI6IjYxMjUxNDZlMjU0NzRkNWFiMjVjOGJjOWE5YjcyZjc1IiwidXNlcl9pZCI6MX0.avoh0TT2IlSNewH2kWnawo-WnAuXKTcQVmWrnonOWIc HTTP/1.1" 404 179
+WARNING 2026-03-16 16:18:21,328 log 20380 8464 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 16:18:21,331 basehttp 20380 8464 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 16:44:44,208 log 20380 9488 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 16:44:44,214 basehttp 20380 9488 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 16:44:51,218 log 20380 18540 Not Found: /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx
+WARNING 2026-03-16 16:44:51,223 basehttp 20380 18540 "GET /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx HTTP/1.1" 404 179
+WARNING 2026-03-16 16:45:41,913 log 20380 5804 Unauthorized: /api/v1/auth/login/
+WARNING 2026-03-16 16:45:41,916 basehttp 20380 5804 "POST /api/v1/auth/login/ HTTP/1.1" 401 104
+WARNING 2026-03-16 16:46:01,001 log 20380 24716 Unauthorized: /api/v1/auth/login/
+WARNING 2026-03-16 16:46:01,003 basehttp 20380 24716 "POST /api/v1/auth/login/ HTTP/1.1" 401 104
+WARNING 2026-03-16 16:46:22,615 log 20380 10252 Unauthorized: /api/v1/auth/login/
+WARNING 2026-03-16 16:46:22,621 basehttp 20380 10252 "POST /api/v1/auth/login/ HTTP/1.1" 401 104
+WARNING 2026-03-16 16:46:50,914 log 20380 25492 Not Found: /ws/notifications/
+WARNING 2026-03-16 16:46:50,927 basehttp 20380 25492 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjg4NjEwLCJpYXQiOjE3NzM2NTk4MTAsImp0aSI6IjNiYTVkYjg5ODMwYjRhODY4Y2Q1NDFiNjlhZDVjYzBkIiwidXNlcl9pZCI6Nn0.smHMTCnZ-cQaMGOqTemoKpaujNzmSkxsNmzox0kZpoQ HTTP/1.1" 404 179
+WARNING 2026-03-16 16:46:50,987 log 20380 2808 Not Found: /ws/notifications/
+WARNING 2026-03-16 16:46:50,990 basehttp 20380 2808 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjg4NjEwLCJpYXQiOjE3NzM2NTk4MTAsImp0aSI6IjNiYTVkYjg5ODMwYjRhODY4Y2Q1NDFiNjlhZDVjYzBkIiwidXNlcl9pZCI6Nn0.smHMTCnZ-cQaMGOqTemoKpaujNzmSkxsNmzox0kZpoQ HTTP/1.1" 404 179
+WARNING 2026-03-16 16:46:56,218 log 20380 24884 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-16 16:46:56,220 basehttp 20380 24884 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-16 16:46:57,142 log 20380 21472 Not Found: /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx
+WARNING 2026-03-16 16:46:57,143 basehttp 20380 21472 "GET /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx HTTP/1.1" 404 179
+WARNING 2026-03-16 16:47:46,048 log 20380 9188 Not Found: /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx
+WARNING 2026-03-16 16:47:46,050 basehttp 20380 9188 "GET /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx HTTP/1.1" 404 179
+WARNING 2026-03-16 17:05:22,488 log 19772 10252 Not Found: /ws/notifications/
+WARNING 2026-03-16 17:05:22,493 basehttp 19772 10252 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjgzMjE2LCJpYXQiOjE3NzM2NTQ0MTYsImp0aSI6IjYxMjUxNDZlMjU0NzRkNWFiMjVjOGJjOWE5YjcyZjc1IiwidXNlcl9pZCI6MX0.avoh0TT2IlSNewH2kWnawo-WnAuXKTcQVmWrnonOWIc HTTP/1.1" 404 179
+WARNING 2026-03-16 17:05:22,576 log 19772 11496 Not Found: /ws/notifications/
+WARNING 2026-03-16 17:05:22,591 basehttp 19772 11496 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjgzMjE2LCJpYXQiOjE3NzM2NTQ0MTYsImp0aSI6IjYxMjUxNDZlMjU0NzRkNWFiMjVjOGJjOWE5YjcyZjc1IiwidXNlcl9pZCI6MX0.avoh0TT2IlSNewH2kWnawo-WnAuXKTcQVmWrnonOWIc HTTP/1.1" 404 179

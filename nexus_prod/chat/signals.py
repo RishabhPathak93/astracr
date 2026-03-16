@@ -10,6 +10,16 @@ import logging
 logger = logging.getLogger('nexus')
 
 
+def _add_admins_and_managers(room):
+    """Add all active admins and managers to a chat room."""
+    from accounts.models import User
+    staff = User.objects.filter(
+        role__in=[User.Role.ADMIN, User.Role.MANAGER],
+        is_active=True
+    )
+    room.members.add(*staff)
+
+
 @receiver(post_save, sender='projects.Project')
 def create_project_chat_room(sender, instance, created, **kwargs):
     if not created:
@@ -20,9 +30,13 @@ def create_project_chat_room(sender, instance, created, **kwargs):
         defaults={'room_type': 'project', 'name': f'{instance.name} Chat'}
     )
     if was_created:
-        # Add manager immediately
+        # Add manager + all admins/managers
+        _add_admins_and_managers(room)
         if instance.manager:
             room.members.add(instance.manager)
+        # Add already-assigned resources
+        for user in instance.resources.filter(is_active=True):
+            room.members.add(user)
         logger.info('ChatRoom auto-created for project "%s"', instance.name)
 
 

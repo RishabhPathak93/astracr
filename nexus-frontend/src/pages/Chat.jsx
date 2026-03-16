@@ -1,219 +1,648 @@
+/**
+ * Chat.jsx — Polling-based chat (no WebSocket)
+ *
+ * How it works:
+ * 1. Load last 50 messages on room select (REST GET)
+ * 2. Every 2 seconds: GET messages?after=<lastId> → only NEW messages come back
+ * 3. Send message: REST POST → optimistically add to UI instantly
+ * 4. File upload: FormData POST → same endpoint
+ *
+ * No WebSocket, no Daphne, works perfectly in Docker.
+ */
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { Send, MessageSquare, Hash, Wifi, WifiOff } from 'lucide-react'
+import { Send, MessageSquare, Hash, Paperclip, X, File, Download, Edit2, Trash2, CheckCheck } from 'lucide-react'
 import { chatApi } from '@/api/index.js'
 import { Avatar, Spinner, EmptyState } from '@/components/ui/index.jsx'
-import { timeAgo, formatDate } from '@/utils/index.js'
+import { timeAgo } from '@/utils/index.js'
 import { useAuthStore } from '@/stores/authStore.js'
 
-export default function ChatPage() {
-  const [activeRoom, setActiveRoom] = useState(null)
-  const [messages, setMessages] = useState([])
-  const [input, setInput] = useState('')
-  const [connected, setConnected] = useState(false)
-  const [typing, setTyping] = useState(null)
-  const wsRef = useRef(null)
-  const bottomRef = useRef(null)
-  const user = useAuthStore(s => s.user)
-  const accessToken = useAuthStore(s => s.accessToken)
+const POLL_INTERVAL = 3000 // 3 seconds — stays well under 60/min throttle
 
+export default function ChatPage() {
+  const [activeRoom, setActiveRoom]     = useState(null)
+  const [messages, setMessages]         = useState([])
+  const [input, setInput]               = useState('')
+  const [attachment, setAttachment]     = useState(null)
+  const [sending, setSending]           = useState(false)
+  const [loadingMsgs, setLoadingMsgs]   = useState(false)
+  const [selectedMsgs, setSelectedMsgs] = useState(new Set())
+  const selectionMode = selectedMsgs.size > 0
+
+  function toggleSelect(id) {
+    setSelectedMsgs(prev => {
+      const next = new Set(prev)
+      next.has(id) ? next.delete(id) : next.add(id)
+      return next
+    })
+  }
+
+  async function deleteSelected() {
+    for (const id of selectedMsgs) {
+      try { await chatApi.deleteMessage(activeRoom.id, id) } catch {}
+    }
+    setMessages(prev => prev.filter(m => !selectedMsgs.has(m.id)))
+    setSelectedMsgs(new Set())
+  }
+
+  const lastIdRef  = useRef(0)      // track last message id for polling
+  const pollRef    = useRef(null)   // polling interval handle
+  const bottomRef  = useRef(null)
+  const fileRef    = useRef(null)
+  const user       = useAuthStore(s => s.user)
+
+  // ── Load rooms ──────────────────────────────────────────────────────────
   const { data: rooms, isLoading: roomsLoading } = useQuery({
     queryKey: ['chat-rooms'],
     queryFn: () => chatApi.rooms().then(r => r.data.results || r.data),
+    refetchInterval: 30000, // refresh room list every 30s
   })
 
-  // Load message history
+  // ── Load history when room changes ──────────────────────────────────────
   useEffect(() => {
     if (!activeRoom) return
-    chatApi.messages(activeRoom.id, { limit: 50 }).then(r => {
-      setMessages(r.data.results || r.data || [])
-    }).catch(() => {})
+
+    // Reset state
+    setMessages([])
+    lastIdRef.current = 0
+    setLoadingMsgs(true)
+    setSelectedMsgs(new Set())
+
+    chatApi.messages(activeRoom.id, { limit: 50 })
+      .then(r => {
+        const msgs = r.data || []
+        setMessages(msgs)
+        // Track the latest message id
+        if (msgs.length > 0) {
+          lastIdRef.current = msgs[msgs.length - 1].id
+        }
+      })
+      .catch(() => {})
+      .finally(() => setLoadingMsgs(false))
+
+    chatApi.markRead(activeRoom.id).catch(() => {})
   }, [activeRoom?.id])
 
-  // WebSocket connection
+  // ── Polling — fetch only NEW messages every 2 seconds ───────────────────
   useEffect(() => {
-    if (!activeRoom || !accessToken) return
-    const wsBase = window.location.protocol === 'https:' ? 'wss' : 'ws'
-    const wsUrl = `${wsBase}://${window.location.host}/ws/chat/${activeRoom.id}/?token=${accessToken}`
-    const ws = new WebSocket(wsUrl)
-    wsRef.current = ws
+    if (!activeRoom) return
 
-    ws.onopen = () => setConnected(true)
-    ws.onclose = () => setConnected(false)
-    ws.onerror = () => setConnected(false)
+    // Clear any existing poll
+    if (pollRef.current) clearInterval(pollRef.current)
 
-    ws.onmessage = (e) => {
-      const frame = JSON.parse(e.data)
-      if (frame.type === 'message') {
-        setMessages(prev => [...prev, {
-          id: frame.message_id,
-          text: frame.text,
-          sender: { id: frame.sender_id, name: frame.sender_name },
-          created_at: frame.created_at,
-          msg_type: 'text',
-        }])
-      } else if (frame.type === 'typing') {
-        if (frame.user_id !== user?.id) {
-          setTyping(frame.is_typing ? frame.user_name : null)
-          if (frame.is_typing) setTimeout(() => setTyping(null), 3000)
+    pollRef.current = setInterval(async () => {
+      try {
+        const res = await chatApi.messages(activeRoom.id, { after: lastIdRef.current })
+        const newMsgs = res.data || []
+        if (newMsgs.length > 0) {
+          setMessages(prev => {
+            // Avoid duplicates
+            const existingIds = new Set(prev.map(m => m.id))
+            const truly_new = newMsgs.filter(m => !existingIds.has(m.id))
+            if (truly_new.length === 0) return prev
+            lastIdRef.current = truly_new[truly_new.length - 1].id
+            return [...prev, ...truly_new]
+          })
         }
-      } else if (frame.type === 'edited') {
-        setMessages(prev => prev.map(m => m.id === frame.message_id ? { ...m, text: frame.text, is_edited: true } : m))
-      }
-    }
+      } catch {}
+    }, POLL_INTERVAL)
 
-    return () => ws.close()
-  }, [activeRoom?.id, accessToken])
+    return () => clearInterval(pollRef.current)
+  }, [activeRoom?.id])
 
-  // Auto-scroll
+  // ── Auto-scroll when messages arrive ────────────────────────────────────
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
 
-  function sendMessage(e) {
-    e.preventDefault()
-    if (!input.trim() || !connected) return
-    wsRef.current?.send(JSON.stringify({ action: 'message', text: input.trim() }))
-    setInput('')
+  // ── Pick file ────────────────────────────────────────────────────────────
+  function pickFile(e) {
+    const file = e.target.files?.[0]
+    if (!file) return
+    const isImage = file.type.startsWith('image/')
+    setAttachment({
+      file,
+      previewUrl: isImage ? URL.createObjectURL(file) : null,
+      isImage,
+      name: file.name,
+      size: (file.size / 1024).toFixed(1) + ' KB',
+    })
+    e.target.value = ''
   }
 
-  function handleTyping() {
-    wsRef.current?.send(JSON.stringify({ action: 'typing', is_typing: true }))
+  // ── Send message ─────────────────────────────────────────────────────────
+  async function sendMessage(e) {
+    e.preventDefault()
+    if ((!input.trim() && !attachment) || sending) return
+
+    setSending(true)
+
+    // Optimistic update — add to UI immediately
+    const optimisticMsg = {
+      id: `temp-${Date.now()}`,
+      text: input.trim() || (attachment?.name ?? ''),
+      sender_detail: { id: user?.id, name: user?.name },
+      sender: { id: user?.id, name: user?.name },
+      created_at: new Date().toISOString(),
+      msg_type: attachment?.isImage ? 'image' : attachment ? 'file' : 'text',
+      attachment_url: attachment?.previewUrl || null,
+      attachment_name: attachment?.name || null,
+      _sending: true,
+    }
+    setMessages(prev => [...prev, optimisticMsg])
+    const textToSend = input.trim()
+    const attachToSend = attachment
+    setInput('')
+    setAttachment(null)
+
+    try {
+      let res
+      if (attachToSend) {
+        const fd = new FormData()
+        fd.append('file', attachToSend.file)
+        if (textToSend) fd.append('text', textToSend)
+        res = await chatApi.sendMessage(activeRoom.id, fd)
+      } else {
+        res = await chatApi.sendMessage(activeRoom.id, { text: textToSend })
+      }
+
+      // Replace optimistic with real message
+      const realMsg = res.data
+      setMessages(prev => prev.map(m =>
+        m.id === optimisticMsg.id ? { ...realMsg, _sending: false } : m
+      ))
+      lastIdRef.current = Math.max(lastIdRef.current, realMsg.id)
+
+    } catch (err) {
+      // Remove optimistic on error
+      setMessages(prev => prev.filter(m => m.id !== optimisticMsg.id))
+      alert('Failed to send message. Try again.')
+    } finally {
+      setSending(false)
+    }
   }
+
+  const projectRooms = (rooms || []).filter(r => r.room_type === 'project')
+  const directRooms  = (rooms || []).filter(r => r.room_type === 'direct')
 
   return (
-    <div style={{ display: 'flex', height: 'calc(100vh - 140px)', border: '1px solid var(--border)', borderRadius: 'var(--r-xl)', overflow: 'hidden', background: 'var(--bg-1)' }}>
-      {/* Rooms sidebar */}
-      <div style={{ width: 240, borderRight: '1px solid var(--border)', display: 'flex', flexDirection: 'column', background: 'var(--bg-2)' }}>
-        <div style={{ padding: 'var(--sp-4) var(--sp-5)', borderBottom: '1px solid var(--border)' }}>
-          <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '0.9rem' }}>Chat Rooms</h3>
+    <div style={{
+      display: 'flex', height: 'calc(100vh - 100px)',
+      border: '1px solid var(--border)', borderRadius: 'var(--r-xl)',
+      overflow: 'hidden', background: 'var(--bg-1)',
+    }}>
+
+      {/* ── Sidebar ─────────────────────────────────────────────────────── */}
+      <div style={{
+        width: 250, borderRight: '1px solid var(--border)',
+        display: 'flex', flexDirection: 'column',
+        background: 'var(--bg-2)', flexShrink: 0,
+      }}>
+        <div style={{ padding: '14px 16px', borderBottom: '1px solid var(--border)' }}>
+          <span style={{ fontWeight: 700, fontSize: '14px' }}>Chat</span>
         </div>
-        <div style={{ flex: 1, overflowY: 'auto', padding: 'var(--sp-2)' }}>
+
+        <div style={{ flex: 1, overflowY: 'auto', padding: '8px' }}>
           {roomsLoading ? (
-            <div style={{ display: 'flex', justifyContent: 'center', padding: 'var(--sp-6)' }}><Spinner size={20} /></div>
-          ) : !rooms?.length ? (
-            <p style={{ color: 'var(--text-3)', fontSize: '12px', padding: 'var(--sp-4)' }}>No rooms available</p>
+            <div style={{ display: 'flex', justifyContent: 'center', padding: '24px' }}>
+              <Spinner size={18} />
+            </div>
           ) : (
-            rooms.map(room => (
-              <button
-                key={room.id}
-                onClick={() => setActiveRoom(room)}
-                style={{
-                  width: '100%', display: 'flex', alignItems: 'center', gap: 'var(--sp-3)',
-                  padding: '10px 12px', border: 'none', borderRadius: 'var(--r-md)',
-                  background: activeRoom?.id === room.id ? 'var(--accent-dim)' : 'transparent',
-                  cursor: 'pointer', textAlign: 'left', transition: 'background var(--t-fast)',
-                  color: activeRoom?.id === room.id ? 'var(--accent)' : 'var(--text-1)',
-                }}
-                onMouseEnter={e => activeRoom?.id !== room.id && (e.currentTarget.style.background = 'var(--bg-3)')}
-                onMouseLeave={e => activeRoom?.id !== room.id && (e.currentTarget.style.background = 'transparent')}
-              >
-                <Hash size={14} />
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontSize: '13px', fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                    {room.project?.name || room.name || `Room ${room.id}`}
+            <>
+              {projectRooms.length > 0 && (
+                <div style={{ marginBottom: '8px' }}>
+                  <div style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-3)', textTransform: 'uppercase', letterSpacing: '0.1em', padding: '6px 8px 4px' }}>
+                    Projects
                   </div>
-                  <div style={{ fontSize: '10px', color: 'var(--text-3)' }}>{room.room_type}</div>
+                  {projectRooms.map(room => (
+                    <RoomBtn
+                      key={room.id}
+                      room={room}
+                      active={activeRoom?.id === room.id}
+                      onClick={() => setActiveRoom(room)}
+                      unread={room.unread_count || 0}
+                    />
+                  ))}
                 </div>
-              </button>
-            ))
+              )}
+
+              {directRooms.length > 0 && (
+                <div>
+                  <div style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-3)', textTransform: 'uppercase', letterSpacing: '0.1em', padding: '6px 8px 4px' }}>
+                    Direct Messages
+                  </div>
+                  {directRooms.map(room => (
+                    <RoomBtn
+                      key={room.id}
+                      room={room}
+                      active={activeRoom?.id === room.id}
+                      onClick={() => setActiveRoom(room)}
+                      unread={room.unread_count || 0}
+                    />
+                  ))}
+                </div>
+              )}
+
+              {!rooms?.length && (
+                <p style={{ color: 'var(--text-3)', fontSize: '12px', padding: '12px 8px' }}>
+                  No rooms yet. Create a project to get a chat room!
+                </p>
+              )}
+            </>
           )}
         </div>
       </div>
 
-      {/* Chat area */}
+      {/* ── Main area ───────────────────────────────────────────────────── */}
       {!activeRoom ? (
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <EmptyState icon={MessageSquare} title="Select a room" description="Choose a chat room from the sidebar to start messaging." />
+          <EmptyState
+            icon={MessageSquare}
+            title="Select a room"
+            description="Choose a project chat from the sidebar."
+          />
         </div>
       ) : (
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', minWidth: 0 }}>
+
           {/* Room header */}
-          <div style={{ padding: 'var(--sp-4) var(--sp-5)', borderBottom: '1px solid var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--sp-2)' }}>
-              <Hash size={14} color="var(--text-3)" />
-              <span style={{ fontWeight: 600, fontSize: '14px' }}>{activeRoom.project?.name || activeRoom.name}</span>
+          <div style={{
+            padding: '12px 20px', borderBottom: '1px solid var(--border)',
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexShrink: 0,
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Avatar name={activeRoom.project_name || activeRoom.name} size={30} />
+              <span style={{ fontWeight: 600, fontSize: '14px' }}>
+                {activeRoom.project_name || activeRoom.name}
+              </span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '11px', color: connected ? 'var(--success)' : 'var(--text-3)' }}>
-              {connected ? <Wifi size={12} /> : <WifiOff size={12} />}
-              {connected ? 'Connected' : 'Disconnected'}
+            {/* Polling indicator — subtle green dot */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '11px', color: 'var(--success)' }}>
+              <div style={{
+                width: 7, height: 7, borderRadius: '50%',
+                background: 'var(--success)',
+                animation: 'pulse 2s infinite',
+              }} />
+              Live
             </div>
           </div>
 
-          {/* Messages */}
-          <div style={{ flex: 1, overflowY: 'auto', padding: 'var(--sp-5)', display: 'flex', flexDirection: 'column', gap: 'var(--sp-4)' }}>
-            {messages.length === 0 && (
-              <div style={{ display: 'flex', justifyContent: 'center', color: 'var(--text-3)', fontSize: '13px', marginTop: 'var(--sp-8)' }}>
-                No messages yet. Say hello!
+          {/* Messages area */}
+          <div style={{
+            flex: 1, overflowY: 'auto',
+            padding: '16px 20px',
+            display: 'flex', flexDirection: 'column', gap: '2px',
+          }}>
+            {loadingMsgs ? (
+              <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
+                <Spinner size={24} />
               </div>
-            )}
-            {messages.map((msg, i) => {
-              const isOwn = msg.sender?.id === user?.id
-              const prevSame = i > 0 && messages[i-1].sender?.id === msg.sender?.id
-              return (
-                <div key={msg.id || i} style={{ display: 'flex', gap: 'var(--sp-3)', alignItems: 'flex-start', flexDirection: isOwn ? 'row-reverse' : 'row' }}>
-                  {!prevSame ? (
-                    <Avatar name={msg.sender?.name} size={30} />
-                  ) : (
-                    <div style={{ width: 30, flexShrink: 0 }} />
-                  )}
-                  <div style={{ maxWidth: '70%', display: 'flex', flexDirection: 'column', gap: 2, alignItems: isOwn ? 'flex-end' : 'flex-start' }}>
-                    {!prevSame && (
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--sp-2)', flexDirection: isOwn ? 'row-reverse' : 'row' }}>
-                        <span style={{ fontSize: '12px', fontWeight: 600 }}>{isOwn ? 'You' : msg.sender?.name}</span>
-                        <span style={{ fontSize: '10px', color: 'var(--text-3)', fontFamily: 'var(--font-mono)' }}>{timeAgo(msg.created_at)}</span>
-                      </div>
-                    )}
-                    <div style={{
-                      padding: '8px 12px', borderRadius: isOwn ? '12px 12px 2px 12px' : '12px 12px 12px 2px',
-                      background: isOwn ? 'var(--accent)' : 'var(--bg-3)',
-                      color: isOwn ? '#0a0a0a' : 'var(--text-0)',
-                      fontSize: '13px', lineHeight: 1.5,
-                    }}>
-                      {msg.text}
-                      {msg.is_edited && <span style={{ fontSize: '10px', opacity: 0.6, marginLeft: 4 }}>(edited)</span>}
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-            {typing && (
-              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--sp-2)', color: 'var(--text-3)', fontSize: '12px', fontStyle: 'italic' }}>
-                <div style={{ display: 'flex', gap: 3 }}>
-                  {[0, 1, 2].map(i => <div key={i} style={{ width: 5, height: 5, borderRadius: '50%', background: 'var(--text-3)', animation: `pulse 1.2s ease-in-out ${i * 0.2}s infinite` }} />)}
-                </div>
-                {typing} is typing…
+            ) : messages.length === 0 ? (
+              <div style={{ display: 'flex', justifyContent: 'center', color: 'var(--text-3)', fontSize: '13px', marginTop: '40px' }}>
+                No messages yet — say hello!
               </div>
+            ) : (
+              messages.map((msg, i) => {
+                const isOwn    = (msg.sender_detail?.id || msg.sender?.id) === user?.id
+                const prevMsg  = messages[i - 1]
+                const prevSame = prevMsg &&
+                  (prevMsg.sender_detail?.id || prevMsg.sender?.id) === (msg.sender_detail?.id || msg.sender?.id) &&
+                  (new Date(msg.created_at) - new Date(prevMsg.created_at)) < 300000
+                return (
+                  <MessageBubble
+                    key={msg.id}
+                    msg={msg}
+                    isOwn={isOwn}
+                    prevSame={prevSame}
+                    selected={selectedMsgs.has(msg.id)}
+                    selectionMode={selectionMode}
+                    onSelect={toggleSelect}
+                    onEdit={async (newText) => {
+                      try {
+                        const res = await chatApi.editMessage(activeRoom.id, msg.id, newText)
+                        setMessages(prev => prev.map(m => m.id === msg.id ? res.data : m))
+                      } catch {}
+                    }}
+                    onDelete={async () => {
+                      try {
+                        await chatApi.deleteMessage(activeRoom.id, msg.id)
+                        setMessages(prev => prev.filter(m => m.id !== msg.id))
+                      } catch {}
+                    }}
+                  />
+                )
+              })
             )}
             <div ref={bottomRef} />
           </div>
 
-          {/* Input */}
-          <form onSubmit={sendMessage} style={{ padding: 'var(--sp-4) var(--sp-5)', borderTop: '1px solid var(--border)', display: 'flex', gap: 'var(--sp-3)', alignItems: 'center' }}>
+          {/* Selection action bar */}
+          {selectionMode && (
+            <div style={{ padding: '8px 16px', borderTop: '1px solid var(--border)', background: 'var(--bg-2)', display: 'flex', alignItems: 'center', gap: 10 }}>
+              <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-1)', flex: 1 }}>
+                {selectedMsgs.size} selected
+              </span>
+              <button onClick={deleteSelected}
+                style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'rgba(248,113,113,0.12)', border: '1px solid rgba(248,113,113,0.3)', borderRadius: 'var(--r-md)', color: 'var(--danger)', fontSize: '12px', fontWeight: 600, padding: '6px 14px', cursor: 'pointer' }}>
+                <Trash2 size={13} /> Delete {selectedMsgs.size}
+              </button>
+              <button onClick={() => setSelectedMsgs(new Set())}
+                style={{ background: 'none', border: '1px solid var(--border)', borderRadius: 'var(--r-md)', color: 'var(--text-2)', fontSize: '12px', padding: '6px 12px', cursor: 'pointer' }}>
+                Cancel
+              </button>
+            </div>
+          )}
+
+          {/* Attachment preview */}
+          {attachment && (
+            <div style={{
+              padding: '8px 16px', borderTop: '1px solid var(--border)',
+              background: 'var(--bg-2)', display: 'flex', alignItems: 'center', gap: '12px',
+            }}>
+              {attachment.previewUrl ? (
+                <img src={attachment.previewUrl} style={{ height: 52, width: 52, objectFit: 'cover', borderRadius: 6 }} alt="" />
+              ) : (
+                <div style={{ width: 52, height: 52, background: 'var(--bg-3)', borderRadius: 6, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <File size={20} color="var(--text-3)" />
+                </div>
+              )}
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontSize: '12px', fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{attachment.name}</div>
+                <div style={{ fontSize: '11px', color: 'var(--text-3)' }}>{attachment.size}</div>
+              </div>
+              <button onClick={() => setAttachment(null)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-3)', padding: 4 }}>
+                <X size={15} />
+              </button>
+            </div>
+          )}
+
+          {/* Input bar */}
+          <form onSubmit={sendMessage} style={{
+            padding: '10px 14px', borderTop: '1px solid var(--border)',
+            display: 'flex', gap: '8px', alignItems: 'center', flexShrink: 0,
+          }}>
+            <button type="button" onClick={() => fileRef.current?.click()}
+              style={{
+                background: 'none', border: 'none', cursor: 'pointer',
+                color: 'var(--text-3)', padding: '7px', borderRadius: 'var(--r-md)',
+                flexShrink: 0, transition: 'color var(--t-fast)',
+              }}
+              onMouseEnter={e => e.currentTarget.style.color = 'var(--accent)'}
+              onMouseLeave={e => e.currentTarget.style.color = 'var(--text-3)'}>
+              <Paperclip size={17} />
+            </button>
+            <input ref={fileRef} type="file" hidden onChange={pickFile}
+              accept="image/*,.pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.zip" />
+
             <input
               value={input}
-              onChange={e => { setInput(e.target.value); handleTyping() }}
-              placeholder={connected ? `Message #${activeRoom.project?.name || 'room'}…` : 'Connect to send messages'}
-              disabled={!connected}
+              onChange={e => setInput(e.target.value)}
+              onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) sendMessage(e) }}
+              placeholder={`Message ${activeRoom.project_name || activeRoom.name}…`}
               style={{
                 flex: 1, background: 'var(--bg-2)', border: '1px solid var(--border)',
                 borderRadius: 'var(--r-full)', color: 'var(--text-0)', fontSize: '13px',
-                padding: '9px 16px', outline: 'none',
+                padding: '9px 16px', outline: 'none', transition: 'border-color var(--t-fast)',
               }}
               onFocus={e => e.target.style.borderColor = 'var(--accent)'}
               onBlur={e => e.target.style.borderColor = 'var(--border)'}
             />
-            <button type="submit" disabled={!input.trim() || !connected} style={{
-              width: 38, height: 38, borderRadius: '50%', border: 'none',
-              background: input.trim() && connected ? 'var(--accent)' : 'var(--bg-3)',
-              color: input.trim() && connected ? '#0a0a0a' : 'var(--text-3)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              cursor: input.trim() && connected ? 'pointer' : 'not-allowed',
-              transition: 'all var(--t-fast)', flexShrink: 0,
-            }}>
-              <Send size={16} />
+            <button type="submit"
+              disabled={(!input.trim() && !attachment) || sending}
+              style={{
+                width: 36, height: 36, borderRadius: '50%', border: 'none', flexShrink: 0,
+                background: (input.trim() || attachment) ? 'var(--accent)' : 'var(--bg-3)',
+                color: (input.trim() || attachment) ? '#0a0a0a' : 'var(--text-3)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                cursor: (input.trim() || attachment) ? 'pointer' : 'not-allowed',
+                transition: 'all var(--t-fast)',
+              }}>
+              {sending ? <Spinner size={13} /> : <Send size={14} />}
             </button>
           </form>
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ── Room button in sidebar ───────────────────────────────────────────────────
+function RoomBtn({ room, active, onClick, unread }) {
+  return (
+    <button onClick={onClick} style={{
+      width: '100%', display: 'flex', alignItems: 'center', gap: '8px',
+      padding: '8px 10px', border: 'none', borderRadius: 'var(--r-md)',
+      background: active ? 'var(--accent-dim)' : 'transparent',
+      cursor: 'pointer', textAlign: 'left',
+      color: active ? 'var(--accent)' : 'var(--text-2)',
+      transition: 'background var(--t-fast)',
+    }}
+    onMouseEnter={e => !active && (e.currentTarget.style.background = 'var(--bg-3)')}
+    onMouseLeave={e => !active && (e.currentTarget.style.background = 'transparent')}>
+      <Avatar name={room.project_name || room.name} size={28} />
+      <span style={{
+        fontSize: '13px', fontWeight: active ? 600 : unread > 0 ? 600 : 400,
+        flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+      }}>
+        {room.project_name || room.name || `Room ${room.id}`}
+      </span>
+      {unread > 0 && !active && (
+        <span style={{
+          background: 'var(--accent)', color: '#0a0a0a',
+          borderRadius: 'var(--r-full)', fontSize: '10px', fontWeight: 700,
+          padding: '1px 6px', flexShrink: 0,
+        }}>
+          {unread > 99 ? '99+' : unread}
+        </span>
+      )}
+    </button>
+  )
+}
+
+// ── Single message bubble ────────────────────────────────────────────────────
+function MessageBubble({ msg, isOwn, prevSame, onEdit, onDelete, selected, onSelect, selectionMode }) {
+  const senderName  = msg.sender_detail?.name || msg.sender?.name || '?'
+  const isFile      = msg.msg_type === 'file'
+  const isImage     = msg.msg_type === 'image'
+  const isSending   = msg._sending
+  const fileUrl     = msg.attachment_url
+  const fileName    = msg.attachment_name || msg.text || 'file'
+  const [hovered, setHovered]   = useState(false)
+  const [editing, setEditing]   = useState(false)
+  const [editText, setEditText] = useState(msg.text || '')
+  const [showMenu, setShowMenu] = useState(false)
+  const menuRef = useRef(null)
+
+  // Close menu on outside click
+  useEffect(() => {
+    if (!showMenu) return
+    function handle(e) { if (!menuRef.current?.contains(e.target)) setShowMenu(false) }
+    document.addEventListener('mousedown', handle)
+    return () => document.removeEventListener('mousedown', handle)
+  }, [showMenu])
+
+  async function submitEdit() {
+    if (!editText.trim() || editText === msg.text) { setEditing(false); return }
+    await onEdit(editText.trim())
+    setEditing(false)
+    setShowMenu(false)
+  }
+
+  const bubbleBg    = isOwn ? 'var(--accent)' : 'var(--bg-3)'
+  const bubbleColor = isOwn ? '#0a0a0a' : 'var(--text-0)'
+  const br          = isOwn ? '18px 18px 4px 18px' : '18px 18px 18px 4px'
+
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => { setHovered(false) }}
+      onClick={() => selectionMode && onSelect(msg.id)}
+      style={{
+        display: 'flex', gap: '10px',
+        flexDirection: isOwn ? 'row-reverse' : 'row',
+        alignItems: 'flex-end',
+        marginTop: prevSame ? 2 : 16,
+        opacity: isSending ? 0.5 : 1,
+        padding: '2px 4px',
+        borderRadius: 'var(--r-md)',
+        background: selected ? 'rgba(99,102,241,0.08)' : 'transparent',
+        cursor: selectionMode ? 'pointer' : 'default',
+        transition: 'background 0.15s',
+        position: 'relative',
+      }}>
+
+      {/* Selection checkbox */}
+      {selectionMode && (
+        <div style={{
+          width: 18, height: 18, borderRadius: '50%', flexShrink: 0,
+          border: `2px solid ${selected ? 'var(--accent)' : 'var(--border)'}`,
+          background: selected ? 'var(--accent)' : 'transparent',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          alignSelf: 'center', transition: 'all 0.15s',
+        }}>
+          {selected && <span style={{ fontSize: '10px', color: '#0a0a0a', fontWeight: 800 }}>✓</span>}
+        </div>
+      )}
+
+      {/* Avatar */}
+      {!prevSame ? (
+        <Avatar name={senderName} size={30} style={{ flexShrink: 0, marginBottom: 2 }} />
+      ) : (
+        <div style={{ width: 30, flexShrink: 0 }} />
+      )}
+
+      {/* Bubble column */}
+      <div style={{ maxWidth: '65%', display: 'flex', flexDirection: 'column', gap: 3, alignItems: isOwn ? 'flex-end' : 'flex-start' }}>
+
+        {/* Name + time */}
+        {!prevSame && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexDirection: isOwn ? 'row-reverse' : 'row' }}>
+            <span style={{ fontSize: '12px', fontWeight: 600, color: 'var(--text-1)' }}>{isOwn ? 'You' : senderName}</span>
+            <span style={{ fontSize: '10px', color: 'var(--text-3)', fontFamily: 'var(--font-mono)' }}>{timeAgo(msg.created_at)}</span>
+          </div>
+        )}
+
+        {/* Edit input */}
+        {editing ? (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6, minWidth: 240 }}>
+            <input value={editText} onChange={e => setEditText(e.target.value)}
+              onKeyDown={e => { if (e.key === 'Enter') submitEdit(); if (e.key === 'Escape') setEditing(false) }}
+              autoFocus
+              style={{ background: 'var(--bg-2)', border: '1.5px solid var(--accent)', borderRadius: 'var(--r-md)', color: 'var(--text-0)', fontSize: '13px', padding: '8px 12px', outline: 'none', width: '100%' }}
+            />
+            <div style={{ display: 'flex', gap: 6, justifyContent: 'flex-end' }}>
+              <button onClick={() => setEditing(false)}
+                style={{ background: 'none', border: '1px solid var(--border)', borderRadius: 'var(--r-md)', color: 'var(--text-2)', fontSize: '12px', padding: '5px 12px', cursor: 'pointer' }}>
+                Cancel
+              </button>
+              <button onClick={submitEdit}
+                style={{ background: 'var(--accent)', border: 'none', borderRadius: 'var(--r-md)', color: '#0a0a0a', fontSize: '12px', fontWeight: 700, padding: '5px 14px', cursor: 'pointer' }}>
+                Save
+              </button>
+            </div>
+            <span style={{ fontSize: '10px', color: 'var(--text-3)' }}>Enter to save · Esc to cancel</span>
+          </div>
+
+        /* Normal bubble */
+        ) : isImage && fileUrl ? (
+          <div style={{ borderRadius: 12, overflow: 'hidden', border: '1px solid var(--border)', cursor: 'pointer' }}
+            onClick={() => window.open(fileUrl, '_blank')}>
+            <img src={fileUrl} style={{ maxWidth: 300, maxHeight: 220, display: 'block' }} alt={fileName}
+              onError={e => { e.currentTarget.style.display = 'none' }} />
+          </div>
+        ) : isFile && fileUrl ? (
+          <a href={fileUrl} download={fileName} target="_blank" rel="noopener noreferrer"
+            style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 14px', borderRadius: br, background: bubbleBg, color: isOwn ? '#0a0a0a' : 'var(--accent)', textDecoration: 'none', maxWidth: 260 }}>
+            <div style={{ width: 32, height: 32, borderRadius: 8, background: isOwn ? 'rgba(0,0,0,0.15)' : 'var(--bg-4)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <File size={16} />
+            </div>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ fontSize: '12px', fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{fileName}</div>
+              <div style={{ fontSize: '10px', opacity: 0.6, marginTop: 1 }}>Click to download</div>
+            </div>
+            <Download size={14} style={{ flexShrink: 0 }} />
+          </a>
+        ) : (
+          <div style={{ padding: '9px 14px', borderRadius: br, background: bubbleBg, color: bubbleColor, fontSize: '13px', lineHeight: 1.6, wordBreak: 'break-word' }}>
+            {msg.text}
+            {msg.is_edited && <span style={{ fontSize: '10px', opacity: 0.45, marginLeft: 6, fontStyle: 'italic' }}>edited</span>}
+          </div>
+        )}
+
+        {isSending && <span style={{ fontSize: '10px', color: 'var(--text-3)' }}>Sending…</span>}
+      </div>
+
+      {/* ── 3-dot context menu button — appears on hover, own messages only ── */}
+      {isOwn && hovered && !isSending && !editing && !selectionMode && (
+        <div style={{ alignSelf: 'center', position: 'relative' }} ref={menuRef}>
+          <button
+            onClick={e => { e.stopPropagation(); setShowMenu(v => !v) }}
+            style={{
+              width: 28, height: 28, borderRadius: '50%',
+              background: showMenu ? 'var(--bg-4)' : 'var(--bg-3)',
+              border: '1px solid var(--border)',
+              cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+              color: 'var(--text-2)', fontSize: '14px', transition: 'all var(--t-fast)',
+              flexShrink: 0,
+            }}
+            onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-4)'}
+            onMouseLeave={e => !showMenu && (e.currentTarget.style.background = 'var(--bg-3)')}>
+            ···
+          </button>
+
+          {showMenu && (
+            <div style={{
+              position: 'absolute', bottom: 34, right: 0,
+              background: 'var(--bg-1)', border: '1px solid var(--border)',
+              borderRadius: 'var(--r-md)', boxShadow: 'var(--shadow-md)',
+              minWidth: 130, overflow: 'hidden', zIndex: 100,
+            }}>
+              {!isFile && !isImage && (
+                <button
+                  onClick={() => { setEditText(msg.text); setEditing(true); setShowMenu(false) }}
+                  style={{ width: '100%', display: 'flex', alignItems: 'center', gap: 8, padding: '9px 14px', background: 'none', border: 'none', cursor: 'pointer', fontSize: '13px', color: 'var(--text-1)', textAlign: 'left', transition: 'background var(--t-fast)' }}
+                  onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-2)'}
+                  onMouseLeave={e => e.currentTarget.style.background = 'none'}>
+                  <Edit2 size={13} /> Edit
+                </button>
+              )}
+              <button
+                onClick={() => { onSelect(msg.id); setShowMenu(false) }}
+                style={{ width: '100%', display: 'flex', alignItems: 'center', gap: 8, padding: '9px 14px', background: 'none', border: 'none', cursor: 'pointer', fontSize: '13px', color: 'var(--text-1)', textAlign: 'left', transition: 'background var(--t-fast)' }}
+                onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-2)'}
+                onMouseLeave={e => e.currentTarget.style.background = 'none'}>
+                <CheckCheck size={13} /> Select
+              </button>
+              <div style={{ height: 1, background: 'var(--border)', margin: '2px 0' }} />
+              <button
+                onClick={() => { onDelete(); setShowMenu(false) }}
+                style={{ width: '100%', display: 'flex', alignItems: 'center', gap: 8, padding: '9px 14px', background: 'none', border: 'none', cursor: 'pointer', fontSize: '13px', color: 'var(--danger)', textAlign: 'left', transition: 'background var(--t-fast)' }}
+                onMouseEnter={e => e.currentTarget.style.background = 'rgba(248,113,113,0.08)'}
+                onMouseLeave={e => e.currentTarget.style.background = 'none'}>
+                <Trash2 size={13} /> Delete
+              </button>
+            </div>
+          )}
         </div>
       )}
     </div>

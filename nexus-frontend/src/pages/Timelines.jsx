@@ -11,7 +11,7 @@ const sel = { width: '100%', background: 'var(--bg-2)', border: '1px solid var(-
 export default function TimelinesPage() {
   const qc = useQueryClient()
   const user = useAuthStore(s => s.user)
-  const canEdit = user?.role === 'admin' || user?.role === 'manager'
+  const canEdit = user?.role === 'admin' || user?.role === 'manager' || user?.role === 'resource'
   const [showCreate, setShowCreate] = useState(false)
 
   const { data, isLoading } = useQuery({

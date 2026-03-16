@@ -30,7 +30,7 @@ export default function ProjectDetailPage() {
   const [form, setForm] = useState(null)
 
   const user = useAuthStore(s => s.user)
-  const canEdit = user?.role === 'admin' || user?.role === 'manager'
+  const canEdit = user?.role === 'admin' || user?.role === 'manager' || user?.role === 'resource'
 
   const { data: project, isLoading } = useQuery({
     queryKey: ['project', id],
@@ -291,8 +291,8 @@ function MetricBox({ icon: Icon, label, value, accent, sub }) {
 
 function ProjectProgressBar({ project: p, canEdit, onRefresh }) {
   const [localVal, setLocalVal] = useState(p.progress ?? 0)
-  const [saving, setSaving] = useState(false)
-  const [dirty, setDirty] = useState(false)
+  const [saving, setSaving]     = useState(false)
+  const [dirty, setDirty]       = useState(false)
 
   React.useEffect(() => { setLocalVal(p.progress ?? 0); setDirty(false) }, [p.progress])
 
@@ -305,9 +305,14 @@ function ProjectProgressBar({ project: p, canEdit, onRefresh }) {
   const color = localVal === 100 ? 'var(--success)' : localVal >= 60 ? 'var(--accent)' : localVal >= 30 ? 'var(--warning)' : 'var(--danger)'
 
   return (
-    <div style={{ background: 'var(--bg-1)', border: `1px solid ${dirty ? 'var(--accent)' : 'var(--border)'}`, borderRadius: 'var(--r-lg)', padding: 'var(--sp-5)', transition: 'border-color 0.2s' }}>
-      {/* Label + % */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+    <div style={{
+      background: 'var(--bg-1)',
+      border: `1px solid ${dirty ? 'var(--accent)' : 'var(--border)'}`,
+      borderRadius: 'var(--r-lg)', padding: 'var(--sp-5)',
+      transition: 'border-color 0.2s',
+    }}>
+      {/* Label row */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--sp-3)' }}>
           <span style={{ fontWeight: 600, fontSize: '13px' }}>Overall Progress</span>
           {p.timelines_count > 0 && (
@@ -316,28 +321,37 @@ function ProjectProgressBar({ project: p, canEdit, onRefresh }) {
             </span>
           )}
         </div>
-        <span style={{ fontSize: '20px', fontFamily: 'var(--font-mono)', fontWeight: 800, color }}>{localVal}%</span>
-      </div>
-
-      {/* Fat display bar */}
-      <div style={{ height: 18, background: 'var(--bg-3)', borderRadius: 99, overflow: 'hidden' }}>
-        <div style={{ height: '100%', width: `${localVal}%`, background: color, borderRadius: 99, transition: 'width 0.15s ease' }} />
-      </div>
-
-      {/* Thin range slider below — only for editing */}
-      {canEdit && (
-        <div style={{ marginTop: 10, display: 'flex', alignItems: 'center', gap: 10 }}>
-          <input type="range" min="0" max="100" value={localVal}
-            onChange={e => { setLocalVal(parseInt(e.target.value)); setDirty(true) }}
-            style={{ flex: 1, accentColor: color, cursor: 'pointer', height: 2, opacity: 0.7 }} />
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          <span style={{ fontSize: '22px', fontFamily: 'var(--font-mono)', fontWeight: 800, color }}>{localVal}%</span>
           {dirty && (
-            <Btn size="sm" loading={saving} onClick={save}
-              style={{ background: color, borderColor: color, color: '#0a0a0a', fontWeight: 700, flexShrink: 0 }}>
-              Save
-            </Btn>
+            <button onClick={save} disabled={saving}
+              style={{
+                background: color, border: 'none', borderRadius: 'var(--r-md)',
+                color: '#0a0a0a', fontSize: '12px', fontWeight: 700,
+                padding: '5px 14px', cursor: 'pointer', transition: 'opacity 0.15s',
+                opacity: saving ? 0.6 : 1,
+              }}>
+              {saving ? 'Saving…' : 'Save'}
+            </button>
           )}
         </div>
-      )}
+      </div>
+
+      {/* Single combined bar — shows progress + acts as slider */}
+      <div style={{ position: 'relative', height: 20, borderRadius: 99, background: 'var(--bg-3)', overflow: 'hidden', cursor: canEdit ? 'pointer' : 'default' }}>
+        {/* Fill */}
+        <div style={{ height: '100%', width: `${localVal}%`, background: color, borderRadius: 99, transition: dirty ? 'none' : 'width 0.3s ease', pointerEvents: 'none' }} />
+        {/* Invisible range input overlaid */}
+        {canEdit && (
+          <input type="range" min="0" max="100" value={localVal}
+            onChange={e => { setLocalVal(parseInt(e.target.value)); setDirty(true) }}
+            style={{
+              position: 'absolute', inset: 0, width: '100%', height: '100%',
+              opacity: 0, cursor: 'pointer', margin: 0,
+            }}
+          />
+        )}
+      </div>
     </div>
   )
 }
@@ -407,11 +421,15 @@ function DocumentsTab({ documents, projectId, canEdit, onRefresh }) {
     const formData = new FormData()
     formData.append('file', file)
     formData.append('name', file.name)
+    formData.append('project', projectId)
     try {
       await projectsApi.uploadDocument(projectId, formData)
       onRefresh()
     } catch (err) {
-      const msg = err?.response?.data?.file?.[0] || err?.response?.data?.detail || err?.response?.data?.non_field_errors?.[0] || 'Upload failed — check file type/size'
+      const data = err?.response?.data
+      const msg = data?.file?.[0] || data?.name?.[0] || data?.detail || data?.non_field_errors?.[0]
+        || (typeof data === 'string' ? data : null)
+        || `Upload failed (${err?.response?.status || 'no response'}) — check file type/size`
       setUploadError(msg)
     } finally {
       setUploading(false)

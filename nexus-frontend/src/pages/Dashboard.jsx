@@ -125,14 +125,14 @@ export default function DashboardPage() {
         </p>
       </div>
 
-      {/* Stat cards */}
+      {/* Stat cards — clickable */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 'var(--sp-4)' }}>
-        <StatCard label="Total Projects" value={pLoad ? '—' : projs.length} icon={FolderKanban} accent="var(--info)" sub={`${byStatus.in_progress} in progress`} />
-        <StatCard label="Clients" value={cLoad ? '—' : clts.length} icon={Building2} accent="var(--accent)" sub={`${clts.filter(c => c.status === 'active').length} active`} />
-        <StatCard label="Avg Progress" value={pLoad ? '—' : `${avgProgress}%`} icon={TrendingUp} accent="var(--success)" />
-        <StatCard label="Over Budget" value={pLoad ? '—' : overBudget.length} icon={AlertTriangle} accent="var(--danger)" sub={overBudget.length > 0 ? 'Needs attention' : 'All clear'} />
-        <StatCard label="High Priority" value={pLoad ? '—' : highPriority.length} icon={Clock} accent="var(--warning)" sub="Active projects" />
-        <StatCard label="Completed" value={pLoad ? '—' : byStatus.completed} icon={CheckCircle2} accent="var(--success)" />
+        <StatCard label="Total Projects" value={pLoad ? '—' : projs.length} icon={FolderKanban} accent="var(--info)" sub={`${byStatus.in_progress} in progress`} onClick={() => navigate('/projects')} />
+        <StatCard label="Clients" value={cLoad ? '—' : clts.length} icon={Building2} accent="var(--accent)" sub={`${clts.filter(c => c.status === 'active').length} active`} onClick={() => navigate('/clients')} />
+        <StatCard label="Avg Progress" value={pLoad ? '—' : `${avgProgress}%`} icon={TrendingUp} accent="var(--success)" tooltip="Average completion across all active projects" hoverOnly />
+        {isAdminOrManager && <StatCard label="Over Budget" value={pLoad ? '—' : overBudget.length} icon={AlertTriangle} accent="var(--danger)" sub={overBudget.length > 0 ? 'Needs attention' : 'All clear'} onClick={() => navigate('/projects?filter=over_budget')} />}
+        <StatCard label="High Priority" value={pLoad ? '—' : highPriority.length} icon={Clock} accent="var(--warning)" sub="Active projects" onClick={() => navigate('/projects?priority=high')} />
+        <StatCard label="Completed" value={pLoad ? '—' : byStatus.completed} icon={CheckCircle2} accent="var(--success)" onClick={() => navigate('/projects?status=completed')} />
       </div>
 
       {/* Upcoming Deadlines — collapsed after 3 */}
@@ -148,7 +148,7 @@ export default function DashboardPage() {
           {progressChartData.length === 0 ? (
             <p style={{ color: 'var(--text-3)', fontSize: '13px', textAlign: 'center', marginTop: 40 }}>No projects yet</p>
           ) : (
-            <ResponsiveContainer width="100%" height={200}>
+            <ResponsiveContainer width="100%" height={260}>
               <AreaChart data={progressChartData} margin={{ top: 5, right: 10, left: -20, bottom: 0 }}>
                 <defs>
                   <linearGradient id="gProgress" x1="0" y1="0" x2="0" y2="1">
@@ -192,7 +192,7 @@ export default function DashboardPage() {
           ) : pieData.length === 0 ? (
             <p style={{ color: 'var(--text-3)', fontSize: '13px', textAlign: 'center', marginTop: 40 }}>No project data</p>
           ) : (
-            <ResponsiveContainer width="100%" height={200}>
+            <ResponsiveContainer width="100%" height={260}>
               <PieChart>
                 <Pie data={pieData} cx="50%" cy="50%" innerRadius={50} outerRadius={80} dataKey="value" paddingAngle={2}>
                   {pieData.map((entry, i) => <Cell key={i} fill={entry.color} stroke="transparent" />)}
@@ -220,7 +220,7 @@ export default function DashboardPage() {
         <div style={{ background: 'var(--bg-1)', border: '1px solid var(--border)', borderRadius: 'var(--r-lg)', padding: 'var(--sp-6)' }}>
           <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, marginBottom: 4, fontSize: '1rem' }}>Timeline Activity</h3>
           <p style={{ fontSize: '11px', color: 'var(--text-3)', marginBottom: 'var(--sp-4)' }}>Phases started vs completed per month</p>
-          <ResponsiveContainer width="100%" height={180}>
+          <ResponsiveContainer width="100%" height={240}>
             <BarChart data={phaseByMonth} barGap={2} barSize={14}>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
               <XAxis dataKey="month" tick={{ fill: 'var(--text-3)', fontSize: 11 }} axisLine={false} tickLine={false} />
@@ -249,7 +249,7 @@ export default function DashboardPage() {
               <p style={{ color: 'var(--text-3)', fontSize: '13px', textAlign: 'center', marginTop: 40 }}>No resources found</p>
             ) : (
               <>
-                <ResponsiveContainer width="100%" height={140}>
+                <ResponsiveContainer width="100%" height={180}>
                   <PieChart>
                     <Pie data={resChartData} cx="50%" cy="50%" innerRadius={40} outerRadius={65} dataKey="value" paddingAngle={3}>
                       {resChartData.map((entry, i) => <Cell key={i} fill={entry.color} stroke="transparent" />)}

@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { Plus, FolderKanban, Search, Filter } from 'lucide-react'
 import { projectsApi, clientsApi, authApi, resourcesApi } from '@/api/index.js'
 import { Btn, Badge, ProgressBar, EmptyState, Modal, Input, Select, Textarea, Spinner } from '@/components/ui/index.jsx'
@@ -8,26 +8,43 @@ import { STATUS_COLOR, STATUS_LABEL, PRIORITY_COLOR, PRIORITY_LABEL, formatDate,
 import { useAuthStore } from '@/stores/authStore.js'
 
 export default function ProjectsPage() {
-  const navigate = useNavigate()
-  const qc = useQueryClient()
+  const navigate  = useNavigate()
+  const location  = useLocation()
+  const qc        = useQueryClient()
   const hasPermission = useAuthStore(s => s.hasPermission)
   const canCreate = hasPermission('projects')
 
-  const [search, setSearch] = useState('')
-  const [statusFilter, setStatusFilter] = useState('')
-  const [priorityFilter, setPriorityFilter] = useState('')
-  const [showCreate, setShowCreate] = useState(false)
+  // Read URL params — dashboard cards set these
+  const params = new URLSearchParams(location.search)
+  const [search, setSearch]               = useState('')
+  const [statusFilter, setStatusFilter]   = useState(params.get('status') || '')
+  const [priorityFilter, setPriorityFilter] = useState(params.get('priority') || '')
+  const [overBudgetOnly, setOverBudgetOnly] = useState(params.get('filter') === 'over_budget')
+  const [showCreate, setShowCreate]       = useState(false)
+
+  // Sync when URL changes (e.g. clicking dashboard cards)
+  useEffect(() => {
+    const p = new URLSearchParams(location.search)
+    setStatusFilter(p.get('status') || '')
+    setPriorityFilter(p.get('priority') || '')
+    setOverBudgetOnly(p.get('filter') === 'over_budget')
+  }, [location.search])
 
   const { data, isLoading } = useQuery({
-    queryKey: ['projects', search, statusFilter, priorityFilter],
+    queryKey: ['projects', search, statusFilter, priorityFilter, overBudgetOnly],
     queryFn: () => projectsApi.list({
       search: search || undefined,
       status: statusFilter || undefined,
       priority: priorityFilter || undefined,
+      page_size: 100,
     }).then(r => r.data.results || r.data),
   })
 
-  const projects = data || []
+  const allProjects = data || []
+  // Client-side over budget filter
+  const projects = overBudgetOnly
+    ? allProjects.filter(p => p.is_over_budget || (p.spent > p.budget && p.budget > 0))
+    : allProjects
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--sp-6)' }}>
@@ -43,7 +60,7 @@ export default function ProjectsPage() {
       </div>
 
       {/* Filters */}
-      <div style={{ display: 'flex', gap: 'var(--sp-3)', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', gap: 'var(--sp-3)', flexWrap: 'wrap', alignItems: 'center' }}>
         <div style={{ position: 'relative', flex: 1, minWidth: 200 }}>
           <Search size={14} style={{ position: 'absolute', left: 10, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-3)', pointerEvents: 'none' }} />
           <input
@@ -56,14 +73,34 @@ export default function ProjectsPage() {
             }}
           />
         </div>
-        <select value={statusFilter} onChange={e => setStatusFilter(e.target.value)} style={filterSelectStyle}>
+        <select value={statusFilter} onChange={e => { setStatusFilter(e.target.value); setOverBudgetOnly(false) }} style={filterSelectStyle}>
           <option value="">All statuses</option>
           {Object.entries(STATUS_LABEL).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
         </select>
-        <select value={priorityFilter} onChange={e => setPriorityFilter(e.target.value)} style={filterSelectStyle}>
+        <select value={priorityFilter} onChange={e => { setPriorityFilter(e.target.value); setOverBudgetOnly(false) }} style={filterSelectStyle}>
           <option value="">All priorities</option>
           {Object.entries(PRIORITY_LABEL).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
         </select>
+        {/* Over budget toggle chip */}
+        <button
+          onClick={() => { setOverBudgetOnly(o => !o); setStatusFilter(''); setPriorityFilter('') }}
+          style={{
+            background: overBudgetOnly ? 'rgba(248,113,113,0.15)' : 'var(--bg-2)',
+            border: `1px solid ${overBudgetOnly ? 'var(--danger)' : 'var(--border)'}`,
+            color: overBudgetOnly ? 'var(--danger)' : 'var(--text-2)',
+            borderRadius: 'var(--r-md)', padding: '8px 14px', fontSize: '13px',
+            cursor: 'pointer', fontWeight: overBudgetOnly ? 600 : 400,
+            transition: 'all var(--t-fast)',
+          }}>
+          ⚠ Over Budget
+        </button>
+        {/* Active filter indicator */}
+        {(statusFilter || priorityFilter || overBudgetOnly || search) && (
+          <button onClick={() => { setSearch(''); setStatusFilter(''); setPriorityFilter(''); setOverBudgetOnly(false) }}
+            style={{ background: 'none', border: 'none', color: 'var(--text-3)', fontSize: '12px', cursor: 'pointer', padding: '4px 8px' }}>
+            ✕ Clear filters
+          </button>
+        )}
       </div>
 
       {/* Grid */}

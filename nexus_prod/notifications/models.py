@@ -39,6 +39,7 @@ ALL_NOTIF_TYPES = [
     Notification.Type.STATUS_CHANGE,
     Notification.Type.DEADLINE,
     Notification.Type.TIMELINE_COMPLETE,
+    Notification.Type.MESSAGE,
     Notification.Type.UPDATE,
     Notification.Type.MENTION,
 ]

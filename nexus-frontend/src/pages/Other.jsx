@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import {
   Bell, Trash2, FolderKanban, MessageSquare, AlertTriangle,
@@ -31,6 +31,17 @@ export function NotificationsPage() {
 
   const notifications = data || []
   const unread = notifications.filter(n => !n.is_read)
+
+  // Auto-mark all as read after 2 seconds of viewing
+  useEffect(() => {
+    if (unread.length === 0) return
+    const timer = setTimeout(async () => {
+      await notificationsApi.markAllRead()
+      qc.invalidateQueries(['notifications'])
+      qc.invalidateQueries(['unread-count'])
+    }, 2000)
+    return () => clearTimeout(timer)
+  }, [unread.length])
 
   async function markRead(id) {
     await notificationsApi.markRead(id)

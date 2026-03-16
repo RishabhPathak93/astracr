@@ -124,14 +124,27 @@ export function Card({ children, style, className, onClick, hover }) {
 }
 
 /* ── Stat card ──────────────────────────────────────────────────────── */
-export function StatCard({ label, value, sub, icon: Icon, accent, trend }) {
+export function StatCard({ label, value, sub, icon: Icon, accent, trend, onClick, tooltip, hoverOnly }) {
+  const [hovered, setHovered] = React.useState(false)
+  const isClickable = !!onClick
+  const showHover   = isClickable || hoverOnly
   return (
-    <div style={{
-      background: 'var(--bg-1)', border: '1px solid var(--border)',
-      borderRadius: 'var(--r-lg)', padding: 'var(--sp-6)',
-      display: 'flex', flexDirection: 'column', gap: 'var(--sp-3)',
-      position: 'relative', overflow: 'hidden',
-    }}>
+    <div
+      onClick={onClick}
+      title={tooltip || ''}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        background: hovered && showHover ? 'var(--bg-2)' : 'var(--bg-1)',
+        border: `1px solid ${hovered && showHover ? (accent || 'var(--accent)') : 'var(--border)'}`,
+        borderRadius: 'var(--r-lg)', padding: 'var(--sp-6)',
+        display: 'flex', flexDirection: 'column', gap: 'var(--sp-3)',
+        position: 'relative', overflow: 'hidden',
+        cursor: isClickable ? 'pointer' : 'default',
+        transition: 'all var(--t-fast)',
+        transform: hovered && isClickable ? 'translateY(-2px)' : 'none',
+        boxShadow: hovered && isClickable ? 'var(--shadow-md)' : 'none',
+      }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
         <span style={{ fontSize: '12px', fontWeight: 500, color: 'var(--text-2)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
           {label}
@@ -139,8 +152,9 @@ export function StatCard({ label, value, sub, icon: Icon, accent, trend }) {
         {Icon && (
           <div style={{
             width: 36, height: 36, borderRadius: 'var(--r-md)',
-            background: accent ? `${accent}15` : 'var(--bg-3)',
+            background: hovered && showHover ? (accent ? `${accent}25` : 'var(--bg-4)') : (accent ? `${accent}15` : 'var(--bg-3)'),
             display: 'flex', alignItems: 'center', justifyContent: 'center',
+            transition: 'background var(--t-fast)',
           }}>
             <Icon size={16} color={accent || 'var(--text-2)'} />
           </div>
@@ -150,10 +164,17 @@ export function StatCard({ label, value, sub, icon: Icon, accent, trend }) {
         {value}
       </div>
       {sub && <div style={{ fontSize: '12px', color: 'var(--text-2)' }}>{sub}</div>}
-      {/* Subtle accent line */}
+      {isClickable && (
+        <div style={{ fontSize: '10px', color: accent || 'var(--text-3)', opacity: hovered ? 1 : 0, transition: 'opacity var(--t-fast)', letterSpacing: '0.05em' }}>
+          View all →
+        </div>
+      )}
+      {/* Accent line — grows on hover */}
       <div style={{
-        position: 'absolute', bottom: 0, left: 0, height: '2px', width: '40%',
+        position: 'absolute', bottom: 0, left: 0, height: '2px',
+        width: hovered && showHover ? '100%' : '40%',
         background: accent || 'var(--accent)', opacity: 0.5,
+        transition: 'width var(--t-mid)',
       }} />
     </div>
   )

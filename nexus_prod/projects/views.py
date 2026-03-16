@@ -46,10 +46,8 @@ class ProjectViewSet(viewsets.ModelViewSet):
             .select_related('client', 'manager', 'created_by')
             .prefetch_related('resources', 'updates', 'documents')
         )
-        if user.role == User.Role.ADMIN:
+        if user.role in (User.Role.ADMIN, User.Role.MANAGER):
             return base.all()
-        if user.role == User.Role.MANAGER:
-            return base.filter(Q(manager=user) | Q(resources=user)).distinct()
         if user.role == User.Role.RESOURCE:
             return base.filter(resources=user)
         return base.none()
@@ -138,7 +136,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
         )
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-    @action(detail=True, methods=['post'], permission_classes=[IsAdminOrManager])
+    @action(detail=True, methods=['post'], permission_classes=[IsAuthenticated])
     def upload_document(self, request, pk=None):
         project    = self.get_object()
         serializer = ProjectDocumentSerializer(data=request.data, context={'request': request})

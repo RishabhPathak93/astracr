@@ -8,23 +8,33 @@ from accounts.serializers import UserSerializer
 
 class MessageSerializer(serializers.ModelSerializer):
     sender_detail  = UserSerializer(source='sender', read_only=True)
-    attachment_url = serializers.SerializerMethodField()
+    attachment_url  = serializers.SerializerMethodField()
+    attachment_name = serializers.SerializerMethodField()
 
     class Meta:
         model  = Message
         fields = [
             'id', 'room', 'sender', 'sender_detail', 'text',
-            'msg_type', 'attachment', 'attachment_url',
+            'msg_type', 'attachment', 'attachment_url', 'attachment_name',
             'is_edited', 'created_at', 'updated_at',
         ]
         read_only_fields = ['id', 'sender', 'is_edited', 'created_at', 'updated_at']
         extra_kwargs = {'attachment': {'write_only': True, 'required': False}}
 
     def get_attachment_url(self, obj):
-        request = self.context.get('request')
-        if obj.attachment and hasattr(obj.attachment, 'url') and request:
-            return request.build_absolute_uri(obj.attachment.url)
+        """Return absolute URL using BACKEND_URL from settings so other devices can access it."""
+        if obj.attachment and hasattr(obj.attachment, 'url'):
+            from django.conf import settings as django_settings
+            base = django_settings.BACKEND_URL.rstrip('/')
+            return f"{base}{obj.attachment.url}"
         return None
+
+    def get_attachment_name(self, obj):
+        """Extract original filename from the attachment path."""
+        if obj.attachment and hasattr(obj.attachment, 'name'):
+            import os
+            return os.path.basename(obj.attachment.name)
+        return obj.text or None
 
     def validate_text(self, value):
         if self.initial_data.get('msg_type', 'text') == 'text' and not value.strip():

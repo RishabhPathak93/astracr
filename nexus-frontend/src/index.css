@@ -1,13 +1,13 @@
 /* ──────────────────────────────────────────
-   NEXUS CRM — Design System
-   Aesthetic: Industrial-minimal, dark-first
-   Font stack: Syne (display) + DM Sans (body) + DM Mono (code/data)
+   AstraTSM — Design System
+   Dark-first, Light theme supported
+   Font: Inter + JetBrains Mono
    ────────────────────────────────────────── */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  /* Core palette */
+  /* Core palette — DARK (default) */
   --bg-0: #0a0a0a;
   --bg-1: #111111;
   --bg-2: #1a1a1a;
@@ -54,9 +54,9 @@
   --r-sm: 4px; --r-md: 8px; --r-lg: 12px; --r-xl: 16px; --r-full: 9999px;
 
   /* Fonts */
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
-  --font-mono: 'DM Mono', monospace;
+  --font-display: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 
   /* Shadows */
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
@@ -72,6 +72,42 @@
   --t-fast: 120ms ease;
   --t-mid: 200ms ease;
   --t-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── LIGHT THEME ─────────────────────────── */
+[data-theme="light"] {
+  --bg-0: #f0f2f5;
+  --bg-1: #ffffff;
+  --bg-2: #f7f8fa;
+  --bg-3: #eef0f3;
+  --bg-4: #e4e7ec;
+  --border: #dde1e8;
+  --border-light: #c8cdd6;
+
+  --text-0: #0f1117;
+  --text-1: #2d3340;
+  --text-2: #5c6478;
+  --text-3: #9aa0b0;
+
+  --accent: #5b6af0;
+  --accent-dim: rgba(91,106,240,0.1);
+  --accent-hover: #4a58e0;
+
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --info: #2563eb;
+
+  --status-planning: #64748b;
+  --status-in-progress: #2563eb;
+  --status-review: #7c3aed;
+  --status-completed: #16a34a;
+  --status-on-hold: #d97706;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+  --shadow-accent: 0 0 20px rgba(91,106,240,0.15);
 }
 
 html { font-size: 16px; }

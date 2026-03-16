@@ -21,6 +21,10 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
+# Base URL for building absolute media URLs (set your actual IP in .env)
+# e.g. BACKEND_URL=http://192.168.1.10:8000
+BACKEND_URL = config('BACKEND_URL', default='http://localhost:8000')
+
 # ─── APPS ────────────────────────────────────────────────────────────────────
 DJANGO_APPS = [
     'django.contrib.admin',
@@ -140,6 +144,8 @@ REST_FRAMEWORK = {
         'anon': '20/min',
         'user': '300/min',
         'login': '10/min',
+        'chat_poll': '60/min',    # polling — 1/sec per user
+        'chat_send': '30/min',    # sending — max 30 messages/min
     },
     'EXCEPTION_HANDLER': 'nexus.exceptions.custom_exception_handler',
     'DEFAULT_RENDERER_CLASSES': [
