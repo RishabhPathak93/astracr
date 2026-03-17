@@ -3044,3 +3044,523 @@ WARNING 2026-03-16 17:05:22,488 log 19772 10252 Not Found: /ws/notifications/
 WARNING 2026-03-16 17:05:22,493 basehttp 19772 10252 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjgzMjE2LCJpYXQiOjE3NzM2NTQ0MTYsImp0aSI6IjYxMjUxNDZlMjU0NzRkNWFiMjVjOGJjOWE5YjcyZjc1IiwidXNlcl9pZCI6MX0.avoh0TT2IlSNewH2kWnawo-WnAuXKTcQVmWrnonOWIc HTTP/1.1" 404 179
 WARNING 2026-03-16 17:05:22,576 log 19772 11496 Not Found: /ws/notifications/
 WARNING 2026-03-16 17:05:22,591 basehttp 19772 11496 "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNjgzMjE2LCJpYXQiOjE3NzM2NTQ0MTYsImp0aSI6IjYxMjUxNDZlMjU0NzRkNWFiMjVjOGJjOWE5YjcyZjc1IiwidXNlcl9pZCI6MX0.avoh0TT2IlSNewH2kWnawo-WnAuXKTcQVmWrnonOWIc HTTP/1.1" 404 179
+WARNING 2026-03-17 09:27:00,802 log 3044 18480 Unauthorized: /api/v1/notifications/unread_count/
+WARNING 2026-03-17 09:27:00,803 log 3044 14912 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 09:27:00,811 log 3044 22536 Unauthorized: /api/v1/clients/
+WARNING 2026-03-17 09:27:00,804 log 3044 14724 Unauthorized: /api/v1/projects/
+WARNING 2026-03-17 09:27:00,815 log 3044 8492 Unauthorized: /api/v1/notifications/
+WARNING 2026-03-17 09:27:00,817 log 3044 18728 Unauthorized: /api/v1/timelines/
+WARNING 2026-03-17 09:27:00,821 basehttp 3044 18480 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 401 223
+WARNING 2026-03-17 09:27:00,822 basehttp 3044 22536 "GET /api/v1/clients/?page_size=100 HTTP/1.1" 401 223
+WARNING 2026-03-17 09:27:00,823 basehttp 3044 14912 "GET /api/v1/auth/me/ HTTP/1.1" 401 223
+WARNING 2026-03-17 09:27:00,828 basehttp 3044 8492 "GET /api/v1/notifications/ HTTP/1.1" 401 223
+WARNING 2026-03-17 09:27:00,829 basehttp 3044 14724 "GET /api/v1/projects/?page_size=100 HTTP/1.1" 401 223
+WARNING 2026-03-17 09:27:00,834 basehttp 3044 18728 "GET /api/v1/timelines/?page_size=200 HTTP/1.1" 401 223
+WARNING 2026-03-17 09:27:00,919 log 3044 21340 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 09:27:00,933 basehttp 3044 21340 "GET /api/v1/auth/me/ HTTP/1.1" 401 223
+WARNING 2026-03-17 09:27:02,015 log 3044 19808 Unauthorized: /api/v1/auth/token/refresh/
+WARNING 2026-03-17 09:27:02,018 basehttp 3044 19808 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 401 98
+WARNING 2026-03-17 09:27:02,334 log 3044 24268 Unauthorized: /api/v1/resources/
+WARNING 2026-03-17 09:27:02,366 basehttp 3044 24268 "GET /api/v1/resources/?page_size=100 HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:15,814 log 8984 17044 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:15,832 basehttp 8984 17044 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:15,875 log 8984 1412 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:15,884 basehttp 8984 1412 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:16,523 log 8984 15540 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:16,531 basehttp 8984 15540 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:16,549 log 8984 16640 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:16,553 basehttp 8984 16640 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:17,158 log 8984 26224 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:17,160 basehttp 8984 26224 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:17,179 log 8984 10172 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:17,183 basehttp 8984 10172 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:17,781 log 8984 26536 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:17,784 basehttp 8984 26536 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:17,806 log 8984 7552 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:17,812 basehttp 8984 7552 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:18,406 log 8984 3944 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:18,409 basehttp 8984 3944 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:18,425 log 8984 22208 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:18,428 basehttp 8984 22208 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:18,995 log 8984 21620 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:19,000 basehttp 8984 21620 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:19,014 log 8984 15488 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:19,017 basehttp 8984 15488 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:19,498 log 8984 8056 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:19,500 basehttp 8984 8056 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:19,515 log 8984 10996 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:19,518 basehttp 8984 10996 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:20,030 log 8984 19120 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:20,033 basehttp 8984 19120 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:20,048 log 8984 20912 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:20,050 basehttp 8984 20912 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:20,552 log 8984 21292 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:20,554 basehttp 8984 21292 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:20,570 log 8984 20168 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:20,572 basehttp 8984 20168 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:21,137 log 8984 11700 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:21,140 basehttp 8984 11700 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:21,155 log 8984 26208 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:21,157 basehttp 8984 26208 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:21,746 log 8984 22732 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:21,748 basehttp 8984 22732 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:21,766 log 8984 10684 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:21,768 basehttp 8984 10684 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:22,314 log 8984 22752 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:22,318 basehttp 8984 22752 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:22,331 log 8984 19304 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:22,334 basehttp 8984 19304 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:22,809 log 8984 26096 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:22,812 basehttp 8984 26096 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:22,828 log 8984 7944 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:22,831 basehttp 8984 7944 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:23,122 log 8984 17588 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:23,126 basehttp 8984 17588 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:23,141 log 8984 13292 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:23,144 basehttp 8984 13292 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:23,423 log 8984 11096 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:23,425 basehttp 8984 11096 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:23,441 log 8984 26176 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:23,446 basehttp 8984 26176 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:23,746 log 8984 20772 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:23,749 basehttp 8984 20772 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:23,760 log 8984 23324 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:23,770 basehttp 8984 23324 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:24,025 log 8984 13404 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:24,027 basehttp 8984 13404 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:24,041 log 8984 20544 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:24,043 basehttp 8984 20544 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:24,321 log 8984 25128 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:24,323 basehttp 8984 25128 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:24,337 log 8984 21980 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:24,339 basehttp 8984 21980 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:24,700 log 8984 4548 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:24,702 basehttp 8984 4548 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:24,727 log 8984 13828 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:24,730 basehttp 8984 13828 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:25,025 log 8984 13888 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:25,029 basehttp 8984 13888 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:25,043 log 8984 5448 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:25,047 basehttp 8984 5448 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:25,320 log 8984 19944 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:25,324 basehttp 8984 19944 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:25,340 log 8984 26068 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:25,342 basehttp 8984 26068 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:25,736 log 8984 18608 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:25,739 basehttp 8984 18608 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:25,766 log 8984 17988 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:25,769 basehttp 8984 17988 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:26,115 log 8984 11272 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:26,117 basehttp 8984 11272 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:26,130 log 8984 19336 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:26,133 basehttp 8984 19336 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:26,496 log 8984 23008 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:26,498 basehttp 8984 23008 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:26,516 log 8984 5524 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:26,519 basehttp 8984 5524 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:26,872 log 8984 16164 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:26,874 basehttp 8984 16164 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:14:26,895 log 8984 15108 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:14:26,898 basehttp 8984 15108 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:07,272 log 8984 11944 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:07,274 basehttp 8984 11944 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:07,317 log 8984 9096 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:07,320 basehttp 8984 9096 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:07,660 log 8984 22924 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:07,663 basehttp 8984 22924 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:07,684 log 8984 17252 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:07,686 basehttp 8984 17252 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:07,924 log 8984 1512 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:07,927 basehttp 8984 1512 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:07,945 log 8984 25248 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:07,948 basehttp 8984 25248 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:08,200 log 8984 5696 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:08,206 basehttp 8984 5696 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:08,221 log 8984 20528 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:08,223 basehttp 8984 20528 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:08,500 log 8984 17516 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:08,502 basehttp 8984 17516 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:08,518 log 8984 23648 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:08,520 basehttp 8984 23648 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:08,796 log 8984 11772 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:08,799 basehttp 8984 11772 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:08,814 log 8984 7128 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:08,816 basehttp 8984 7128 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:09,131 log 8984 25912 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:09,132 basehttp 8984 25912 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:09,144 log 8984 19584 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:09,147 basehttp 8984 19584 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:09,408 log 8984 10900 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:09,411 basehttp 8984 10900 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:09,425 log 8984 13328 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:09,429 basehttp 8984 13328 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:09,697 log 8984 24228 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:09,700 basehttp 8984 24228 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:09,714 log 8984 20172 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:09,715 basehttp 8984 20172 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:09,971 log 8984 20148 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:09,974 basehttp 8984 20148 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:09,988 log 8984 17868 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:09,992 basehttp 8984 17868 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:10,253 log 8984 7888 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:10,255 basehttp 8984 7888 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:10,273 log 8984 4332 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:10,276 basehttp 8984 4332 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:10,562 log 8984 20616 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:10,565 basehttp 8984 20616 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:10,578 log 8984 9556 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:10,580 basehttp 8984 9556 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:10,873 log 8984 11532 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:10,875 basehttp 8984 11532 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:10,889 log 8984 23268 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:10,891 basehttp 8984 23268 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:11,173 log 8984 19148 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:11,176 basehttp 8984 19148 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:11,191 log 8984 25344 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:11,197 basehttp 8984 25344 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:11,474 log 8984 8112 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:11,476 basehttp 8984 8112 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:11,492 log 8984 22076 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:11,497 basehttp 8984 22076 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:11,762 log 8984 16728 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:11,765 basehttp 8984 16728 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:11,778 log 8984 5584 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:11,780 basehttp 8984 5584 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:12,046 log 8984 11828 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:12,050 basehttp 8984 11828 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:12,074 log 8984 25584 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:12,077 basehttp 8984 25584 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:12,353 log 8984 23508 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:12,355 basehttp 8984 23508 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:12,368 log 8984 20780 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:12,371 basehttp 8984 20780 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:12,616 log 8984 17752 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:12,619 basehttp 8984 17752 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:12,637 log 8984 15300 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:12,640 basehttp 8984 15300 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:12,921 log 8984 12496 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:12,925 basehttp 8984 12496 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:12,941 log 8984 8036 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:12,944 basehttp 8984 8036 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:13,192 log 8984 13972 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:13,196 basehttp 8984 13972 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:13,219 log 8984 18080 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:13,225 basehttp 8984 18080 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:13,444 log 8984 7340 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:13,447 basehttp 8984 7340 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:13,463 log 8984 9912 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:13,465 basehttp 8984 9912 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:13,777 log 8984 21520 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:13,779 basehttp 8984 21520 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:13,797 log 8984 19264 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:13,799 basehttp 8984 19264 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:14,056 log 8984 21788 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:14,058 basehttp 8984 21788 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:14,073 log 8984 16312 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:14,077 basehttp 8984 16312 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:14,363 log 8984 24036 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:14,367 basehttp 8984 24036 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:14,383 log 8984 13468 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:14,387 basehttp 8984 13468 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:14,702 log 8984 12396 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:14,706 basehttp 8984 12396 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:14,722 log 8984 23812 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:14,724 basehttp 8984 23812 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:14,990 log 8984 18832 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:14,992 basehttp 8984 18832 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:15,007 log 8984 14432 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:15,010 basehttp 8984 14432 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:15,254 log 8984 21648 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:15,257 basehttp 8984 21648 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:15,270 log 8984 25688 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:15,274 basehttp 8984 25688 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:15,516 log 8984 2020 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:15,522 basehttp 8984 2020 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:15,536 log 8984 2004 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:15,541 basehttp 8984 2004 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:15,900 log 8984 19592 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:15,903 basehttp 8984 19592 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:15,921 log 8984 14604 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:15,922 basehttp 8984 14604 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:16,184 log 8984 25764 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:16,195 basehttp 8984 25764 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:16,216 log 8984 24620 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:16,218 basehttp 8984 24620 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:16,488 log 8984 21068 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:16,491 basehttp 8984 21068 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:16,506 log 8984 22464 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:16,510 basehttp 8984 22464 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:16,823 log 8984 9136 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:16,826 basehttp 8984 9136 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:16,841 log 8984 24504 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:16,845 basehttp 8984 24504 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:17,108 log 8984 13476 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:17,111 basehttp 8984 13476 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:17,125 log 8984 5356 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:17,128 basehttp 8984 5356 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:17,513 log 8984 22172 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:17,516 basehttp 8984 22172 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:17,538 log 8984 15768 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:17,542 basehttp 8984 15768 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:17,990 log 8984 15000 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:17,994 basehttp 8984 15000 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:18,009 log 8984 9384 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:18,014 basehttp 8984 9384 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:18,469 log 8984 20976 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:18,471 basehttp 8984 20976 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:18,489 log 8984 3248 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:18,491 basehttp 8984 3248 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:18,763 log 8984 22744 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:18,766 basehttp 8984 22744 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:18,778 log 8984 11984 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:18,783 basehttp 8984 11984 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:19,057 log 8984 2564 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:19,059 basehttp 8984 2564 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:19,077 log 8984 2720 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:19,079 basehttp 8984 2720 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:19,317 log 8984 24072 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:19,320 basehttp 8984 24072 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:19,336 log 8984 21188 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:19,338 basehttp 8984 21188 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:19,620 log 8984 18780 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:19,622 basehttp 8984 18780 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:19,637 log 8984 2992 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:19,639 basehttp 8984 2992 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:20,024 log 8984 15004 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:20,026 basehttp 8984 15004 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:20,042 log 8984 12056 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:20,045 basehttp 8984 12056 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:20,288 log 8984 19068 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:20,290 basehttp 8984 19068 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:20,305 log 8984 11608 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:20,307 basehttp 8984 11608 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:20,585 log 8984 6712 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:20,587 basehttp 8984 6712 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:20,601 log 8984 14548 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:20,604 basehttp 8984 14548 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:20,863 log 8984 2224 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:20,865 basehttp 8984 2224 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:20,880 log 8984 18180 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:20,883 basehttp 8984 18180 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:21,160 log 8984 21200 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:21,164 basehttp 8984 21200 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:21,178 log 8984 21956 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:21,183 basehttp 8984 21956 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:21,543 log 8984 23512 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:21,545 basehttp 8984 23512 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:21,561 log 8984 996 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:21,565 basehttp 8984 996 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:21,834 log 8984 22452 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:21,837 basehttp 8984 22452 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:21,849 log 8984 15604 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:21,854 basehttp 8984 15604 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:22,136 log 8984 11160 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:22,139 basehttp 8984 11160 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:22,155 log 8984 12696 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:22,158 basehttp 8984 12696 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:22,429 log 8984 25188 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:22,432 basehttp 8984 25188 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:22,445 log 8984 16440 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:22,449 basehttp 8984 16440 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:22,694 log 8984 12596 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:22,696 basehttp 8984 12596 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:22,710 log 8984 13524 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:22,715 basehttp 8984 13524 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:23,090 log 8984 12944 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:23,092 basehttp 8984 12944 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:23,106 log 8984 14756 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:23,110 basehttp 8984 14756 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:23,410 log 8984 9724 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:23,413 basehttp 8984 9724 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:23,431 log 8984 7812 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:23,433 basehttp 8984 7812 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:23,678 log 8984 2096 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:23,681 basehttp 8984 2096 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:23,697 log 8984 10208 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:23,699 basehttp 8984 10208 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:23,958 log 8984 12956 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:23,962 basehttp 8984 12956 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:23,979 log 8984 6884 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:23,985 basehttp 8984 6884 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:24,232 log 8984 6276 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:24,235 basehttp 8984 6276 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:24,249 log 8984 14360 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:24,252 basehttp 8984 14360 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:24,599 log 8984 6112 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:24,601 basehttp 8984 6112 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:24,616 log 8984 15232 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:24,618 basehttp 8984 15232 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:24,839 log 8984 24780 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:24,841 basehttp 8984 24780 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:24,858 log 8984 18452 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:24,863 basehttp 8984 18452 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:25,118 log 8984 1260 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:25,120 basehttp 8984 1260 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:25,135 log 8984 672 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:25,137 basehttp 8984 672 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:25,378 log 8984 3624 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:25,380 basehttp 8984 3624 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:25,396 log 8984 20308 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:25,399 basehttp 8984 20308 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:25,666 log 8984 7764 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:25,669 basehttp 8984 7764 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:25,684 log 8984 15496 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:25,686 basehttp 8984 15496 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:26,112 log 8984 22496 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:26,114 basehttp 8984 22496 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:26,128 log 8984 5324 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:26,131 basehttp 8984 5324 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:26,395 log 8984 22112 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:26,398 basehttp 8984 22112 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:26,411 log 8984 4724 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:26,414 basehttp 8984 4724 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:26,683 log 8984 7488 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:26,687 basehttp 8984 7488 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:26,700 log 8984 26596 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:26,703 basehttp 8984 26596 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:26,984 log 8984 26616 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:26,987 basehttp 8984 26616 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:27,003 log 8984 25360 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:27,006 basehttp 8984 25360 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:27,376 log 8984 12120 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:27,381 basehttp 8984 12120 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:27,398 log 8984 18428 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:27,402 basehttp 8984 18428 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:27,851 log 8984 20024 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:27,853 basehttp 8984 20024 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:27,869 log 8984 20284 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:27,874 basehttp 8984 20284 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:28,149 log 8984 25724 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:28,152 basehttp 8984 25724 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:28,165 log 8984 15836 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:28,167 basehttp 8984 15836 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:28,412 log 8984 9672 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:28,415 basehttp 8984 9672 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:28,433 log 8984 18892 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:28,437 basehttp 8984 18892 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:28,728 log 8984 5452 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:28,731 basehttp 8984 5452 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:28,750 log 8984 14820 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:28,754 basehttp 8984 14820 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:29,064 log 8984 12720 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:29,067 basehttp 8984 12720 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:29,084 log 8984 4036 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:29,089 basehttp 8984 4036 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:29,488 log 8984 10644 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:29,491 basehttp 8984 10644 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:29,510 log 8984 23428 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:29,512 basehttp 8984 23428 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:29,817 log 8984 3736 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:29,819 basehttp 8984 3736 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:29,835 log 8984 4712 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:29,838 basehttp 8984 4712 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:30,170 log 8984 19524 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:30,172 basehttp 8984 19524 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:30,187 log 8984 25204 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:30,189 basehttp 8984 25204 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:30,536 log 8984 9796 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:30,538 basehttp 8984 9796 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:30,551 log 8984 15552 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:30,554 basehttp 8984 15552 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:30,884 log 8984 7372 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:30,886 basehttp 8984 7372 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:30,903 log 8984 3172 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:30,905 basehttp 8984 3172 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:31,288 log 8984 17188 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:31,290 basehttp 8984 17188 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:31,304 log 8984 12748 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:31,307 basehttp 8984 12748 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:31,578 log 8984 25644 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:31,579 basehttp 8984 25644 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:31,597 log 8984 8936 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:31,600 basehttp 8984 8936 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:32,014 log 8984 10224 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:32,016 basehttp 8984 10224 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:32,038 log 8984 16664 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:32,040 basehttp 8984 16664 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:32,387 log 8984 12024 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:32,388 basehttp 8984 12024 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:32,404 log 8984 16088 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:32,406 basehttp 8984 16088 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:32,884 log 8984 26236 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:32,887 basehttp 8984 26236 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:32,903 log 8984 25524 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:32,906 basehttp 8984 25524 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:33,368 log 8984 5776 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:33,370 basehttp 8984 5776 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:33,387 log 8984 17044 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:33,390 basehttp 8984 17044 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:33,708 log 8984 26408 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:33,711 basehttp 8984 26408 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:33,726 log 8984 15540 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:33,728 basehttp 8984 15540 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:34,028 log 8984 26224 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:34,031 basehttp 8984 26224 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:34,047 log 8984 10172 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:34,050 basehttp 8984 10172 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:34,369 log 8984 11936 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:34,370 basehttp 8984 11936 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:34,387 log 8984 24404 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:34,390 basehttp 8984 24404 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:34,677 log 8984 6824 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:34,680 basehttp 8984 6824 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:34,695 log 8984 19668 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:34,698 basehttp 8984 19668 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:35,118 log 8984 16856 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:35,121 basehttp 8984 16856 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:35,135 log 8984 11048 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:35,137 basehttp 8984 11048 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:35,391 log 8984 9484 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:35,393 basehttp 8984 9484 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:35,412 log 8984 24132 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:35,415 basehttp 8984 24132 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:35,738 log 8984 10440 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:35,740 basehttp 8984 10440 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:35,763 log 8984 4324 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:35,766 basehttp 8984 4324 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:36,169 log 8984 11172 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:36,170 basehttp 8984 11172 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:36,187 log 8984 21784 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:36,189 basehttp 8984 21784 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:36,487 log 8984 21292 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:36,491 basehttp 8984 21292 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:36,506 log 8984 20168 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:36,510 basehttp 8984 20168 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:37,248 log 8984 22476 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:37,249 basehttp 8984 22476 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:37,266 log 8984 11948 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:37,270 basehttp 8984 11948 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:37,761 log 8984 19304 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:37,763 basehttp 8984 19304 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:15:37,778 log 8984 17120 Unauthorized: /api/v1/auth/me/
+WARNING 2026-03-17 10:15:37,780 basehttp 8984 17120 "GET /api/v1/auth/me/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:18:15,041 log 8984 16248 Unauthorized: /api/v1/projects/
+WARNING 2026-03-17 10:18:15,051 log 8984 17884 Unauthorized: /api/v1/notifications/
+WARNING 2026-03-17 10:18:15,058 log 8984 3892 Unauthorized: /api/v1/clients/
+WARNING 2026-03-17 10:18:15,059 basehttp 8984 16248 "GET /api/v1/projects/?page_size=100 HTTP/1.1" 401 99
+WARNING 2026-03-17 10:18:15,062 basehttp 8984 17884 "GET /api/v1/notifications/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:18:15,068 log 8984 20020 Unauthorized: /api/v1/timelines/
+WARNING 2026-03-17 10:18:15,073 log 8984 22472 Unauthorized: /api/v1/resources/
+WARNING 2026-03-17 10:18:15,082 log 8984 21436 Unauthorized: /api/v1/notifications/unread_count/
+WARNING 2026-03-17 10:18:15,083 basehttp 8984 3892 "GET /api/v1/clients/?page_size=100 HTTP/1.1" 401 99
+WARNING 2026-03-17 10:18:15,088 basehttp 8984 22472 "GET /api/v1/resources/?page_size=100 HTTP/1.1" 401 99
+WARNING 2026-03-17 10:18:15,089 basehttp 8984 20020 "GET /api/v1/timelines/?page_size=200 HTTP/1.1" 401 99
+WARNING 2026-03-17 10:18:15,092 basehttp 8984 21436 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:18:20,643 log 8984 17800 Unauthorized: /api/v1/projects/
+WARNING 2026-03-17 10:18:20,648 log 8984 19912 Unauthorized: /api/v1/clients/
+WARNING 2026-03-17 10:18:20,654 log 8984 24684 Unauthorized: /api/v1/timelines/
+WARNING 2026-03-17 10:18:20,660 log 8984 18152 Unauthorized: /api/v1/resources/
+WARNING 2026-03-17 10:18:20,663 basehttp 8984 19912 "GET /api/v1/clients/?page_size=100 HTTP/1.1" 401 99
+WARNING 2026-03-17 10:18:20,667 log 8984 12384 Unauthorized: /api/v1/notifications/
+WARNING 2026-03-17 10:18:20,669 basehttp 8984 24684 "GET /api/v1/timelines/?page_size=200 HTTP/1.1" 401 99
+WARNING 2026-03-17 10:18:20,672 basehttp 8984 18152 "GET /api/v1/resources/?page_size=100 HTTP/1.1" 401 99
+WARNING 2026-03-17 10:18:20,674 basehttp 8984 17800 "GET /api/v1/projects/?page_size=100 HTTP/1.1" 401 99
+WARNING 2026-03-17 10:18:20,682 log 8984 24068 Unauthorized: /api/v1/notifications/unread_count/
+WARNING 2026-03-17 10:18:20,684 basehttp 8984 12384 "GET /api/v1/notifications/ HTTP/1.1" 401 99
+WARNING 2026-03-17 10:18:20,692 basehttp 8984 24068 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 401 99
+WARNING 2026-03-17 15:22:19,959 log 9620 26516 Unauthorized: /api/v1/auth/login/
+WARNING 2026-03-17 15:22:19,970 basehttp 9620 26516 "POST /api/v1/auth/login/ HTTP/1.1" 401 104
+WARNING 2026-03-17 15:23:03,587 log 9620 4880 Not Found: /api/v1/projects/8/
+WARNING 2026-03-17 15:23:03,589 basehttp 9620 4880 "GET /api/v1/projects/8/ HTTP/1.1" 404 89
+WARNING 2026-03-17 15:23:04,797 log 9620 1416 Not Found: /api/v1/projects/8/
+WARNING 2026-03-17 15:23:04,799 basehttp 9620 1416 "GET /api/v1/projects/8/ HTTP/1.1" 404 89

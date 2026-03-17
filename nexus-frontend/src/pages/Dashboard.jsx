@@ -261,11 +261,11 @@ export default function DashboardPage() {
                   {resChartData.map(d => (
                     <div key={d.name} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                       <div style={{ width: 8, height: 8, borderRadius: 2, background: d.color, flexShrink: 0 }} />
-                      <span style={{ fontSize: '12px', color: 'var(--text-2)', flex: 1 }}>{d.name}</span>
+                      <span style={{ fontSize: '12px', color: 'var(--text-1)', flex: 1 }}>{d.name}</span>
                       <span style={{ fontSize: '13px', fontWeight: 700, fontFamily: 'var(--font-mono)', color: 'var(--text-1)' }}>{d.value}</span>
                     </div>
                   ))}
-                  <div style={{ fontSize: '11px', color: 'var(--text-3)', marginTop: 4 }}>
+                  <div style={{ fontSize: '11px', color: 'var(--text-4)', marginTop: 4 }}>
                     {res.length > 0 ? `${Math.round((resChartData.find(d=>d.name==='Active')?.value||0)/res.length*100)}% utilization rate` : ''}
                   </div>
                 </div>
