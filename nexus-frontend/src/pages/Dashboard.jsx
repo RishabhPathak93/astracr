@@ -164,7 +164,7 @@ export default function DashboardPage() {
                 <XAxis dataKey="name" tick={{ fill: 'var(--text-3)', fontSize: 10 }} axisLine={false} tickLine={false} />
                 <YAxis domain={[0, 100]} tick={{ fill: 'var(--text-3)', fontSize: 10 }} axisLine={false} tickLine={false} tickFormatter={v => `${v}%`} />
                 <Tooltip
-                  contentStyle={{ background: 'var(--bg-2)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 12 }}
+                  contentStyle={{ background: 'var(--bg-2)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 12, color: 'white' }}
                   formatter={(v, name) => [`${v}%`, name === 'progress' ? 'Progress' : 'Target']}
                 />
                 <Area type="monotone" dataKey="target"   stroke="#60a5fa" strokeWidth={1} strokeDasharray="4 4" fill="url(#gTarget)"   dot={false} name="target" />
@@ -197,7 +197,7 @@ export default function DashboardPage() {
                 <Pie data={pieData} cx="50%" cy="50%" innerRadius={50} outerRadius={80} dataKey="value" paddingAngle={2}>
                   {pieData.map((entry, i) => <Cell key={i} fill={entry.color} stroke="transparent" />)}
                 </Pie>
-                <Tooltip contentStyle={{ background: 'var(--bg-2)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 12 }} />
+                <Tooltip contentStyle={{ background: 'var(--bg-2)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 12, color: 'white' }} />
               </PieChart>
             </ResponsiveContainer>
           )}
@@ -225,7 +225,7 @@ export default function DashboardPage() {
               <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
               <XAxis dataKey="month" tick={{ fill: 'var(--text-3)', fontSize: 11 }} axisLine={false} tickLine={false} />
               <YAxis tick={{ fill: 'var(--text-3)', fontSize: 11 }} axisLine={false} tickLine={false} allowDecimals={false} />
-              <Tooltip contentStyle={{ background: 'var(--bg-2)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 12 }} />
+              <Tooltip contentStyle={{ background: 'var(--bg-2)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 12, color: 'white' }} />
               <Bar dataKey="total" fill="#60a5fa" radius={[3, 3, 0, 0]} name="Started" />
               <Bar dataKey="completed" fill="#4ade80" radius={[3, 3, 0, 0]} name="Completed" />
             </BarChart>
@@ -254,18 +254,18 @@ export default function DashboardPage() {
                     <Pie data={resChartData} cx="50%" cy="50%" innerRadius={40} outerRadius={65} dataKey="value" paddingAngle={3}>
                       {resChartData.map((entry, i) => <Cell key={i} fill={entry.color} stroke="transparent" />)}
                     </Pie>
-                    <Tooltip contentStyle={{ background: 'var(--bg-2)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 12 }} />
+                    <Tooltip contentStyle={{ background: 'var(--bg-2)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 12, color: 'white' }} />
                   </PieChart>
                 </ResponsiveContainer>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginTop: 8 }}>
                   {resChartData.map(d => (
                     <div key={d.name} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                       <div style={{ width: 8, height: 8, borderRadius: 2, background: d.color, flexShrink: 0 }} />
-                      <span style={{ fontSize: '12px', color: 'var(--text-1)', flex: 1 }}>{d.name}</span>
+                      <span style={{ fontSize: '12px', color: 'var(--text-2)', flex: 1 }}>{d.name}</span>
                       <span style={{ fontSize: '13px', fontWeight: 700, fontFamily: 'var(--font-mono)', color: 'var(--text-1)' }}>{d.value}</span>
                     </div>
                   ))}
-                  <div style={{ fontSize: '11px', color: 'var(--text-4)', marginTop: 4 }}>
+                  <div style={{ fontSize: '11px', color: 'var(--text-3)', marginTop: 4 }}>
                     {res.length > 0 ? `${Math.round((resChartData.find(d=>d.name==='Active')?.value||0)/res.length*100)}% utilization rate` : ''}
                   </div>
                 </div>

@@ -3564,3 +3564,77 @@ WARNING 2026-03-17 15:23:03,587 log 9620 4880 Not Found: /api/v1/projects/8/
 WARNING 2026-03-17 15:23:03,589 basehttp 9620 4880 "GET /api/v1/projects/8/ HTTP/1.1" 404 89
 WARNING 2026-03-17 15:23:04,797 log 9620 1416 Not Found: /api/v1/projects/8/
 WARNING 2026-03-17 15:23:04,799 basehttp 9620 1416 "GET /api/v1/projects/8/ HTTP/1.1" 404 89
+WARNING 2026-03-18 16:38:13,617 log 20316 1696 Bad Request: /api/v1/auth/login/
+WARNING 2026-03-18 16:38:13,619 basehttp 20316 1696 "POST /api/v1/auth/login/ HTTP/1.1" 400 143
+WARNING 2026-03-18 16:39:25,604 log 20316 17284 Bad Request: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-18 16:39:25,605 basehttp 20316 17284 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 400 143
+WARNING 2026-03-18 16:39:28,957 log 20316 8428 Bad Request: /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx
+WARNING 2026-03-18 16:39:28,959 basehttp 20316 8428 "GET /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx HTTP/1.1" 400 143
+WARNING 2026-03-18 16:39:29,040 log 20316 20040 Bad Request: /favicon.ico
+WARNING 2026-03-18 16:39:29,042 basehttp 20316 20040 "GET /favicon.ico HTTP/1.1" 400 143
+WARNING 2026-03-18 17:04:24,341 log 20316 19632 Bad Request: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-18 17:04:24,342 basehttp 20316 19632 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 400 143
+WARNING 2026-03-18 17:04:27,480 log 20316 9540 Bad Request: /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx
+WARNING 2026-03-18 17:04:27,482 basehttp 20316 9540 "GET /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx HTTP/1.1" 400 143
+WARNING 2026-03-18 17:04:27,547 log 20316 1488 Bad Request: /favicon.ico
+WARNING 2026-03-18 17:04:27,549 basehttp 20316 1488 "GET /favicon.ico HTTP/1.1" 400 143
+WARNING 2026-03-18 17:05:24,428 log 19200 6660 Bad Request: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-18 17:05:24,430 basehttp 19200 6660 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 400 143
+WARNING 2026-03-18 17:05:32,061 log 19200 19652 Bad Request: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-18 17:05:32,073 basehttp 19200 19652 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 400 143
+WARNING 2026-03-18 17:05:34,707 log 19200 19612 Bad Request: /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx
+WARNING 2026-03-18 17:05:34,709 basehttp 19200 19612 "GET /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx HTTP/1.1" 400 143
+WARNING 2026-03-18 17:05:34,850 log 19200 12900 Bad Request: /favicon.ico
+WARNING 2026-03-18 17:05:34,852 basehttp 19200 12900 "GET /favicon.ico HTTP/1.1" 400 143
+WARNING 2026-03-18 17:14:03,636 log 19200 21040 Bad Request: /api/v1/chat/rooms/
+WARNING 2026-03-18 17:14:03,650 log 19200 21052 Bad Request: /api/v1/auth/me/
+WARNING 2026-03-18 17:14:03,650 basehttp 19200 21040 "GET /api/v1/chat/rooms/ HTTP/1.1" 400 143
+WARNING 2026-03-18 17:14:03,655 basehttp 19200 21052 "GET /api/v1/auth/me/ HTTP/1.1" 400 143
+WARNING 2026-03-18 17:14:03,656 log 19200 21056 Bad Request: /api/v1/notifications/unread_count/
+WARNING 2026-03-18 17:14:03,660 basehttp 19200 21056 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 400 143
+WARNING 2026-03-18 17:14:03,689 log 19200 21060 Bad Request: /api/v1/chat/rooms/
+WARNING 2026-03-18 17:14:03,703 log 19200 21064 Bad Request: /api/v1/auth/me/
+WARNING 2026-03-18 17:14:03,705 basehttp 19200 21060 "GET /api/v1/chat/rooms/ HTTP/1.1" 400 143
+WARNING 2026-03-18 17:14:03,720 log 19200 21068 Bad Request: /api/v1/notifications/unread_count/
+WARNING 2026-03-18 17:14:03,725 basehttp 19200 21064 "GET /api/v1/auth/me/ HTTP/1.1" 400 143
+WARNING 2026-03-18 17:14:03,731 log 19200 21072 Bad Request: /api/v1/auth/me/
+WARNING 2026-03-18 17:14:03,735 basehttp 19200 21068 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 400 143
+WARNING 2026-03-18 17:14:03,739 basehttp 19200 21072 "GET /api/v1/auth/me/ HTTP/1.1" 400 143
+WARNING 2026-03-18 17:14:03,765 log 19200 21076 Bad Request: /api/v1/auth/me/
+WARNING 2026-03-18 17:14:03,768 basehttp 19200 21076 "GET /api/v1/auth/me/ HTTP/1.1" 400 143
+WARNING 2026-03-18 17:14:04,738 log 19200 21136 Bad Request: /api/v1/chat/rooms/
+WARNING 2026-03-18 17:14:04,742 log 19200 21140 Bad Request: /api/v1/notifications/unread_count/
+WARNING 2026-03-18 17:14:04,744 basehttp 19200 21136 "GET /api/v1/chat/rooms/ HTTP/1.1" 400 143
+WARNING 2026-03-18 17:14:04,747 basehttp 19200 21140 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 400 143
+WARNING 2026-03-18 17:14:19,800 log 19200 3344 Bad Request: /api/v1/notifications/unread_count/
+WARNING 2026-03-18 17:14:19,802 basehttp 19200 3344 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 400 143
+WARNING 2026-03-18 17:14:20,892 log 19200 21296 Bad Request: /api/v1/notifications/unread_count/
+WARNING 2026-03-18 17:14:20,893 basehttp 19200 21296 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 400 143
+WARNING 2026-03-18 17:14:35,026 log 19200 19664 Bad Request: /api/v1/chat/rooms/
+WARNING 2026-03-18 17:14:35,028 basehttp 19200 19664 "GET /api/v1/chat/rooms/ HTTP/1.1" 400 143
+WARNING 2026-03-18 17:14:36,025 log 19200 21076 Bad Request: /api/v1/notifications/unread_count/
+WARNING 2026-03-18 17:14:36,029 basehttp 19200 21076 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 400 143
+WARNING 2026-03-18 17:14:36,072 log 19200 19244 Bad Request: /api/v1/chat/rooms/
+WARNING 2026-03-18 17:14:36,074 basehttp 19200 19244 "GET /api/v1/chat/rooms/ HTTP/1.1" 400 143
+WARNING 2026-03-18 17:14:37,079 log 19200 20944 Bad Request: /api/v1/notifications/unread_count/
+WARNING 2026-03-18 17:14:37,080 basehttp 19200 20944 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 400 143
+WARNING 2026-03-18 17:14:52,214 log 19200 21372 Bad Request: /api/v1/notifications/unread_count/
+WARNING 2026-03-18 17:14:52,216 basehttp 19200 21372 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 400 143
+WARNING 2026-03-18 17:14:53,294 log 19200 21348 Bad Request: /api/v1/notifications/unread_count/
+WARNING 2026-03-18 17:14:53,296 basehttp 19200 21348 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 400 143
+WARNING 2026-03-18 17:15:32,048 log 3492 21236 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-18 17:15:32,050 basehttp 3492 21236 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-18 17:16:56,953 log 3492 20972 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-18 17:16:56,955 basehttp 3492 20972 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-18 17:16:59,897 log 3492 5080 Not Found: /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx
+WARNING 2026-03-18 17:16:59,898 basehttp 3492 5080 "GET /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502.xlsx HTTP/1.1" 404 179
+WARNING 2026-03-18 17:17:00,112 log 3492 5080 Not Found: /favicon.ico
+WARNING 2026-03-18 17:17:00,114 basehttp 3492 5080 "GET /favicon.ico HTTP/1.1" 404 179
+WARNING 2026-03-18 17:22:24,117 log 9652 4372 Not Found: /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502_xMZxWcu.xlsx
+WARNING 2026-03-18 17:22:24,120 basehttp 9652 4372 "GET /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502_xMZxWcu.xlsx HTTP/1.1" 404 179
+WARNING 2026-03-18 17:22:27,996 log 9652 4372 Not Found: /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502_xMZxWcu.xlsx
+WARNING 2026-03-18 17:22:27,997 basehttp 9652 4372 "GET /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502_xMZxWcu.xlsx HTTP/1.1" 404 179
+WARNING 2026-03-18 17:22:49,342 log 9652 4372 Not Found: /media/chat/attachments/2026/03/shared_image.png
+WARNING 2026-03-18 17:22:49,345 basehttp 9652 4372 "GET /media/chat/attachments/2026/03/shared_image.png HTTP/1.1" 404 179
+WARNING 2026-03-18 17:22:51,675 log 9652 13932 Not Found: /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502_xMZxWcu.xlsx
+WARNING 2026-03-18 17:22:51,677 basehttp 9652 13932 "GET /media/chat/attachments/2026/03/kimai-export-user-weekly_20260224172502_xMZxWcu.xlsx HTTP/1.1" 404 179
